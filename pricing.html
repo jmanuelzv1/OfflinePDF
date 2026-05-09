@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing — OfflinePDF Pro | Simple, Honest PDF Tools</title>
+  <meta name="description" content="OfflinePDF Pro gives you unlimited file sizes, batch processing and priority support. Start free, upgrade when you need more. No surprises." />
+  <meta name="keywords" content="offlinepdf pricing, pdf tools pro plan, pdf tools subscription, offlinepdf pro" />
+  <meta name="author" content="OfflinePDF" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://offlinepdf.io/pricing.html" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="OfflinePDF" />
+  <meta property="og:title" content="OfflinePDF Pricing — Start Free, Upgrade When You Need More" />
+  <meta property="og:description" content="Unlimited file sizes, batch processing and priority support. $9/mo or $7/mo billed annually." />
+  <meta property="og:url" content="https://offlinepdf.io/pricing.html" />
+  <meta property="og:image" content="https://offlinepdf.io/og-image.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="OfflinePDF Pricing — Start Free, Upgrade When You Need More" />
+  <meta name="twitter:description" content="Unlimited file sizes, batch processing and priority support. $9/mo or $7/mo billed annually." />
+  <meta name="twitter:image" content="https://offlinepdf.io/og-image.png" />
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "OfflinePDF Pricing",
+    "url": "https://offlinepdf.io/pricing.html",
+    "description": "Simple, honest pricing for OfflinePDF. Start free, upgrade to Pro for unlimited file sizes and batch processing.",
+    "provider": {
+      "@type": "Organization",
+      "name": "OfflinePDF",
+      "url": "https://offlinepdf.io"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f5f5f7;
+      --surface: #ffffff;
+      --surface-2: #f5f5f7;
+      --surface-3: #e8e8ed;
+      --border: rgba(0,0,0,0.08);
+      --border-mid: rgba(0,0,0,0.13);
+      --text-primary: #1d1d1f;
+      --text-secondary: #6e6e73;
+      --text-tertiary: #aeaeb2;
+      --accent: #0071e3;
+      --accent-hover: #0077ed;
+      --accent-light: #e8f1fb;
+      --success: #34c759;
+      --success-light: rgba(52,199,89,0.1);
+      --danger: #ff3b30;
+      --radius: 20px;
+      --radius-sm: 14px;
+      --radius-xs: 8px;
+      --shadow: 0 2px 20px rgba(0,0,0,0.07);
+      --shadow-lg: 0 12px 48px rgba(0,0,0,0.11);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── Nav (matches homepage) ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(245,245,247,0.88);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px; height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: var(--text-primary);
+    }
+    .nav-logo-mark {
+      width: 30px; height: 30px; background: var(--accent); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-logo-mark svg { width: 16px; height: 16px; }
+    .nav-logo-name { font-size: 16px; font-weight: 600; letter-spacing: -.3px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: var(--text-secondary);
+      text-decoration: none; transition: color .15s;
+    }
+    .nav-links a:hover { color: var(--text-primary); }
+    .nav-links a.active { color: var(--text-primary); font-weight: 600; }
+    .nav-cta {
+      background: var(--accent); color: white !important;
+      padding: 7px 16px; border-radius: 980px;
+      font-size: 14px !important; font-weight: 500 !important;
+    }
+    .nav-cta:hover { background: var(--accent-hover) !important; }
+    @media (max-width: 680px) {
+      nav { padding: 0 20px; }
+      .nav-links li:not(:last-child) { display: none; }
+    }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center;
+      padding: 80px 24px 64px;
+      max-width: 700px; margin: 0 auto;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--surface); border: 1px solid var(--border-mid);
+      border-radius: 980px; padding: 6px 14px;
+      font-size: 13px; font-weight: 500; color: var(--text-secondary);
+      margin-bottom: 28px;
+      animation: fadeUp .5s ease both;
+    }
+    .hero-eyebrow-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--success); }
+    .hero h1 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(40px, 6vw, 64px);
+      font-weight: 400; letter-spacing: -.03em; line-height: 1.08;
+      margin-bottom: 20px;
+      animation: fadeUp .5s .06s ease both;
+    }
+    .hero h1 em { font-style: italic; color: var(--accent); }
+    .hero-sub {
+      font-size: 18px; color: var(--text-secondary); line-height: 1.6;
+      max-width: 500px; margin: 0 auto;
+      animation: fadeUp .5s .12s ease both;
+    }
+
+    /* ── Billing toggle ── */
+    .billing-toggle {
+      display: flex; align-items: center; justify-content: center; gap: 0;
+      background: var(--surface); border: 1px solid var(--border-mid);
+      border-radius: 980px; padding: 4px;
+      width: fit-content; margin: 40px auto 0;
+      animation: fadeUp .5s .18s ease both;
+    }
+    .billing-btn {
+      padding: 8px 20px; border-radius: 980px; border: none; cursor: pointer;
+      font-size: 14px; font-weight: 500; font-family: inherit;
+      background: none; color: var(--text-secondary); transition: all .2s;
+      display: flex; align-items: center; gap: 7px;
+    }
+    .billing-btn.active { background: var(--accent); color: white; }
+    .billing-badge {
+      background: var(--success); color: white;
+      font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 20px;
+      letter-spacing: .2px;
+    }
+
+    /* ── Plans ── */
+    .plans-section {
+      max-width: 900px; margin: 0 auto;
+      padding: 48px 24px 0;
+    }
+    .plans-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start;
+    }
+
+    /* Free card */
+    .plan-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px;
+      animation: fadeUp .5s .22s ease both;
+    }
+    .plan-card.pro {
+      background: var(--accent);
+      border: 1px solid rgba(255,255,255,.2);
+      box-shadow: 0 16px 48px rgba(0,113,227,.35);
+      animation-delay: .28s;
+      position: relative;
+      overflow: hidden;
+    }
+    .plan-card.pro::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, rgba(255,255,255,.4), rgba(255,255,255,.1));
+    }
+    .plan-card.pro .plan-label { color: rgba(255,255,255,.6); }
+    .plan-card.pro .plan-price-num { color: white; }
+    .plan-card.pro .plan-price-period { color: rgba(255,255,255,.6); }
+    .plan-card.pro .plan-price-annual { color: rgba(255,255,255,.5); }
+    .plan-card.pro .plan-desc { color: rgba(255,255,255,.7); border-color: rgba(255,255,255,.15); }
+    .plan-card.pro .plan-feature { color: rgba(255,255,255,.85); }
+    .plan-card.pro .plan-feature strong { color: white; }
+    .plan-feature-icon.check-pro { background: rgba(255,255,255,.2); color: white; }
+    .plan-btn-pro {
+      background: white; color: var(--accent); border: none;
+      box-shadow: 0 4px 16px rgba(0,0,0,.15);
+    }
+    .plan-btn-pro:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(0,0,0,.2); }
+
+    .plan-label {
+      font-size: 11px; font-weight: 700; letter-spacing: .7px;
+      text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 16px;
+    }
+    .plan-card.pro .plan-label { color: rgba(255,255,255,.4); }
+
+    .plan-price {
+      display: flex; align-items: baseline; gap: 4px; margin-bottom: 6px;
+    }
+    .plan-price-num {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 56px; font-weight: 400; letter-spacing: -.03em; line-height: 1;
+      color: var(--text-primary);
+    }
+    .plan-card.pro .plan-price-num { color: white; }
+    .plan-price-period {
+      font-size: 16px; color: var(--text-secondary); font-weight: 400;
+    }
+    .plan-card.pro .plan-price-period { color: rgba(255,255,255,.45); }
+
+    .plan-price-annual {
+      font-size: 13px; color: var(--text-tertiary); margin-bottom: 20px;
+      min-height: 20px;
+    }
+    .plan-card.pro .plan-price-annual { color: rgba(255,255,255,.35); }
+
+    .plan-desc {
+      font-size: 15px; color: var(--text-secondary); line-height: 1.6;
+      padding-bottom: 24px; border-bottom: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+    .plan-card.pro .plan-desc { color: rgba(255,255,255,.55); border-color: rgba(255,255,255,.1); }
+
+    .plan-features { display: flex; flex-direction: column; gap: 13px; margin-bottom: 32px; }
+    .plan-feature {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; line-height: 1.5; color: var(--text-primary);
+    }
+    .plan-card.pro .plan-feature { color: rgba(255,255,255,.8); }
+    .plan-feature strong { font-weight: 600; }
+    .plan-card.pro .plan-feature strong { color: white; }
+
+    .plan-feature-icon {
+      width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0; margin-top: 1px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .plan-feature-icon.check-free { background: var(--success-light); color: var(--success); }
+    .plan-feature-icon svg { width: 10px; height: 10px; }
+
+    .plan-btn {
+      display: block; width: 100%; text-align: center;
+      padding: 14px; border-radius: var(--radius-sm);
+      font-size: 16px; font-weight: 600; font-family: inherit;
+      cursor: pointer; text-decoration: none; transition: all .18s;
+      border: none;
+    }
+    .plan-btn-free {
+      background: var(--surface-2); color: var(--text-primary);
+      border: 1.5px solid var(--border-mid);
+    }
+    .plan-btn-free:hover { background: var(--surface-3); border-color: rgba(0,0,0,.2); }
+
+    /* ── Comparison table ── */
+    .comparison-section {
+      max-width: 900px; margin: 0 auto;
+      padding: 80px 24px 0;
+    }
+    .comparison-title {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 36px; font-weight: 400; letter-spacing: -.02em;
+      text-align: center; margin-bottom: 48px;
+    }
+
+    .table-wrap {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    table { width: 100%; border-collapse: collapse; }
+
+    thead tr {
+      border-bottom: 1px solid var(--border);
+    }
+    th {
+      padding: 20px 24px; text-align: left;
+      font-size: 13px; font-weight: 700; color: var(--text-tertiary);
+      text-transform: uppercase; letter-spacing: .5px;
+    }
+    th:not(:first-child) { text-align: center; }
+    th.col-pro {
+      background: var(--accent); color: rgba(255,255,255,.65);
+    }
+    th.col-pro span { color: white; display: block; font-size: 15px; text-transform: none; letter-spacing: 0; margin-top: 2px; }
+
+    .table-section-label td {
+      background: var(--surface-2); padding: 10px 24px;
+      font-size: 11px; font-weight: 700; color: var(--text-tertiary);
+      text-transform: uppercase; letter-spacing: .6px;
+      border-top: 1px solid var(--border);
+    }
+
+    tbody tr:not(.table-section-label) { border-bottom: 1px solid var(--border); }
+    tbody tr:not(.table-section-label):last-child { border-bottom: none; }
+    tbody tr:not(.table-section-label):hover { background: #fafafa; }
+
+    td {
+      padding: 16px 24px; font-size: 14px; color: var(--text-primary);
+    }
+    td:not(:first-child) { text-align: center; }
+    td.col-pro { background: rgba(0,113,227,.03); }
+
+    .td-feature { font-weight: 500; }
+    .td-sub { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+
+    .check { color: var(--success); }
+    .check svg { width: 18px; height: 18px; }
+    .cross { color: var(--text-tertiary); }
+    .cross svg { width: 16px; height: 16px; }
+    .tag-pro {
+      display: inline-block;
+      background: var(--accent); color: white;
+      font-size: 10px; font-weight: 700; padding: 2px 8px;
+      border-radius: 20px; letter-spacing: .2px;
+    }
+    .tag-limit {
+      display: inline-block;
+      background: var(--surface-2); color: var(--text-secondary);
+      font-size: 12px; font-weight: 500; padding: 3px 10px;
+      border-radius: 20px; border: 1px solid var(--border-mid);
+    }
+
+    /* ── FAQ ── */
+    .faq-section {
+      max-width: 680px; margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .faq-title {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 36px; font-weight: 400; letter-spacing: -.02em;
+      text-align: center; margin-bottom: 48px;
+    }
+    .faq-list { display: flex; flex-direction: column; gap: 0; }
+    .faq-item {
+      border-top: 1px solid var(--border); overflow: hidden;
+    }
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
+    .faq-q {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 20px 0; border: none; background: none; cursor: pointer;
+      font-family: inherit; font-size: 15px; font-weight: 600;
+      color: var(--text-primary); text-align: left;
+      transition: color .15s;
+    }
+    .faq-q:hover { color: var(--accent); }
+    .faq-icon {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--surface-2); flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s, transform .3s;
+    }
+    .faq-icon svg { width: 12px; height: 12px; color: var(--text-secondary); }
+    .faq-item.open .faq-icon { background: var(--accent-light); transform: rotate(45deg); }
+    .faq-item.open .faq-icon svg { color: var(--accent); }
+    .faq-a {
+      font-size: 14px; color: var(--text-secondary); line-height: 1.7;
+      max-height: 0; overflow: hidden;
+      transition: max-height .35s ease, padding .35s ease;
+    }
+    .faq-item.open .faq-a { max-height: 300px; padding-bottom: 20px; }
+
+    /* ── Bottom CTA ── */
+    .bottom-cta {
+      background: var(--text-primary);
+      padding: 96px 24px; text-align: center;
+    }
+    .bottom-cta-inner { max-width: 560px; margin: 0 auto; }
+    .bottom-cta h2 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 400; color: white; letter-spacing: -.02em;
+      line-height: 1.1; margin-bottom: 16px;
+    }
+    .bottom-cta h2 em { font-style: italic; color: #64b5f6; }
+    .bottom-cta p { font-size: 17px; color: rgba(255,255,255,.5); margin-bottom: 36px; }
+    .bottom-cta-btns { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .btn-white {
+      background: white; color: var(--text-primary); border: none;
+      padding: 14px 28px; border-radius: 980px;
+      font-size: 16px; font-weight: 600; cursor: pointer;
+      font-family: inherit; text-decoration: none;
+      transition: transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,.2);
+    }
+    .btn-white:hover { transform: translateY(-1px); box-shadow: 0 8px 28px rgba(0,0,0,.25); }
+    .btn-ghost {
+      background: none; color: rgba(255,255,255,.55);
+      border: 1px solid rgba(255,255,255,.2);
+      padding: 14px 28px; border-radius: 980px;
+      font-size: 16px; font-weight: 500; cursor: pointer;
+      font-family: inherit; text-decoration: none;
+      transition: border-color .15s, color .15s;
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,.5); color: white; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--text-primary);
+      border-top: 1px solid rgba(255,255,255,.07);
+      padding: 32px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo {
+      display: flex; align-items: center; gap: 8px;
+      text-decoration: none; color: rgba(255,255,255,.6);
+      font-size: 14px; font-weight: 500;
+    }
+    .footer-logo-mark {
+      width: 24px; height: 24px; background: var(--accent);
+      border-radius: 6px; display: flex; align-items: center; justify-content: center;
+    }
+    .footer-logo-mark svg { width: 12px; height: 12px; }
+    .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+    .footer-links a {
+      font-size: 13px; color: rgba(255,255,255,.35);
+      text-decoration: none; transition: color .15s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,.7); }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,.25); width: 100%; }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 640px) {
+      .plans-grid { grid-template-columns: 1fr; }
+      table thead th:first-child { min-width: 140px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <a class="nav-logo" href="index.html">
+      <div class="nav-logo-mark">
+        <svg viewBox="0 0 16 16" fill="none">
+          <rect x="1" y="1" width="10" height="13" rx="2" fill="white" opacity=".3"/>
+          <rect x="3" y="3" width="10" height="13" rx="2" fill="white"/>
+        </svg>
+      </div>
+      <span class="nav-logo-name">OfflinePDF</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#tools">Tools</a></li>
+      <li><a href="pricing.html" class="active">Pricing</a></li>
+      <li><a href="index.html#privacy">Privacy</a></li>
+      <li><a href="index.html#how">How it works</a></li>
+      <li><a href="index.html#tools" class="nav-cta">Get started, it's free</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-dot"></div>
+      Simple, transparent pricing
+    </div>
+    <h1>Pay for what you<br>actually <em>use.</em></h1>
+    <p class="hero-sub">Start for free with all 12 tools. Upgrade to Pro when your work demands more, no hidden fees, no surprises.</p>
+
+    <!-- Billing toggle -->
+    <div class="billing-toggle">
+      <button class="billing-btn" id="btn-monthly" onclick="setBilling('monthly')">Monthly</button>
+      <button class="billing-btn active" id="btn-annual" onclick="setBilling('annual')">
+        Annual
+        <span class="billing-badge">Save 22%</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Plans -->
+  <section class="plans-section">
+    <div class="plans-grid">
+
+      <!-- Free -->
+      <div class="plan-card">
+        <div class="plan-label">Basic</div>
+        <div class="plan-price">
+          <div class="plan-price-num">$0</div>
+        </div>
+        <div class="plan-price-annual">Free forever. No card required.</div>
+        <p class="plan-desc">All 12 tools, right now. No account, no upload, no waiting. Just open and use.</p>
+        <div class="plan-features">
+          <div class="plan-feature">
+            <div class="plan-feature-icon check-free"><svg viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div>All 12 PDF tools included</div>
+          </div>
+          <div class="plan-feature">
+            <div class="plan-feature-icon check-free"><svg viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div>No account or sign-up required</div>
+          </div>
+          <div class="plan-feature">
+            <div class="plan-feature-icon check-free"><svg viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div>100% private. Files never leave your device</div>
+          </div>
+          <div class="plan-feature">
+            <div class="plan-feature-icon check-free"><svg viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div>Works offline, no installation needed</div>
+          </div>
+          <div class="plan-feature">
+            <div class="plan-feature-icon check-free"><svg viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div><strong>Up to 25 MB</strong> per file</div>
+          </div>
+          <div class="plan-feature">
+            <div class="plan-feature-icon check-free"><svg viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div><strong>5 operations</strong> per day</div>
+          </div>
+        </div>
+        <a href="index.html#tools" class="plan-btn plan-btn-free">Start for free</a>
+      </div>
+
+      <!-- Pro -->
+      <div class="plan-card pro">
+        <div class="plan-label">Pro</div>
+        <div class="plan-price">
+          <div class="plan-price-num" id="pro-price">$7</div>
+          <div class="plan-price-period">/mo</div>
+        </div>
+        <div class="plan-price-annual" id="pro-billing-note">Billed $84/year, save $24</div>
+        <p class="plan-desc">For professionals, freelancers and teams who work with PDFs every day and can't afford slowdowns.</p>
+        <div class="plan-features">
+          <div class="plan-feature">
+            <div class="plan-feature-icon check-pro"><svg viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div><strong>Everything in Basic</strong></div>
+          </div>
+          <div class="plan-feature">
+            <div class="plan-feature-icon check-pro"><svg viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div><strong>Unlimited file size</strong>, no restrictions</div>
+          </div>
+          <div class="plan-feature">
+            <div class="plan-feature-icon check-pro"><svg viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div><strong>Unlimited operations</strong> per day</div>
+          </div>
+          <div class="plan-feature">
+            <div class="plan-feature-icon check-pro"><svg viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div><strong>Batch processing</strong>, handle multiple files at once</div>
+          </div>
+          <div class="plan-feature">
+            <div class="plan-feature-icon check-pro"><svg viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div><strong>Early access</strong> to new tools as they launch</div>
+          </div>
+          <div class="plan-feature">
+            <div class="plan-feature-icon check-pro"><svg viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div><strong>Priority support</strong>, real responses, fast</div>
+          </div>
+        </div>
+        <a href="#" class="plan-btn plan-btn-pro">Get Pro</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Comparison table -->
+  <section class="comparison-section reveal">
+    <h2 class="comparison-title">Everything side by side.</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Basic</th>
+            <th class="col-pro">Pro <span>$7/mo billed annually</span></th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr class="table-section-label"><td colspan="3">Core tools</td></tr>
+          <tr>
+            <td><div class="td-feature">All 12 PDF tools</div><div class="td-sub">Split, merge, compress, rotate and more</div></td>
+            <td><span class="check"><svg viewBox="0 0 18 18" fill="none"><path d="M3 9l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            <td class="col-pro"><span class="check"><svg viewBox="0 0 18 18" fill="none"><path d="M3 9l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+          </tr>
+          <tr>
+            <td><div class="td-feature">No account required</div><div class="td-sub">Use any tool without signing up</div></td>
+            <td><span class="check"><svg viewBox="0 0 18 18" fill="none"><path d="M3 9l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            <td class="col-pro"><span class="check"><svg viewBox="0 0 18 18" fill="none"><path d="M3 9l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+          </tr>
+          <tr>
+            <td><div class="td-feature">100% private processing</div><div class="td-sub">Files never leave your device</div></td>
+            <td><span class="check"><svg viewBox="0 0 18 18" fill="none"><path d="M3 9l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            <td class="col-pro"><span class="check"><svg viewBox="0 0 18 18" fill="none"><path d="M3 9l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+          </tr>
+          <tr>
+            <td><div class="td-feature">Works offline</div><div class="td-sub">No internet connection needed after page loads</div></td>
+            <td><span class="check"><svg viewBox="0 0 18 18" fill="none"><path d="M3 9l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            <td class="col-pro"><span class="check"><svg viewBox="0 0 18 18" fill="none"><path d="M3 9l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+          </tr>
+
+          <tr class="table-section-label"><td colspan="3">Limits</td></tr>
+          <tr>
+            <td><div class="td-feature">File size limit</div></td>
+            <td><span class="tag-limit">Up to 25 MB</span></td>
+            <td class="col-pro"><span class="tag-pro">Unlimited</span></td>
+          </tr>
+          <tr>
+            <td><div class="td-feature">Daily operations</div></td>
+            <td><span class="tag-limit">5 per day</span></td>
+            <td class="col-pro"><span class="tag-pro">Unlimited</span></td>
+          </tr>
+
+          <tr class="table-section-label"><td colspan="3">Pro features</td></tr>
+          <tr>
+            <td><div class="td-feature">Batch processing</div><div class="td-sub">Process multiple files in one go</div></td>
+            <td><span class="cross"><svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td>
+            <td class="col-pro"><span class="check"><svg viewBox="0 0 18 18" fill="none"><path d="M3 9l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+          </tr>
+          <tr>
+            <td><div class="td-feature">Early access to new tools</div><div class="td-sub">Be first to use tools before public release</div></td>
+            <td><span class="cross"><svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td>
+            <td class="col-pro"><span class="check"><svg viewBox="0 0 18 18" fill="none"><path d="M3 9l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+          </tr>
+          <tr>
+            <td><div class="td-feature">Priority support</div><div class="td-sub">Skip the queue, get answers fast</div></td>
+            <td><span class="cross"><svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td>
+            <td class="col-pro"><span class="check"><svg viewBox="0 0 18 18" fill="none"><path d="M3 9l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section reveal">
+    <h2 class="faq-title">Questions answered.</h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Can I really use all 12 tools for free?
+          <div class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        </button>
+        <div class="faq-a">Yes. Every tool on OfflinePDF is available on the free plan with no account required. The only limits on the free tier are file size (up to 25 MB) and daily operations (up to 5 per day). If you hit those, Pro removes them entirely.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Does my file get uploaded to your servers?
+          <div class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        </button>
+        <div class="faq-a">Never. Every single tool processes your PDF directly in your browser using JavaScript. Nothing is sent to any server at any point, not on the free plan, not on Pro. This applies to confidential documents, legal files, medical records, anything. Your files stay on your device, always.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What counts as an "operation"?
+          <div class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        </button>
+        <div class="faq-a">One operation is one use of any tool, splitting a PDF, merging two files, compressing a document, and so on. Each time you process and download a file counts as one operation. The free limit resets every day at midnight.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Can I cancel my Pro subscription at any time?
+          <div class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        </button>
+        <div class="faq-a">Yes, anytime, no questions asked. If you cancel, you keep Pro access until the end of your billing period. We don't lock you in or charge cancellation fees. Annual plans are refundable within 14 days of purchase.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What's the difference between monthly and annual billing?
+          <div class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        </button>
+        <div class="faq-a">Monthly billing is $9/month, charged each month. Annual billing is $84/year, that works out to $7/month, saving you $24 over the year. Both plans include identical Pro features. The annual plan is simply a better deal if you know you'll use OfflinePDF regularly.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Is there a free trial for Pro?
+          <div class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        </button>
+        <div class="faq-a">The free plan is effectively your trial, all tools work, no time limit, no card required. Use them as long as you need to before deciding if Pro is right for you. We believe you should only upgrade when you've actually hit a limit, not before.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="bottom-cta">
+    <div class="bottom-cta-inner">
+      <h2>Start free.<br><em>Upgrade when you're ready.</em></h2>
+      <p>No card required. No commitment. All 12 tools available the moment you open the page.</p>
+      <div class="bottom-cta-btns">
+        <a href="index.html#tools" class="btn-white">Get started for free</a>
+        <a href="#" class="btn-ghost">Get Pro, $7/mo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <a class="footer-logo" href="index.html">
+      <div class="footer-logo-mark">
+        <svg viewBox="0 0 12 12" fill="none"><rect x="1" y="1" width="7" height="9" rx="1.5" fill="white" opacity=".4"/><rect x="2" y="2" width="7" height="9" rx="1.5" fill="white"/></svg>
+      </div>
+      OfflinePDF
+    </a>
+    <ul class="footer-links">
+      <li><a href="index.html#tools">Tools</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="index.html#privacy">Privacy</a></li>
+      <li><a href="index.html#how">How it works</a></li>
+    </ul>
+    <div class="footer-copy">© 2025 OfflinePDF. Professional PDF tools built for people who value their privacy.</div>
+  </footer>
+
+  <script>
+    // Billing toggle
+    function setBilling(type) {
+      const monthly = document.getElementById('btn-monthly');
+      const annual  = document.getElementById('btn-annual');
+      const price   = document.getElementById('pro-price');
+      const note    = document.getElementById('pro-billing-note');
+      const tableProHead = document.querySelector('th.col-pro span');
+      const bottomBtn = document.querySelector('.btn-ghost');
+
+      if (type === 'monthly') {
+        monthly.classList.add('active'); annual.classList.remove('active');
+        price.textContent = '$9';
+        note.textContent  = 'Billed $9 every month';
+        if (tableProHead) tableProHead.textContent = '$9/mo billed monthly';
+        if (bottomBtn) bottomBtn.textContent = 'Get Pro, $9/mo';
+      } else {
+        annual.classList.add('active'); monthly.classList.remove('active');
+        price.textContent = '$7';
+        note.textContent  = 'Billed $84/year, save $24';
+        if (tableProHead) tableProHead.textContent = '$7/mo billed annually';
+        if (bottomBtn) bottomBtn.textContent = 'Get Pro, $7/mo';
+      }
+    }
+
+    // FAQ accordion
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

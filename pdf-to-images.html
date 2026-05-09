@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Convert PDF to JPG PNG Online Free — No Upload | OfflinePDF</title>
+  <meta name="description" content="Convert PDF pages to images online for free. Export as JPG, PNG or WebP at up to 216 dpi. Download all as ZIP. No upload required." />
+  <meta name="keywords" content="pdf to jpg, pdf to png, pdf to image online free, convert pdf to jpg, pdf to jpeg, pdf to webp" />
+  <meta name="author" content="OfflinePDF" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://offlinepdf.io/pdf-to-images.html" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="OfflinePDF" />
+  <meta property="og:title" content="Convert PDF to JPG/PNG Online Free — No Upload" />
+  <meta property="og:description" content="Convert every PDF page to an image. JPG, PNG or WebP. Free, no upload. Download all as ZIP." />
+  <meta property="og:url" content="https://offlinepdf.io/pdf-to-images.html" />
+  <meta property="og:image" content="https://offlinepdf.io/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Convert PDF to JPG/PNG Online Free — No Upload" />
+  <meta name="twitter:description" content="Convert every PDF page to an image. JPG, PNG or WebP. Free, no upload. Download all as ZIP." />
+  <meta name="twitter:image" content="https://offlinepdf.io/og-image.png" />
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "PDF to Images — OfflinePDF",
+    "url": "https://offlinepdf.io/pdf-to-images.html",
+    "description": "Free online tool to convert PDF pages to JPG, PNG or WebP. No upload required.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "OfflinePDF",
+      "url": "https://offlinepdf.io"
+    }
+  }
+  </script>
+
+  
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f5f5f7;
+      --surface: #ffffff;
+      --surface-2: #f5f5f7;
+      --surface-3: #e8e8ed;
+      --border: rgba(0,0,0,0.08);
+      --border-mid: rgba(0,0,0,0.13);
+      --text-primary: #1d1d1f;
+      --text-secondary: #6e6e73;
+      --text-tertiary: #aeaeb2;
+      --accent: #0071e3;
+      --accent-hover: #0077ed;
+      --accent-light: #e8f1fb;
+      --success: #34c759;
+      --success-light: rgba(52,199,89,0.1);
+      --danger: #ff3b30;
+      --danger-light: rgba(255,59,48,0.1);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --radius-xs: 8px;
+      --shadow: 0 2px 20px rgba(0,0,0,0.07);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px 80px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Header ── */
+    .header {
+      text-align: center;
+      margin-top: 52px;
+      margin-bottom: 52px;
+      animation: fadeUp .6s ease both;
+    }
+    .header-icon {
+      width: 64px; height: 64px;
+      background: var(--surface);
+      border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      box-shadow: var(--shadow);
+    }
+    .header-icon svg { width: 34px; height: 34px; }
+    h1 { font-size: 34px; font-weight: 600; letter-spacing: -.5px; margin-bottom: 8px; }
+    .subtitle { font-size: 17px; color: var(--text-secondary); }
+
+    /* ── Card ── */
+    .card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      width: 100%; max-width: 680px;
+      overflow: hidden;
+      animation: fadeUp .6s .1s ease both;
+    }
+
+    /* ── Drop zone ── */
+    .drop-zone {
+      padding: 52px 40px;
+      display: flex; flex-direction: column; align-items: center; gap: 14px;
+      cursor: pointer;
+      border: 2px dashed transparent;
+      transition: background .2s, border-color .2s;
+      border-radius: var(--radius);
+    }
+    .drop-zone.dragover { background: var(--accent-light); border-color: var(--accent); }
+    .drop-zone:hover .dz-icon { transform: scale(1.05); }
+    .dz-icon {
+      width: 72px; height: 72px;
+      background: var(--surface-2);
+      border-radius: 20px;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .25s cubic-bezier(.34,1.56,.64,1);
+      margin-bottom: 2px;
+    }
+    .dz-icon svg { width: 34px; height: 34px; color: var(--accent); }
+    .dz-label { font-size: 17px; font-weight: 500; }
+    .dz-sub   { font-size: 13px; color: var(--text-tertiary); }
+    .btn-choose {
+      margin-top: 4px;
+      background: var(--accent); color: white; border: none;
+      padding: 10px 22px; border-radius: 980px;
+      font-size: 15px; font-weight: 500; cursor: pointer; font-family: inherit;
+      transition: background .18s, transform .15s;
+    }
+    .btn-choose:hover { background: var(--accent-hover); }
+    .btn-choose:active { transform: scale(.97); }
+    #file-input { display: none; }
+
+    /* ── Divider ── */
+    .divider { height: 1px; background: var(--border); margin: 0 24px; }
+
+    /* ── File info ── */
+    .file-info {
+      display: none; padding: 24px 28px 0;
+      align-items: center; gap: 16px;
+    }
+    .file-info.visible { display: flex; }
+    .file-thumb svg { width: 28px; height: 34px; }
+    .file-thumb {
+      width: 48px; height: 56px;
+      background: var(--danger-light);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 9px; font-weight: 700; color: var(--danger); letter-spacing: .3px;
+    }
+    .file-details { flex: 1; min-width: 0; }
+    .file-name {
+      font-size: 15px; font-weight: 500;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .file-meta { font-size: 13px; color: var(--text-secondary); margin-top: 3px; }
+    .btn-clear {
+      background: none; border: none; cursor: pointer;
+      padding: 6px; border-radius: 50%; color: var(--text-tertiary);
+      display: flex; align-items: center;
+      transition: background .15s, color .15s;
+    }
+    .btn-clear:hover { background: var(--surface-2); color: var(--text-primary); }
+    .btn-clear svg { width: 18px; height: 18px; }
+
+    /* ── Options ── */
+    .options-wrap { display: none; padding: 20px 28px 0; }
+    .options-wrap.visible { display: block; }
+
+    .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+    .opt-group-label {
+      font-size: 13px; font-weight: 600; color: var(--text-secondary);
+      text-transform: uppercase; letter-spacing: .5px;
+      margin-bottom: 10px;
+    }
+
+    /* Format pills */
+    .format-pills { display: flex; gap: 6px; }
+    .format-pill {
+      background: var(--surface-2); border: 1.5px solid var(--border);
+      border-radius: var(--radius-xs); padding: 8px 16px;
+      font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit;
+      color: var(--text-primary); transition: border-color .2s, background .2s;
+    }
+    .format-pill:hover { border-color: var(--border-mid); }
+    .format-pill.active { border-color: var(--accent); background: var(--accent-light); color: var(--accent); }
+
+    /* Quality slider */
+    .quality-wrap { }
+    .quality-row {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 8px;
+    }
+    .quality-val {
+      font-size: 13px; font-weight: 600; color: var(--accent);
+      background: var(--accent-light); padding: 3px 10px; border-radius: 20px;
+    }
+
+    input[type=range] {
+      -webkit-appearance: none; width: 100%; height: 5px;
+      background: var(--surface-3); border-radius: 5px; outline: none;
+      cursor: pointer;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 20px; height: 20px;
+      background: var(--accent); border-radius: 50%;
+      box-shadow: 0 1px 6px rgba(0,113,227,.35);
+      cursor: pointer; transition: transform .15s;
+    }
+    input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.15); }
+
+    /* DPI options */
+    .dpi-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+    .dpi-pill {
+      background: var(--surface-2); border: 1.5px solid var(--border);
+      border-radius: var(--radius-xs); padding: 7px 13px;
+      font-size: 12px; font-weight: 600; cursor: pointer; font-family: inherit;
+      color: var(--text-secondary); transition: border-color .2s, background .2s, color .2s;
+    }
+    .dpi-pill:hover { border-color: var(--border-mid); }
+    .dpi-pill.active { border-color: var(--accent); background: var(--accent-light); color: var(--accent); }
+
+    /* ── Error ── */
+    .error-msg {
+      display: none; margin: 16px 28px 0;
+      padding: 12px 16px; background: var(--danger-light);
+      border-radius: var(--radius-xs);
+      color: var(--danger); font-size: 14px; font-weight: 500;
+    }
+    .error-msg.visible { display: block; }
+
+    /* ── Action ── */
+    .action-wrap { display: none; padding: 24px 28px; }
+    .action-wrap.visible { display: block; }
+    .btn-convert {
+      width: 100%; background: var(--accent); color: white; border: none;
+      border-radius: 14px; padding: 16px;
+      font-size: 17px; font-weight: 600; cursor: pointer; font-family: inherit;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      transition: background .18s, transform .15s, opacity .2s;
+    }
+    .btn-convert:hover { background: var(--accent-hover); }
+    .btn-convert:active { transform: scale(.98); }
+    .btn-convert:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+    .btn-convert svg { width: 20px; height: 20px; }
+
+    /* ── Progress ── */
+    .progress-wrap { display: none; padding: 0 28px 28px; flex-direction: column; gap: 12px; }
+    .progress-wrap.visible { display: flex; }
+    .progress-track { height: 6px; background: var(--surface-2); border-radius: 6px; overflow: hidden; }
+    .progress-fill { height: 100%; background: var(--accent); border-radius: 6px; width: 0%; transition: width .3s ease; }
+    .progress-label { font-size: 13px; color: var(--text-secondary); text-align: center; }
+
+    /* ── Preview grid ── */
+    .preview-wrap { display: none; padding: 0 28px 8px; }
+    .preview-wrap.visible { display: block; }
+
+    .preview-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    .preview-title { font-size: 13px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: .5px; }
+
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 10px;
+    }
+
+    .preview-card {
+      background: var(--surface-2); border-radius: var(--radius-sm); overflow: hidden;
+      animation: slideIn .2s ease both;
+    }
+    .preview-card img {
+      width: 100%; display: block;
+      aspect-ratio: 3/4; object-fit: contain;
+      background: white;
+    }
+    .preview-card-footer {
+      padding: 6px 10px;
+      font-size: 11px; font-weight: 500; color: var(--text-secondary);
+    }
+
+    /* ── Done actions ── */
+    .done-actions { display: none; padding: 16px 28px 28px; flex-direction: column; gap: 10px; }
+    .done-actions.visible { display: flex; }
+
+    .done-stats {
+      background: var(--success-light);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .done-stats-icon {
+      width: 36px; height: 36px; background: var(--success); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      animation: popIn .4s cubic-bezier(.34,1.56,.64,1) both;
+    }
+    .done-stats-icon svg { width: 18px; height: 18px; color: white; }
+    .done-stats-text { font-size: 15px; font-weight: 500; }
+    .done-stats-sub  { font-size: 13px; color: var(--text-secondary); margin-top: 2px; }
+
+    .btn-download-zip {
+      width: 100%; background: var(--accent); color: white; border: none;
+      border-radius: 14px; padding: 15px;
+      font-size: 16px; font-weight: 600; cursor: pointer; font-family: inherit;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      transition: background .18s;
+    }
+    .btn-download-zip:hover { background: var(--accent-hover); }
+    .btn-download-zip svg { width: 19px; height: 19px; }
+
+    .btn-reset {
+      width: 100%; background: var(--surface-2); color: var(--text-primary); border: none;
+      border-radius: 14px; padding: 14px;
+      font-size: 15px; font-weight: 500; cursor: pointer; font-family: inherit;
+      transition: background .15s;
+    }
+    .btn-reset:hover { background: var(--surface-3); }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes popIn {
+      from { transform: scale(.5); opacity: 0; }
+      to   { transform: scale(1);  opacity: 1; }
+    }
+      .dz-limit {
+      font-size: 11px;
+      color: var(--text-tertiary);
+      margin-top: 10px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 3px 12px;
+      display: inline-block;
+    }
+    </style>
+</head>
+<body>
+  <style>
+    /* ── Site nav ── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      width: 100%;
+      background: rgba(245,245,247,0.88);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      padding: 0 40px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      /* Escape the body flex/padding so nav is full-width and flush to top */
+      margin-left: calc(-50vw + 50%);
+      margin-right: calc(-50vw + 50%);
+      box-sizing: border-box;
+    }
+    .site-nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #1d1d1f;
+      flex-shrink: 0;
+    }
+    .site-nav-mark {
+      width: 30px;
+      height: 30px;
+      background: #0071e3;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .site-nav-mark svg { width: 16px; height: 16px; }
+    .site-nav-name {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -.3px;
+    }
+    .site-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+    .site-nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: #6e6e73;
+      text-decoration: none;
+      transition: color .15s;
+      white-space: nowrap;
+    }
+    .site-nav-links a:hover { color: #1d1d1f; }
+    .site-nav-cta {
+      background: #0071e3 !important;
+      color: white !important;
+      padding: 7px 16px;
+      border-radius: 980px;
+      transition: background .15s !important;
+    }
+    .site-nav-cta:hover { background: #0077ed !important; }
+    @media (max-width: 640px) {
+      .site-nav { padding: 0 20px; }
+      .site-nav-links li:not(:last-child) { display: none; }
+    }
+  </style>
+  <nav class="site-nav" aria-label="Site navigation">
+    <a class="site-nav-logo" href="index.html" aria-label="OfflinePDF home">
+      <div class="site-nav-mark" aria-hidden="true">
+        <svg viewBox="0 0 16 16" fill="none">
+          <rect x="1" y="1" width="10" height="13" rx="2" fill="white" opacity=".3"/>
+          <rect x="3" y="3" width="10" height="13" rx="2" fill="white"/>
+        </svg>
+      </div>
+      <span class="site-nav-name">OfflinePDF</span>
+    </a>
+    <ul class="site-nav-links">
+      <li><a href="index.html#tools">All tools</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="index.html#privacy">Privacy</a></li>
+      <li><a href="index.html" class="site-nav-cta">Get started, it's free</a></li>
+    </ul>
+  </nav>
+  <style>
+    .site-nav {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(245,245,247,0.88);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      padding: 0 40px; height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .site-nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: #1d1d1f;
+    }
+    .site-nav-mark {
+      width: 30px; height: 30px;
+      background: #0071e3; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .site-nav-mark svg { width: 16px; height: 16px; }
+    .site-nav-name {
+      font-size: 16px; font-weight: 600; letter-spacing: -.3px;
+    }
+    .site-nav-links {
+      display: flex; align-items: center; gap: 28px; list-style: none;
+    }
+    .site-nav-links a {
+      font-size: 14px; font-weight: 500; color: #6e6e73;
+      text-decoration: none; transition: color .15s;
+    }
+    .site-nav-links a:hover { color: #1d1d1f; }
+    .site-nav-cta {
+      background: #0071e3; color: white !important;
+      padding: 7px 16px; border-radius: 980px;
+      font-size: 14px !important; font-weight: 500 !important;
+      transition: background .15s !important;
+    }
+    .site-nav-cta:hover { background: #0077ed !important; }
+    @media (max-width: 600px) {
+      .site-nav { padding: 0 20px; }
+      .site-nav-links { gap: 16px; }
+      .site-nav-links li:not(:last-child) { display: none; }
+    }
+  </style>
+  <div class="header">
+    <div class="header-icon">
+      <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="scale(1.214)">
+        <rect x="2" y="4" width="11" height="14" rx="2" fill="#ff3b30" opacity=".5"/>
+            <path d="M15 11h8M19 7l4 4-4 4" stroke="#0071e3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="17" y="14" width="9" height="9" rx="2" fill="#34c759" opacity=".3"/>
+            <rect x="18" y="15" width="9" height="9" rx="2" fill="#34c759"/>
+            <path d="M19 21l2-2 1.5 1.5L24 19l3 4h-8z" fill="white" opacity=".8"/>
+        </g>
+      </svg>
+    </div>
+    <h1>PDF to Images</h1>
+    <p class="subtitle">Convert every page to a high-quality JPG, PNG or WebP image. Download all as a ZIP. No upload required.</p>
+  </div>
+
+  <div class="card">
+
+    <!-- Drop Zone -->
+    <div class="drop-zone" id="drop-zone">
+      <div class="dz-icon">
+        <svg viewBox="0 0 34 34" fill="none">
+          <path d="M17 6v16M10 13l7-7 7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M5 26h24" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p class="dz-label">Drop your PDF here</p>
+      <p class="dz-sub">Each page becomes an individual image</p>
+      <p class="dz-limit">Free plan: up to 25 MB · 5 operations/day</p>
+      <button class="btn-choose" onclick="document.getElementById('file-input').click()">Choose PDF</button>
+      <input type="file" id="file-input" accept=".pdf" />
+    </div>
+
+    <!-- File info -->
+    <div class="divider" id="div-file" style="display:none"></div>
+    <div class="file-info" id="file-info">
+      <div class="file-thumb">
+        <svg viewBox="0 0 40 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 4a3 3 0 013-3h18l11 11v32a3 3 0 01-3 3H7a3 3 0 01-3-3V4z" fill="currentColor" opacity=".15"/>
+          <path d="M25 1l11 11H28a3 3 0 01-3-3V1z" fill="currentColor" opacity=".4"/>
+          <text x="20" y="36" font-size="11" font-weight="800" fill="currentColor" text-anchor="middle" font-family="-apple-system,Helvetica,sans-serif" letter-spacing="0.5">PDF</text>
+        </svg>
+      </div>
+      <div class="file-details">
+        <div class="file-name" id="file-name">document.pdf</div>
+        <div class="file-meta" id="file-meta">— pages</div>
+      </div>
+      <button class="btn-clear" id="btn-clear">
+        <svg viewBox="0 0 18 18" fill="none"><path d="M13.5 4.5l-9 9M4.5 4.5l9 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+
+    <!-- Options -->
+    <div class="options-wrap" id="options-wrap">
+      <div class="options-grid">
+
+        <!-- Format -->
+        <div>
+          <div class="opt-group-label">Format</div>
+          <div class="format-pills">
+            <button class="format-pill active" data-fmt="png">PNG</button>
+            <button class="format-pill" data-fmt="jpeg">JPEG</button>
+            <button class="format-pill" data-fmt="webp">WebP</button>
+          </div>
+        </div>
+
+        <!-- Resolution -->
+        <div>
+          <div class="opt-group-label">Resolution</div>
+          <div class="dpi-pills">
+            <button class="dpi-pill" data-scale="1">72 dpi</button>
+            <button class="dpi-pill active" data-scale="2">144 dpi</button>
+            <button class="dpi-pill" data-scale="3">216 dpi</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quality (JPEG/WebP only) -->
+      <div id="quality-row" style="margin-top:16px; display:none;">
+        <div class="opt-group-label">Quality</div>
+        <div class="quality-wrap">
+          <div class="quality-row">
+            <span style="font-size:13px;color:var(--text-secondary);">Compression</span>
+            <span class="quality-val" id="quality-val">85%</span>
+          </div>
+          <input type="range" id="quality-slider" min="10" max="100" value="85" step="5" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Error -->
+    <div class="error-msg" id="error-msg"></div>
+
+    <!-- Action -->
+    <div class="action-wrap" id="action-wrap">
+      <button class="btn-convert" id="btn-convert">
+        <svg viewBox="0 0 20 20" fill="none"><rect x="2" y="4" width="10" height="12" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M14 7l4 3-4 3V7z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        Convert to Images
+      </button>
+    </div>
+
+    <!-- Progress -->
+    <div class="progress-wrap" id="progress-wrap">
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <p class="progress-label" id="progress-label">Converting page 1…</p>
+    </div>
+
+    <!-- Preview grid -->
+    <div class="preview-wrap" id="preview-wrap">
+      <div class="preview-header">
+        <span class="preview-title" id="preview-title">0 images</span>
+      </div>
+      <div class="preview-grid" id="preview-grid"></div>
+    </div>
+
+    <!-- Done actions -->
+    <div class="done-actions" id="done-actions">
+      <div class="done-stats">
+        <div class="done-stats-icon">
+          <svg viewBox="0 0 18 18" fill="none"><path d="M3 9l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div class="done-stats-text" id="done-stats-text">— images ready</div>
+          <div class="done-stats-sub"  id="done-stats-sub">Tap below to download as ZIP</div>
+        </div>
+      </div>
+      <button class="btn-download-zip" id="btn-download-zip">
+        <svg viewBox="0 0 19 19" fill="none"><path d="M9.5 2v11M5.5 9l4 4 4-4" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 16h15" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+        Download All as ZIP
+      </button>
+      <button class="btn-reset" id="btn-reset">Convert another PDF</button>
+    </div>
+
+  </div>
+
+  <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    // ── State ──
+    let pdfFile    = null;
+    let pageCount  = 0;
+    let imgBlobs   = [];   // store rendered blobs for ZIP
+    let selectedFmt   = 'png';
+    let selectedScale = 2;
+    let quality    = 85;
+
+    // ── Elements ──
+    const dropZone     = document.getElementById('drop-zone');
+    const fileInput    = document.getElementById('file-input');
+    const divFile      = document.getElementById('div-file');
+    const fileInfo     = document.getElementById('file-info');
+    const fileName     = document.getElementById('file-name');
+    const fileMeta     = document.getElementById('file-meta');
+    const btnClear     = document.getElementById('btn-clear');
+    const optionsWrap  = document.getElementById('options-wrap');
+    const qualityRow   = document.getElementById('quality-row');
+    const qualitySlider= document.getElementById('quality-slider');
+    const qualityVal   = document.getElementById('quality-val');
+    const actionWrap   = document.getElementById('action-wrap');
+    const btnConvert   = document.getElementById('btn-convert');
+    const progressWrap = document.getElementById('progress-wrap');
+    const progressFill = document.getElementById('progress-fill');
+    const progressLabel= document.getElementById('progress-label');
+    const previewWrap  = document.getElementById('preview-wrap');
+    const previewTitle = document.getElementById('preview-title');
+    const previewGrid  = document.getElementById('preview-grid');
+    const doneActions  = document.getElementById('done-actions');
+    const doneStatsText= document.getElementById('done-stats-text');
+    const doneStatsSub = document.getElementById('done-stats-sub');
+    const btnDownloadZip = document.getElementById('btn-download-zip');
+    const btnReset     = document.getElementById('btn-reset');
+    const errorMsg     = document.getElementById('error-msg');
+
+    // ── Format pills ──
+    document.querySelectorAll('.format-pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.format-pill').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        selectedFmt = btn.dataset.fmt;
+        qualityRow.style.display = (selectedFmt === 'jpeg' || selectedFmt === 'webp') ? 'block' : 'none';
+      });
+    });
+
+    // ── DPI pills ──
+    document.querySelectorAll('.dpi-pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.dpi-pill').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        selectedScale = parseFloat(btn.dataset.scale);
+      });
+    });
+
+    // ── Quality slider ──
+    qualitySlider.addEventListener('input', () => {
+      quality = parseInt(qualitySlider.value);
+      qualityVal.textContent = quality + '%';
+    });
+
+    // ── Drag & drop ──
+    dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+    dropZone.addEventListener('drop', e => {
+      e.preventDefault(); dropZone.classList.remove('dragover');
+      const f = e.dataTransfer.files[0]; if (f) handleFile(f);
+    });
+    fileInput.addEventListener('change', () => { if (fileInput.files[0]) handleFile(fileInput.files[0]); fileInput.value = ''; });
+
+    async function handleFile(file) {
+      hideError();
+      if (!file.name.toLowerCase().endsWith('.pdf')) { showError('Please select a valid PDF file.'); return; }
+      pdfFile = file;
+
+      try {
+        const buf = await file.arrayBuffer();
+        const doc = await pdfjsLib.getDocument({ data: buf }).promise;
+        pageCount = doc.numPages;
+      } catch {
+        showError('Could not read this PDF. It may be corrupted or password-protected.');
+        pdfFile = null; return;
+      }
+
+      fileName.textContent = file.name;
+      fileMeta.textContent = `${pageCount} page${pageCount !== 1 ? 's' : ''} · ${(file.size/1024/1024).toFixed(2)} MB`;
+
+      divFile.style.display = '';
+      fileInfo.classList.add('visible');
+      optionsWrap.classList.add('visible');
+      actionWrap.classList.add('visible');
+      previewWrap.classList.remove('visible');
+      doneActions.classList.remove('visible');
+      previewGrid.innerHTML = '';
+      imgBlobs = [];
+    }
+
+    btnClear.addEventListener('click', resetAll);
+
+    // ── Convert ──
+    btnConvert.addEventListener('click', async () => {
+      if (!pdfFile) return;
+      hideError();
+      btnConvert.disabled = true;
+      actionWrap.classList.remove('visible');
+      progressWrap.classList.add('visible');
+      progressFill.style.width = '0%';
+      previewGrid.innerHTML = '';
+      imgBlobs = [];
+
+      try {
+        const buf   = await pdfFile.arrayBuffer();
+        const pdfDoc= await pdfjsLib.getDocument({ data: buf }).promise;
+        const total = pdfDoc.numPages;
+        const baseName = pdfFile.name.replace(/\.pdf$/i, '');
+        const mimeType = selectedFmt === 'jpeg' ? 'image/jpeg'
+                       : selectedFmt === 'webp' ? 'image/webp'
+                       : 'image/png';
+        const ext = selectedFmt === 'jpeg' ? 'jpg' : selectedFmt;
+        const pad = String(total).length < 3 ? 3 : String(total).length;
+        const q   = quality / 100;
+
+        // Show preview grid early
+        previewWrap.classList.add('visible');
+        previewTitle.textContent = `${total} image${total !== 1 ? 's' : ''}`;
+
+        for (let i = 0; i < total; i++) {
+          const pct = Math.round(((i) / total) * 95);
+          progressFill.style.width = pct + '%';
+          progressLabel.textContent = `Converting page ${i + 1} of ${total}…`;
+
+          const page     = await pdfDoc.getPage(i + 1);
+          const viewport = page.getViewport({ scale: selectedScale });
+
+          const canvas  = document.createElement('canvas');
+          canvas.width  = viewport.width;
+          canvas.height = viewport.height;
+          const ctx     = canvas.getContext('2d');
+          await page.render({ canvasContext: ctx, viewport }).promise;
+
+          // Convert to blob
+          const blob = await new Promise(res => {
+            if (selectedFmt === 'png') canvas.toBlob(res, 'image/png');
+            else canvas.toBlob(res, mimeType, q);
+          });
+
+          const num = String(i + 1).padStart(pad, '0');
+          imgBlobs.push({ blob, name: `${baseName}_${num}.${ext}` });
+
+          // Add preview card
+          const card = document.createElement('div');
+          card.className = 'preview-card';
+          card.style.animationDelay = Math.min(i * 0.03, 0.3) + 's';
+          const img = document.createElement('img');
+          img.src = URL.createObjectURL(blob);
+          img.alt = `Page ${i + 1}`;
+          const footer = document.createElement('div');
+          footer.className = 'preview-card-footer';
+          footer.textContent = `Page ${i + 1}`;
+          card.appendChild(img); card.appendChild(footer);
+          previewGrid.appendChild(card);
+
+          await new Promise(r => setTimeout(r, 0));
+        }
+
+        progressFill.style.width = '100%';
+        progressLabel.textContent = 'Done!';
+        await new Promise(r => setTimeout(r, 300));
+
+        progressWrap.classList.remove('visible');
+        doneActions.classList.add('visible');
+
+        const totalSizeKB = imgBlobs.reduce((s, b) => s + b.blob.size, 0) / 1024;
+        const sizeLabel = totalSizeKB > 1024
+          ? (totalSizeKB / 1024).toFixed(1) + ' MB total'
+          : Math.round(totalSizeKB) + ' KB total';
+
+        doneStatsText.textContent = `${total} ${ext.toUpperCase()} image${total !== 1 ? 's' : ''} ready`;
+        doneStatsSub.textContent  = sizeLabel;
+
+      } catch (err) {
+        progressWrap.classList.remove('visible');
+        actionWrap.classList.add('visible');
+        btnConvert.disabled = false;
+        showError('Something went wrong during conversion. Please try again.');
+      }
+    });
+
+    // ── Download ZIP ──
+    btnDownloadZip.addEventListener('click', async () => {
+      if (!imgBlobs.length) return;
+      btnDownloadZip.disabled = true;
+      btnDownloadZip.textContent = 'Zipping…';
+
+      const zip = new JSZip();
+      imgBlobs.forEach(({ blob, name }) => zip.file(name, blob));
+
+      const zipBlob = await zip.generateAsync({ type: 'blob' });
+      const zipName = pdfFile.name.replace(/\.pdf$/i, '') + '_images.zip';
+      const url = URL.createObjectURL(zipBlob);
+      const a   = Object.assign(document.createElement('a'), { href: url, download: zipName });
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+
+      btnDownloadZip.disabled = false;
+      btnDownloadZip.innerHTML = `<svg viewBox="0 0 19 19" fill="none"><path d="M9.5 2v11M5.5 9l4 4 4-4" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 16h15" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg> Download All as ZIP`;
+    });
+
+    btnReset.addEventListener('click', resetAll);
+
+    function resetAll() {
+      pdfFile = null; pageCount = 0; imgBlobs = [];
+      fileInput.value = '';
+      fileInfo.classList.remove('visible');
+      optionsWrap.classList.remove('visible');
+      actionWrap.classList.remove('visible');
+      progressWrap.classList.remove('visible');
+      previewWrap.classList.remove('visible');
+      doneActions.classList.remove('visible');
+      divFile.style.display = 'none';
+      progressFill.style.width = '0%';
+      previewGrid.innerHTML = '';
+      btnConvert.disabled = false;
+      hideError();
+    }
+
+    function showError(msg) { errorMsg.textContent = msg; errorMsg.classList.add('visible'); }
+    function hideError()    { errorMsg.classList.remove('visible'); }
+  </script>
+  <style>
+    .related-section {
+      width: 100%;
+      background: #ffffff;
+      border-top: 1px solid rgba(0,0,0,0.07);
+      margin-top: 48px;
+      padding: 40px 24px 48px;
+    }
+    .related-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .related-heading {
+      font-size: 11px;
+      font-weight: 700;
+      color: #aeaeb2;
+      text-transform: uppercase;
+      letter-spacing: .7px;
+      margin-bottom: 16px;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .related-card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: #f5f5f7;
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 14px;
+      padding: 16px;
+      text-decoration: none;
+      color: #1d1d1f;
+      transition: border-color .2s, box-shadow .2s, transform .2s;
+    }
+    .related-card:hover {
+      border-color: rgba(0,0,0,0.15);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+    .related-card-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .related-card-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+    .related-card-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1d1d1f;
+      line-height: 1.3;
+    }
+    .related-card-desc {
+      font-size: 12px;
+      color: #6e6e73;
+      line-height: 1.4;
+      margin-top: -4px;
+    }
+    .related-card-arrow {
+      margin-top: auto;
+      font-size: 12px;
+      font-weight: 500;
+      color: #0071e3;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+    .related-card-arrow svg {
+      width: 11px;
+      height: 11px;
+    }
+    @media (max-width: 560px) {
+      .related-grid { grid-template-columns: 1fr; }
+      .related-section { padding: 32px 20px 40px; }
+    }
+    .related-footer {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+    .related-see-all {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #6e6e73;
+      text-decoration: none;
+      padding: 9px 20px;
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 980px;
+      background: transparent;
+      transition: color .15s, border-color .15s, background .15s;
+    }
+    .related-see-all:hover {
+      color: #0071e3;
+      border-color: #0071e3;
+      background: rgba(0,113,227,0.05);
+    }
+  </style>
+  <!-- Related tools -->
+  <div class="related-section">
+    <div class="related-inner">
+      <p class="related-heading">More PDF tools</p>
+      <div class="related-grid">
+      <a href="images-to-pdf.html" class="related-card">
+        <div class="related-card-icon" style="background:rgba(52,199,89,0.08); color:#34c759;">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="3" width="11" height="11" rx="2" fill="currentColor" opacity=".4"/><rect x="3" y="4" width="11" height="11" rx="2" fill="currentColor"/><path d="M4 12l3-3 2 2 2.5-3 3 4H4z" fill="white" opacity=".85"/>
+          </svg>
+        </div>
+        <div class="related-card-name">Images to PDF</div>
+        <div class="related-card-desc">Combine images into a single PDF</div>
+        <div class="related-card-arrow">
+          Open tool
+          <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l3 2.5L6 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+      <a href="pdf-compressor.html" class="related-card">
+        <div class="related-card-icon" style="background:rgba(255,59,48,0.08); color:#ff3b30;">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="2" width="12" height="16" rx="2" fill="currentColor" opacity=".3"/><rect x="5" y="4" width="12" height="16" rx="2" fill="currentColor"/><path d="M8 12l3 3 3-3M11 15v-6" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="related-card-name">Compress PDF</div>
+        <div class="related-card-desc">Shrink your PDF file size instantly</div>
+        <div class="related-card-arrow">
+          Open tool
+          <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l3 2.5L6 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+      <a href="pdf-splitter.html" class="related-card">
+        <div class="related-card-icon" style="background:rgba(255,59,48,0.08); color:#ff3b30;">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="2" width="12" height="16" rx="2" fill="currentColor" opacity=".3"/><rect x="5" y="4" width="12" height="16" rx="2" fill="currentColor"/><path d="M8 8v6M5 11l3 3 3-3" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="related-card-name">Split PDF</div>
+        <div class="related-card-desc">Split a PDF into individual pages</div>
+        <div class="related-card-arrow">
+          Open tool
+          <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 3l3 2.5L6 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+      </div>
+      <div class="related-footer">
+        <a href="index.html#tools" class="related-see-all">
+          View the full toolkit
+          <svg viewBox="0 0 14 14" fill="none" width="13" height="13">
+            <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

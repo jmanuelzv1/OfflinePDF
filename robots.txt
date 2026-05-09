@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://offlinepdf.io/sitemap.xml
+
+# Crawl-delay: none — this is a static site, crawl freely

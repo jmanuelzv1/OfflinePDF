@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OfflinePDF — Free PDF Tools Online. No Upload, No Account.</title>
+  <meta name="description" content="12 free PDF tools that run entirely in your browser. Split, merge, compress, rotate, watermark, protect and more. Your files never leave your device." />
+  <!-- SEO: Primary meta -->
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="keywords" content="pdf tools online, free pdf tools, pdf editor no upload, offline pdf tools, split pdf, merge pdf, compress pdf" />
+  <meta name="author" content="OfflinePDF" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="canonical" href="https://offlinepdf.io/" />
+
+  <!-- SEO: Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="OfflinePDF" />
+  <meta property="og:title" content="OfflinePDF — Free PDF Tools. No Upload, No Account." />
+  <meta property="og:description" content="12 free PDF tools that run entirely in your browser. Split, merge, compress, rotate, watermark and more. Files never leave your device." />
+  <meta property="og:url" content="https://offlinepdf.io/" />
+  <meta property="og:image" content="https://offlinepdf.io/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- SEO: Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="OfflinePDF — Free PDF Tools. No Upload, No Account." />
+  <meta name="twitter:description" content="12 free PDF tools that run entirely in your browser. Split, merge, compress, rotate, watermark and more. Files never leave your device." />
+  <meta name="twitter:image" content="https://offlinepdf.io/og-image.png" />
+
+  <!-- SEO: Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "OfflinePDF",
+      "url": "https://offlinepdf.io",
+      "description": "12 free PDF tools that run entirely in your browser. Split, merge, compress, rotate, watermark, protect and more. Your files never leave your device.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://offlinepdf.io/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f5f5f7;
+      --surface: #ffffff;
+      --surface-2: #f5f5f7;
+      --surface-3: #e8e8ed;
+      --border: rgba(0,0,0,0.07);
+      --border-mid: rgba(0,0,0,0.11);
+      --text-primary: #1d1d1f;
+      --text-secondary: #6e6e73;
+      --text-tertiary: #aeaeb2;
+      --accent: #0071e3;
+      --accent-hover: #0077ed;
+      --accent-light: #e8f1fb;
+      --success: #34c759;
+      --danger: #ff3b30;
+      --radius: 20px;
+      --radius-sm: 14px;
+      --radius-xs: 10px;
+      --shadow-sm: 0 2px 12px rgba(0,0,0,0.06);
+      --shadow: 0 4px 24px rgba(0,0,0,0.08);
+      --shadow-lg: 0 12px 48px rgba(0,0,0,0.1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ─────────────────────────────
+       NAV
+    ───────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(245,245,247,0.82);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 56px;
+    }
+
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: var(--text-primary);
+    }
+    .nav-logo-mark {
+      width: 30px; height: 30px;
+      background: var(--accent); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-logo-mark svg { width: 16px; height: 16px; }
+    .nav-logo-name {
+      font-size: 16px; font-weight: 600; letter-spacing: -.3px;
+    }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 28px; list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: var(--text-secondary);
+      text-decoration: none; transition: color .15s;
+    }
+    .nav-links a:hover { color: var(--text-primary); }
+
+    .nav-cta {
+      background: var(--accent); color: white !important;
+      padding: 7px 16px; border-radius: 980px;
+      font-size: 14px !important; font-weight: 500 !important;
+      transition: background .15s !important;
+    }
+    .nav-cta:hover { background: var(--accent-hover) !important; color: white !important; }
+
+    /* ─────────────────────────────
+       HERO
+    ───────────────────────────── */
+    .hero {
+      max-width: 900px; margin: 0 auto;
+      padding: 110px 40px 80px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--surface); border: 1px solid var(--border-mid);
+      border-radius: 980px; padding: 6px 14px;
+      font-size: 13px; font-weight: 500; color: var(--text-secondary);
+      margin-bottom: 32px;
+      animation: fadeUp .5s ease both;
+    }
+    .hero-badge-dot {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--success);
+    }
+
+    .hero-headline {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(48px, 7vw, 80px);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -.03em;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+      animation: fadeUp .5s .08s ease both;
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 19px; line-height: 1.55;
+      color: var(--text-secondary);
+      max-width: 520px; margin: 0 auto 40px;
+      animation: fadeUp .5s .16s ease both;
+    }
+
+    .hero-actions {
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      flex-wrap: wrap;
+      animation: fadeUp .5s .24s ease both;
+    }
+
+    .btn-primary {
+      background: var(--accent); color: white; border: none;
+      padding: 14px 28px; border-radius: 980px;
+      font-size: 16px; font-weight: 500; cursor: pointer;
+      font-family: inherit; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: background .18s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 16px rgba(0,113,227,.25);
+    }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(0,113,227,.3); }
+    .btn-primary:active { transform: translateY(0); }
+
+    .btn-secondary {
+      background: var(--surface); color: var(--text-primary); border: 1px solid var(--border-mid);
+      padding: 14px 28px; border-radius: 980px;
+      font-size: 16px; font-weight: 500; cursor: pointer;
+      font-family: inherit; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: background .18s, border-color .15s;
+    }
+    .btn-secondary:hover { background: var(--surface-3); border-color: rgba(0,0,0,.18); }
+
+    /* Privacy line */
+    .hero-privacy {
+      margin-top: 20px;
+      font-size: 13px; color: var(--text-tertiary);
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+      animation: fadeUp .5s .3s ease both;
+    }
+    .hero-privacy svg { width: 12px; height: 14px; flex-shrink: 0; }
+
+    /* ─────────────────────────────
+       TRUST STRIP
+    ───────────────────────────── */
+    .trust-strip {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      padding: 22px 40px;
+      display: flex; align-items: center; justify-content: center;
+      gap: 48px; flex-wrap: wrap;
+      animation: fadeUp .5s .36s ease both;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 9px;
+      font-size: 14px; font-weight: 500; color: var(--text-secondary);
+    }
+    .trust-item svg { width: 18px; height: 18px; color: var(--accent); flex-shrink: 0; }
+
+    /* ─────────────────────────────
+       TOOLS SECTION
+    ───────────────────────────── */
+    .tools-section {
+      max-width: 1100px; margin: 0 auto;
+      padding: 96px 40px 80px;
+    }
+
+    .section-eyebrow {
+      font-size: 13px; font-weight: 600; color: var(--accent);
+      text-transform: uppercase; letter-spacing: .6px;
+      margin-bottom: 12px; text-align: center;
+    }
+    .section-title {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(32px, 4vw, 46px);
+      font-weight: 400; letter-spacing: -.02em;
+      text-align: center; margin-bottom: 14px;
+    }
+    .section-sub {
+      font-size: 17px; color: var(--text-secondary);
+      text-align: center; margin-bottom: 60px;
+      max-width: 480px; margin-left: auto; margin-right: auto;
+    }
+
+    /* Tool grid */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 14px;
+    }
+
+    .tool-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 28px;
+      text-decoration: none; color: inherit;
+      display: flex; flex-direction: column; gap: 14px;
+      transition: box-shadow .2s, transform .2s, border-color .2s;
+      position: relative; overflow: hidden;
+    }
+    .tool-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-3px);
+      border-color: var(--border-mid);
+    }
+    .tool-card::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), #34aaff);
+      opacity: 0; transition: opacity .2s;
+      border-radius: 0 0 var(--radius) var(--radius);
+    }
+    .tool-card:hover::after { opacity: 1; }
+
+    .tool-icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .tool-icon svg { width: 28px; height: 28px; }
+
+    .tool-name {
+      font-size: 17px; font-weight: 600; letter-spacing: -.2px;
+      margin-bottom: 4px;
+    }
+    .tool-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
+
+    .tool-arrow {
+      margin-top: auto;
+      display: flex; align-items: center; gap: 4px;
+      font-size: 13px; font-weight: 500; color: var(--accent);
+      opacity: 0; transform: translateX(-4px);
+      transition: opacity .2s, transform .2s;
+    }
+    .tool-card:hover .tool-arrow { opacity: 1; transform: translateX(0); }
+    .tool-arrow svg { width: 14px; height: 14px; }
+
+    /* ─────────────────────────────
+       PRIVACY SECTION
+    ───────────────────────────── */
+    .privacy-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .privacy-inner {
+      max-width: 1100px; margin: 0 auto;
+      padding: 96px 40px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+      align-items: center;
+    }
+
+    .privacy-text .section-eyebrow { text-align: left; }
+    .privacy-text .section-title   { text-align: left; margin-bottom: 18px; }
+
+    .privacy-body {
+      font-size: 16px; line-height: 1.7; color: var(--text-secondary);
+      margin-bottom: 32px;
+    }
+
+    .privacy-points { display: flex; flex-direction: column; gap: 14px; }
+    .privacy-point {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 15px; color: var(--text-primary); line-height: 1.5;
+    }
+    .privacy-point-icon {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--accent-light);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .privacy-point-icon svg { width: 14px; height: 14px; color: var(--accent); }
+
+    /* Privacy visual */
+    .privacy-visual {
+      display: flex; align-items: center; justify-content: center;
+    }
+    .privacy-device {
+      width: 100%; max-width: 380px;
+      background: var(--bg); border-radius: 24px;
+      border: 1px solid var(--border-mid);
+      padding: 32px;
+      box-shadow: var(--shadow-lg);
+    }
+    .privacy-device-header {
+      display: flex; align-items: center; gap: 8px; margin-bottom: 24px;
+    }
+    .device-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+    .flow-row {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
+    }
+    .flow-box {
+      flex: 1; background: var(--surface); border: 1px solid var(--border-mid);
+      border-radius: var(--radius-xs); padding: 10px 14px;
+      font-size: 13px; font-weight: 500;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .flow-box svg { width: 14px; height: 14px; flex-shrink: 0; }
+    .flow-arrow { color: var(--text-tertiary); font-size: 16px; flex-shrink: 0; }
+
+    .flow-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--success-light, rgba(52,199,89,.1));
+      color: var(--success); border-radius: 980px;
+      padding: 6px 12px; font-size: 12px; font-weight: 600;
+      margin-top: 8px;
+    }
+    .flow-badge svg { width: 12px; height: 12px; }
+
+    .flow-blocked {
+      display: flex; align-items: center; gap: 8px;
+      color: var(--danger); font-size: 12px; font-weight: 600;
+      margin-top: 6px;
+    }
+    .flow-blocked svg { width: 14px; height: 14px; }
+
+    /* ─────────────────────────────
+       HOW IT WORKS
+    ───────────────────────────── */
+    .how-section {
+      max-width: 900px; margin: 0 auto;
+      padding: 96px 40px;
+      text-align: center;
+    }
+
+    .steps {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 14px; margin-top: 56px; text-align: left;
+    }
+    .step-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px;
+    }
+    .step-num {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 42px; color: var(--accent); opacity: .2;
+      line-height: 1; margin-bottom: 16px;
+    }
+    .step-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+    .step-desc  { font-size: 14px; color: var(--text-secondary); line-height: 1.55; }
+
+    /* ─────────────────────────────
+       CTA SECTION
+    ───────────────────────────── */
+    .cta-section {
+      background: var(--text-primary);
+      padding: 96px 40px; text-align: center;
+    }
+    .cta-inner { max-width: 640px; margin: 0 auto; }
+    .cta-title {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 400; color: white; letter-spacing: -.02em;
+      margin-bottom: 18px; line-height: 1.1;
+    }
+    .cta-title em { font-style: italic; color: #64b5f6; }
+    .cta-sub {
+      font-size: 17px; color: rgba(255,255,255,.55);
+      margin-bottom: 40px; line-height: 1.6;
+    }
+    .cta-actions {
+      display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;
+    }
+    .btn-cta-primary {
+      background: white; color: var(--text-primary); border: none;
+      padding: 15px 32px; border-radius: 980px;
+      font-size: 16px; font-weight: 600; cursor: pointer;
+      font-family: inherit; text-decoration: none;
+      transition: transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,.2);
+    }
+    .btn-cta-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,.25); }
+    .btn-cta-ghost {
+      background: none; color: rgba(255,255,255,.65); border: 1px solid rgba(255,255,255,.2);
+      padding: 15px 32px; border-radius: 980px;
+      font-size: 16px; font-weight: 500; cursor: pointer;
+      font-family: inherit; text-decoration: none;
+      transition: border-color .15s, color .15s;
+    }
+    .btn-cta-ghost:hover { border-color: rgba(255,255,255,.5); color: white; }
+
+    /* ─────────────────────────────
+       FOOTER
+    ───────────────────────────── */
+    footer {
+      background: var(--text-primary);
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding: 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo {
+      display: flex; align-items: center; gap: 8px;
+      text-decoration: none; color: rgba(255,255,255,.7);
+      font-size: 14px; font-weight: 500;
+    }
+    .footer-logo-mark {
+      width: 24px; height: 24px; background: var(--accent);
+      border-radius: 6px; display: flex; align-items: center; justify-content: center;
+    }
+    .footer-logo-mark svg { width: 12px; height: 12px; }
+    .footer-links {
+      display: flex; gap: 24px; list-style: none; flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 13px; color: rgba(255,255,255,.4);
+      text-decoration: none; transition: color .15s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,.8); }
+    .footer-copy {
+      font-size: 13px; color: rgba(255,255,255,.3);
+      width: 100%;
+    }
+
+    /* ─────────────────────────────
+       SCROLL REVEAL
+    ───────────────────────────── */
+    .reveal {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Stagger tool cards */
+    .tool-card.reveal { transition-duration: .5s; }
+    .tool-card:nth-child(2)  { transition-delay: .04s; }
+    .tool-card:nth-child(3)  { transition-delay: .08s; }
+    .tool-card:nth-child(4)  { transition-delay: .12s; }
+    .tool-card:nth-child(5)  { transition-delay: .16s; }
+    .tool-card:nth-child(6)  { transition-delay: .20s; }
+    .tool-card:nth-child(7)  { transition-delay: .24s; }
+    .tool-card:nth-child(8)  { transition-delay: .28s; }
+    .tool-card:nth-child(9)  { transition-delay: .32s; }
+    .tool-card:nth-child(10) { transition-delay: .36s; }
+    .tool-card:nth-child(11) { transition-delay: .40s; }
+    .tool-card:nth-child(12) { transition-delay: .44s; }
+
+    /* ─────────────────────────────
+       ANIMATIONS
+    ───────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─────────────────────────────
+       PRICING SECTION
+    ───────────────────────────── */
+    .pricing-section {
+      background: var(--text-primary);
+      border-top: 1px solid rgba(255,255,255,.06);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      padding: 96px 40px;
+    }
+    .pricing-section-inner {
+      max-width: 860px; margin: 0 auto;
+    }
+    .pricing-header {
+      text-align: center; margin-bottom: 56px;
+    }
+    .pricing-header .section-eyebrow { color: #64b5f6; }
+    .pricing-header .section-title   { color: white; }
+    .pricing-header .section-sub     { color: rgba(255,255,255,.45); max-width: 420px; }
+
+    .pricing-cards {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start;
+    }
+
+    .pricing-card {
+      border-radius: var(--radius); padding: 36px; position: relative;
+    }
+    .pricing-card.free {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+    }
+    .pricing-card.pro {
+      background: var(--accent);
+      border: 1px solid rgba(255,255,255,.2);
+      box-shadow: 0 16px 48px rgba(0,113,227,.35);
+    }
+
+    .pricing-card-header {
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+      margin-bottom: 24px;
+    }
+    .pricing-icon {
+      width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .pricing-icon-free { background: rgba(255,255,255,.08); color: rgba(255,255,255,.5); }
+    .pricing-icon-pro  { background: rgba(255,255,255,.2);  color: white; }
+
+    .pricing-tag {
+      font-size: 11px; font-weight: 700; color: rgba(255,255,255,.4);
+      text-transform: uppercase; letter-spacing: .7px; margin-bottom: 10px;
+    }
+    .pricing-tag-pro {
+      font-size: 11px; font-weight: 700; color: rgba(255,255,255,.7);
+      text-transform: uppercase; letter-spacing: .7px; margin-bottom: 10px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .pricing-coming {
+      background: rgba(255,255,255,.2); color: white;
+      font-size: 10px; padding: 2px 8px; border-radius: 20px;
+      font-weight: 600; letter-spacing: .2px; text-transform: none;
+    }
+    .pricing-price {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 48px; font-weight: 400; color: white;
+      letter-spacing: -.03em; line-height: 1;
+    }
+    .pricing-price-pro {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 48px; font-weight: 400; color: white;
+      letter-spacing: -.03em; line-height: 1;
+    }
+    .pricing-mo { font-size: 20px; font-weight: 400; opacity: .7; }
+    .pricing-price-sub {
+      font-size: 13px; color: rgba(255,255,255,.4); margin-top: 6px;
+    }
+    .pricing-divider {
+      height: 1px; background: rgba(255,255,255,.1); margin: 0 0 24px;
+    }
+
+    .pricing-list {
+      list-style: none; display: flex; flex-direction: column; gap: 13px; margin-bottom: 32px;
+    }
+    .pricing-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; color: rgba(255,255,255,.65); line-height: 1.5;
+    }
+    .pricing-list li strong { color: white; font-weight: 600; }
+    .pricing-list-icon {
+      width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0; margin-top: 1px;
+      background: rgba(255,255,255,.12);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.6);
+    }
+    .pricing-list-pro li { color: rgba(255,255,255,.8); }
+    .pricing-list-pro li strong { color: white; }
+    .pricing-list-icon-pro {
+      background: rgba(255,255,255,.25); color: white;
+    }
+
+    .pricing-btn {
+      display: block; text-align: center; text-decoration: none;
+      padding: 13px; border-radius: var(--radius-sm);
+      font-size: 15px; font-weight: 600; font-family: inherit;
+      transition: all .18s; cursor: pointer;
+    }
+    .pricing-btn-outline {
+      border: 1.5px solid rgba(255,255,255,.2); color: rgba(255,255,255,.7);
+      background: rgba(255,255,255,.05);
+    }
+    .pricing-btn-outline:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.35); color: white; }
+    .pricing-btn-solid {
+      background: white; color: var(--accent); border: none;
+      box-shadow: 0 4px 16px rgba(0,0,0,.2);
+    }
+    .pricing-btn-solid:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+
+    .pricing-note {
+      font-size: 12px; color: rgba(255,255,255,.4); text-align: center; margin-top: 12px; line-height: 1.5;
+    }
+
+    .pricing-reassurance {
+      display: flex; align-items: center; justify-content: center; gap: 7px;
+      font-size: 13px; color: rgba(255,255,255,.3);
+      text-align: center; margin-top: 36px; line-height: 1.6;
+      max-width: 480px; margin-left: auto; margin-right: auto;
+    }
+    .pricing-reassurance svg { flex-shrink: 0; color: rgba(255,255,255,.25); margin-top: 1px; }
+
+    /* ─────────────────────────────
+       RESPONSIVE
+    ───────────────────────────── */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 80px 24px 60px; }
+      .trust-strip { gap: 24px; padding: 20px 24px; }
+      .pricing-section { padding: 72px 24px; }
+      .pricing-cards { grid-template-columns: 1fr; }
+      .tools-section { padding: 72px 24px 60px; }
+      .tools-grid { grid-template-columns: 1fr; }
+      .privacy-inner { grid-template-columns: 1fr; gap: 48px; padding: 72px 24px; }
+      .privacy-visual { display: none; }
+      .how-section { padding: 72px 24px; }
+      .steps { grid-template-columns: 1fr; }
+      .cta-section { padding: 72px 24px; }
+      footer { padding: 28px 24px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+
+  <!-- Homepage additional schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "OfflinePDF",
+    "url": "https://offlinepdf.io",
+    "logo": "https://offlinepdf.io/og-image.png",
+    "description": "Free online PDF tools that run entirely in your browser. No uploads, no account required.",
+    "sameAs": []
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <a class="nav-logo" href="#">
+      <div class="nav-logo-mark">
+        <svg viewBox="0 0 16 16" fill="none">
+          <rect x="1" y="1" width="10" height="13" rx="2" fill="white" opacity=".3"/>
+          <rect x="3" y="3" width="10" height="13" rx="2" fill="white"/>
+        </svg>
+      </div>
+      <span class="nav-logo-name">OfflinePDF</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#tools">Tools</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="#privacy">Privacy</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#tools" class="nav-cta">Get started, it's free</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      12 tools · No account needed · Nothing to install
+    </div>
+
+    <h1 class="hero-headline">
+      PDF tools that<br><em>just work.</em>
+    </h1>
+
+    <p class="hero-sub">
+      Split, merge, compress, rotate, watermark and more.
+      No uploads. No account. No friction.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#tools" class="btn-primary">
+        <svg viewBox="0 0 18 18" fill="none" width="16" height="16"><rect x="2" y="2" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="10" y="2" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="2" y="10" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="10" y="10" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/></svg>
+        Browse all tools
+      </a>
+      <a href="#privacy" class="btn-secondary">
+        <svg viewBox="0 0 18 18" fill="none" width="16" height="16"><path d="M9 1.5L2 5v5c0 4.14 2.97 8.01 7 9 4.03-.99 7-4.86 7-9V5L9 1.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        How privacy works
+      </a>
+    </div>
+
+    <p class="hero-privacy">
+      <svg viewBox="0 0 14 16" fill="none" width="12" height="14"><path d="M7 1.5L1.5 4.25V8c0 3.5 2.53 6.5 5.5 7.25C9.97 14.5 12.5 11.5 12.5 8V4.25L7 1.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+      Your files never leave your device. Zero server contact.
+    </p>
+  </section>
+
+  <!-- ── TRUST STRIP ── -->
+  <div class="trust-strip reveal">
+    <div class="trust-item">
+      <svg viewBox="0 0 18 20" fill="none" width="16" height="18"><path d="M9 1.5L2 5v5c0 4.5 3.1 8.7 7 9.8 3.9-1.1 7-5.3 7-9.8V5L9 1.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M6 10l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      No file uploads
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M9 5v4l2.5 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Works instantly
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 18 18" fill="none"><path d="M9 2c-3.87 0-7 3.13-7 7s3.13 7 7 7 7-3.13 7-7-3.13-7-7-7zm0 0v7l4 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      No sign-up required
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 18 18" fill="none"><rect x="3" y="3" width="12" height="12" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M6 9h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      No account needed
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 18 18" fill="none"><path d="M3 9l4 4 8-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Works offline
+    </div>
+  </div>
+
+  <!-- ── TOOLS ── -->
+  <section class="tools-section" id="tools">
+    <p class="section-eyebrow reveal">The toolkit</p>
+    <h2 class="section-title reveal">Everything you need.</h2>
+    <p class="section-sub reveal">Twelve focused tools. Each one does exactly what it says, nothing more, nothing less.</p>
+
+    <div class="tools-grid">
+
+      <!-- Split -->
+      <a class="tool-card reveal" href="pdf-splitter.html">
+        <div class="tool-icon" style="background:rgba(255,59,48,0.1);">
+          <svg viewBox="0 0 28 28" fill="none">
+            <rect x="3" y="2" width="12" height="16" rx="2" fill="#ff3b30" opacity=".3"/>
+            <rect x="5" y="4" width="12" height="16" rx="2" fill="#ff3b30" opacity=".6"/>
+            <rect x="7" y="6" width="12" height="16" rx="2" fill="#ff3b30"/>
+            <path d="M11 19l3-3 3 3M14 16v5" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="tool-name">Split PDF</div>
+          <div class="tool-desc">Divide a multi-page PDF into individual single-page files. Numbered automatically.</div>
+        </div>
+        <div class="tool-arrow">
+          Open tool
+          <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+
+      <!-- Merge -->
+      <a class="tool-card reveal" href="pdf-merger.html">
+        <div class="tool-icon" style="background:rgba(0,113,227,0.1);">
+          <svg viewBox="0 0 28 28" fill="none">
+            <rect x="2" y="4" width="10" height="14" rx="2" fill="#0071e3" opacity=".3"/>
+            <rect x="5" y="7" width="10" height="14" rx="2" fill="#0071e3" opacity=".6"/>
+            <rect x="8" y="10" width="10" height="14" rx="2" fill="#0071e3"/>
+            <circle cx="22" cy="22" r="5" fill="#34c759"/>
+            <path d="M20 22h4M22 20v4" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="tool-name">Merge PDF</div>
+          <div class="tool-desc">Combine multiple PDFs into one. Drag to reorder before merging.</div>
+        </div>
+        <div class="tool-arrow">Open tool <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+
+      <!-- Compress -->
+      <a class="tool-card reveal" href="pdf-compressor.html">
+        <div class="tool-icon" style="background:rgba(255,59,48,0.1);">
+          <svg viewBox="0 0 28 28" fill="none">
+            <rect x="3" y="2" width="13" height="17" rx="2" fill="#ff3b30" opacity=".25"/>
+            <rect x="5" y="4" width="13" height="17" rx="2" fill="#ff3b30" opacity=".5"/>
+            <rect x="7" y="6" width="13" height="17" rx="2" fill="#ff3b30"/>
+            <path d="M11 14l2.5 2.5 2.5-2.5M13.5 16.5V10" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="tool-name">Compress PDF</div>
+          <div class="tool-desc">Reduce file size with three compression levels. See before and after size instantly.</div>
+        </div>
+        <div class="tool-arrow">Open tool <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+
+      <!-- Rotate -->
+      <a class="tool-card reveal" href="pdf-rotate.html">
+        <div class="tool-icon" style="background:rgba(255,59,48,0.1);">
+          <svg viewBox="0 0 28 28" fill="none">
+            <defs>
+              <marker id="cwarrow-lp" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+                <path d="M1 1 L9 5 L1 9" fill="none" stroke="#0071e3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </marker>
+            </defs>
+            <rect x="3" y="4" width="13" height="17" rx="2" fill="#ff3b30" opacity=".3"/>
+            <rect x="5" y="6" width="13" height="17" rx="2" fill="#ff3b30" opacity=".5"/>
+            <rect x="7" y="8" width="13" height="17" rx="2" fill="#ff3b30"/>
+            <path d="M10 14h7M10 18h5" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M16 4 A6 6 0 0 1 24 13" stroke="#0071e3" stroke-width="1.6" stroke-linecap="round" marker-end="url(#cwarrow-lp)"/>
+          </svg>
+        </div>
+        <div>
+          <div class="tool-name">Rotate PDF</div>
+          <div class="tool-desc">Rotate individual pages or the entire document. Visual page-by-page preview.</div>
+        </div>
+        <div class="tool-arrow">Open tool <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+
+      <!-- PDF to Images -->
+      <a class="tool-card reveal" href="pdf-to-images.html">
+        <div class="tool-icon" style="background:rgba(52,199,89,0.1);">
+          <svg viewBox="0 0 28 28" fill="none">
+            <rect x="2" y="4" width="11" height="14" rx="2" fill="#ff3b30" opacity=".5"/>
+            <path d="M15 11h8M19 7l4 4-4 4" stroke="#0071e3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="17" y="14" width="9" height="9" rx="2" fill="#34c759" opacity=".3"/>
+            <rect x="18" y="15" width="9" height="9" rx="2" fill="#34c759"/>
+            <path d="M19 21l2-2 1.5 1.5L24 19l3 4h-8z" fill="white" opacity=".8"/>
+          </svg>
+        </div>
+        <div>
+          <div class="tool-name">PDF to Images</div>
+          <div class="tool-desc">Export every page as PNG, JPEG, or WebP. Choose resolution and download as ZIP.</div>
+        </div>
+        <div class="tool-arrow">Open tool <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+
+      <!-- Images to PDF -->
+      <a class="tool-card reveal" href="images-to-pdf.html">
+        <div class="tool-icon" style="background:rgba(52,199,89,0.1);">
+          <svg viewBox="0 0 28 28" fill="none">
+            <rect x="2" y="4" width="11" height="11" rx="2" fill="#34c759" opacity=".4"/>
+            <rect x="3" y="5" width="11" height="11" rx="2" fill="#34c759"/>
+            <path d="M4 13l3-3 2 2 2.5-3 3 4H4z" fill="white" opacity=".8"/>
+            <path d="M16 12h6M19 9l3 3-3 3" stroke="#0071e3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="20" y="15" width="7" height="9" rx="1.5" fill="#ff3b30" opacity=".4"/>
+            <rect x="21" y="16" width="7" height="9" rx="1.5" fill="#ff3b30"/>
+          </svg>
+        </div>
+        <div>
+          <div class="tool-name">Images to PDF</div>
+          <div class="tool-desc">Combine JPG, PNG or WebP images into a single PDF. Drag to reorder pages.</div>
+        </div>
+        <div class="tool-arrow">Open tool <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+
+      <!-- Page Numbers -->
+      <a class="tool-card reveal" href="pdf-page-numbers.html">
+        <div class="tool-icon" style="background:rgba(0,113,227,0.1);">
+          <svg viewBox="0 0 28 28" fill="none">
+            <rect x="3" y="2" width="16" height="20" rx="2" fill="#ff3b30" opacity=".25"/>
+            <rect x="5" y="4" width="16" height="20" rx="2" fill="#ff3b30"/>
+            <path d="M9 9h10M9 13h10M9 17h6" stroke="white" stroke-width="1.3" stroke-linecap="round"/>
+            <rect x="16" y="18" width="10" height="8" rx="2.5" fill="#0071e3"/>
+            <text x="21" y="24" font-size="6" font-weight="700" fill="white" text-anchor="middle" font-family="-apple-system,sans-serif">3</text>
+          </svg>
+        </div>
+        <div>
+          <div class="tool-name">Add Page Numbers</div>
+          <div class="tool-desc">Stamp pages with fully customizable numbers. Choose position, size, color and format.</div>
+        </div>
+        <div class="tool-arrow">Open tool <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+
+      <!-- Watermark -->
+      <a class="tool-card reveal" href="pdf-watermark.html">
+        <div class="tool-icon" style="background:rgba(255,59,48,0.1);">
+          <svg viewBox="0 0 28 28" fill="none">
+            <rect x="3" y="2" width="16" height="20" rx="2" fill="#ff3b30" opacity=".25"/>
+            <rect x="5" y="4" width="16" height="20" rx="2" fill="#ff3b30"/>
+            <text x="13" y="18" font-size="7" font-weight="700" fill="white" fill-opacity=".4"
+              text-anchor="middle" transform="rotate(-30 13 15)" font-family="-apple-system,sans-serif">DRAFT</text>
+          </svg>
+        </div>
+        <div>
+          <div class="tool-name">Watermark PDF</div>
+          <div class="tool-desc">Add text or image watermarks to every page. Control opacity, size and position.</div>
+        </div>
+        <div class="tool-arrow">Open tool <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+
+      <!-- Protect -->
+      <a class="tool-card reveal" href="pdf-protect.html">
+        <div class="tool-icon" style="background:rgba(0,113,227,0.1);">
+          <svg viewBox="0 0 28 28" fill="none">
+            <path d="M14 2L5 6.5V12c0 5.25 3.8 10.15 9 11.5 5.2-1.35 9-6.25 9-11.5V6.5L14 2z" fill="#0071e3" opacity=".2"/>
+            <path d="M14 2L5 6.5V12c0 5.25 3.8 10.15 9 11.5 5.2-1.35 9-6.25 9-11.5V6.5L14 2z" stroke="#0071e3" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M10 12l2.5 2.5 5.5-5.5" stroke="#0071e3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="tool-name">Protect PDF</div>
+          <div class="tool-desc">Lock your PDF with a password and control printing, copying and editing permissions.</div>
+        </div>
+        <div class="tool-arrow">Open tool <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+
+      <!-- Unlock -->
+      <a class="tool-card reveal" href="pdf-unlock.html">
+        <div class="tool-icon" style="background:rgba(52,199,89,0.1);">
+          <svg viewBox="0 0 28 28" fill="none">
+            <path d="M9 13V9a5 5 0 0110 0" stroke="#34c759" stroke-width="1.8" stroke-linecap="round"/>
+            <rect x="5" y="13" width="18" height="12" rx="3" fill="#34c759" opacity=".25"/>
+            <rect x="6" y="14" width="16" height="11" rx="2.5" fill="#34c759"/>
+            <circle cx="14" cy="19" r="2" fill="white"/>
+            <path d="M14 21v2" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="tool-name">Unlock PDF</div>
+          <div class="tool-desc">Remove password protection from PDFs you own. Strips encryption entirely.</div>
+        </div>
+        <div class="tool-arrow">Open tool <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+
+      <!-- Delete Pages -->
+      <a class="tool-card reveal" href="pdf-delete-pages.html">
+        <div class="tool-icon" style="background:rgba(255,59,48,0.1);">
+          <svg viewBox="0 0 28 28" fill="none">
+            <rect x="3" y="2" width="14" height="18" rx="2" fill="#ff3b30" opacity=".25"/>
+            <rect x="5" y="4" width="14" height="18" rx="2" fill="#ff3b30" opacity=".5"/>
+            <rect x="7" y="6" width="14" height="18" rx="2" fill="#ff3b30"/>
+            <path d="M10 12h8M10 16h5" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+            <circle cx="22" cy="22" r="5" fill="#ff3b30"/>
+            <path d="M20 22h4M22 20v4" stroke="white" stroke-width="1.6" stroke-linecap="round" transform="rotate(45 22 22)"/>
+          </svg>
+        </div>
+        <div>
+          <div class="tool-name">Delete Pages</div>
+          <div class="tool-desc">Visually select and remove specific pages from any PDF. Preview every page first.</div>
+        </div>
+        <div class="tool-arrow">Open tool <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+
+      <!-- PDF to Text -->
+      <a class="tool-card reveal" href="pdf-to-text.html">
+        <div class="tool-icon" style="background:rgba(0,113,227,0.1);">
+          <svg viewBox="0 0 28 28" fill="none">
+            <rect x="2" y="2" width="14" height="18" rx="2" fill="#ff3b30" opacity=".4"/>
+            <rect x="3" y="3" width="14" height="18" rx="2" fill="#ff3b30"/>
+            <path d="M6 8h8M6 12h8M6 16h5" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M19 14h7" stroke="#0071e3" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M22 10l4 4-4 4" stroke="#0071e3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="23" y="5" width="5" height="7" rx="1.5" fill="#0071e3"/>
+            <path d="M24.5 7h2M25.5 7v4" stroke="white" stroke-width="1" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="tool-name">PDF to Text</div>
+          <div class="tool-desc">Extract all readable text from your PDF. Download as TXT or Markdown, copy to clipboard.</div>
+        </div>
+        <div class="tool-arrow">Open tool <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ── PRICING ── -->
+  <section class="pricing-section" id="pricing">
+    <div class="pricing-section-inner">
+
+      <div class="pricing-header reveal">
+        <p class="section-eyebrow">Pricing</p>
+        <h2 class="section-title">Simple, honest pricing.</h2>
+        <p class="section-sub" style="margin-bottom:0;">Start for free, upgrade when you need more. No surprises.</p>
+      </div>
+
+      <div class="pricing-cards reveal">
+
+        <!-- Basic -->
+        <div class="pricing-card free">
+          <div class="pricing-card-header">
+            <div>
+              <div class="pricing-tag">Basic</div>
+              <div class="pricing-price">Free</div>
+              <div class="pricing-price-sub">No card. No account. Forever.</div>
+            </div>
+            <div class="pricing-icon pricing-icon-free">
+              <svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M12 2L3 7v6c0 5.25 3.8 9.74 9 11 5.2-1.26 9-5.75 9-11V7L12 2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.5 12l2.5 2.5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+          <div class="pricing-divider"></div>
+          <ul class="pricing-list">
+            <li>
+              <div class="pricing-list-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l2.5 2.5 5.5-5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div><strong>All 12 PDF tools</strong>, including split, merge, compress, rotate and more</div>
+            </li>
+            <li>
+              <div class="pricing-list-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l2.5 2.5 5.5-5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div>No account or sign-up required</div>
+            </li>
+            <li>
+              <div class="pricing-list-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l2.5 2.5 5.5-5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div>100% private. Files never leave your device</div>
+            </li>
+            <li>
+              <div class="pricing-list-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l2.5 2.5 5.5-5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div>Works offline, no installation needed</div>
+            </li>
+          </ul>
+          <a href="#tools" class="pricing-btn pricing-btn-outline">Start using tools</a>
+        </div>
+
+        <!-- Pro -->
+        <div class="pricing-card pro">
+          <div class="pricing-card-header">
+            <div>
+              <div class="pricing-tag-pro">Pro</div>
+              <div class="pricing-price-pro">$9<span class="pricing-mo">/mo</span></div>
+              <div class="pricing-price-sub" style="color:rgba(255,255,255,.5);">For power users &amp; professionals.</div>
+            </div>
+            <div class="pricing-icon pricing-icon-pro">
+              <svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+          <div class="pricing-divider" style="border-color:rgba(255,255,255,.12);"></div>
+          <ul class="pricing-list pricing-list-pro">
+            <li>
+              <div class="pricing-list-icon pricing-list-icon-pro"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l2.5 2.5 5.5-5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div><strong>Everything in Basic</strong></div>
+            </li>
+            <li>
+              <div class="pricing-list-icon pricing-list-icon-pro"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l2.5 2.5 5.5-5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div>Larger file support with no size restrictions</div>
+            </li>
+            <li>
+              <div class="pricing-list-icon pricing-list-icon-pro"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l2.5 2.5 5.5-5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div>Batch processing to handle multiple files at once</div>
+            </li>
+            <li>
+              <div class="pricing-list-icon pricing-list-icon-pro"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l2.5 2.5 5.5-5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div>Priority support and early access to new tools</div>
+            </li>
+          </ul>
+          <a href="pricing.html" class="pricing-btn pricing-btn-solid">Get Pro</a>
+          <p class="pricing-note">See everything that's included: full comparison table and FAQ.</p>
+        </div>
+
+      </div>
+
+      <!-- Bottom reassurance line -->
+      <p class="pricing-reassurance reveal">
+        Questions about what's included? <a href="pricing.html" style="color:rgba(255,255,255,.5); text-decoration:underline; text-underline-offset:3px; transition:color .15s;" onmouseover="this.style.color='rgba(255,255,255,.8)'" onmouseout="this.style.color='rgba(255,255,255,.5)'">See the full comparison →</a>
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ── PRIVACY ── -->
+  <section class="privacy-section" id="privacy">
+    <div class="privacy-inner">
+      <div class="privacy-text">
+        <p class="section-eyebrow reveal">Privacy first</p>
+        <h2 class="section-title reveal">Your files stay<br>on your device.</h2>
+        <p class="privacy-body reveal">
+          Every tool runs entirely inside your browser using WebAssembly and the latest web APIs. When you open a PDF, it never touches a server. Not ours, not anyone's.
+        </p>
+        <div class="privacy-points reveal">
+          <div class="privacy-point">
+            <div class="privacy-point-icon">
+              <svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5 6.5-6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span>No file ever leaves your computer. Processing happens locally in your browser tab.</span>
+          </div>
+          <div class="privacy-point">
+            <div class="privacy-point-icon">
+              <svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5 6.5-6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span>Works completely offline after the page loads. No internet connection required.</span>
+          </div>
+          <div class="privacy-point">
+            <div class="privacy-point-icon">
+              <svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5 6.5-6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span>No account, no email, no tracking. Open a tool and get to work.</span>
+          </div>
+          <div class="privacy-point">
+            <div class="privacy-point-icon">
+              <svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5 6.5-6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span>Sensitive documents, legal, medical or financial, stay completely private. Always.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="privacy-visual reveal">
+        <div class="privacy-device">
+          <div class="privacy-device-header">
+            <div class="device-dot" style="background:#ff5f56;"></div>
+            <div class="device-dot" style="background:#ffbd2e;"></div>
+            <div class="device-dot" style="background:#27c93f;"></div>
+          </div>
+
+          <div class="flow-row">
+            <div class="flow-box" style="color:var(--danger);">
+              <svg viewBox="0 0 14 14" fill="none"><rect x="1" y="2" width="8" height="10" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M5 12h7V5l-3-3H5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              confidential.pdf
+            </div>
+          </div>
+
+          <div class="flow-row" style="padding-left:16px;">
+            <div class="flow-arrow">↓</div>
+            <div style="font-size:12px; color:var(--text-tertiary);">processed in browser</div>
+          </div>
+
+          <div class="flow-row">
+            <div class="flow-box" style="color:var(--accent);">
+              <svg viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M4 7h6M7 4v6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+              OfflinePDF tool
+            </div>
+          </div>
+
+          <div class="flow-row" style="padding-left:16px;">
+            <div class="flow-arrow">↓</div>
+            <div style="font-size:12px; color:var(--text-tertiary);">saved locally</div>
+          </div>
+
+          <div class="flow-row">
+            <div class="flow-box" style="color:var(--success);">
+              <svg viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 6l3 3 3-3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 11h12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+              output.pdf
+            </div>
+          </div>
+
+          <div style="margin-top:16px; padding-top:16px; border-top:1px solid var(--border);">
+            <div class="flow-blocked">
+              <svg viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.3"/><path d="M4 4l6 6M10 4l-6 6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+              No server contact. Ever.
+            </div>
+            <div class="flow-badge" style="margin-top:10px;">
+              <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l2.5 2.5 5.5-5.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              100% private by design
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HOW IT WORKS ── -->
+  <section class="how-section" id="how">
+    <p class="section-eyebrow reveal">Simple by design</p>
+    <h2 class="section-title reveal">Three steps, every time.</h2>
+    <p class="section-sub reveal">No tutorials. No learning curve. Every tool works the same way.</p>
+
+    <div class="steps">
+      <div class="step-card reveal">
+        <div class="step-num">01</div>
+        <div class="step-title">Drop your file</div>
+        <div class="step-desc">Drag and drop your PDF, or tap to browse. No complicated setup, no software to install.</div>
+      </div>
+      <div class="step-card reveal" style="transition-delay:.08s;">
+        <div class="step-num">02</div>
+        <div class="step-title">Set your options</div>
+        <div class="step-desc">Adjust the settings you care about. Smart defaults mean most people don't need to change a thing.</div>
+      </div>
+      <div class="step-card reveal" style="transition-delay:.16s;">
+        <div class="step-num">03</div>
+        <div class="step-title">Download instantly</div>
+        <div class="step-desc">Your processed file downloads directly to your device. Nothing is stored, nothing is sent anywhere.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2 class="cta-title">Ready to get<br><em>something done?</em></h2>
+      <p class="cta-sub">Pick a tool and go. No account, no setup, no waiting.</p>
+      <div class="cta-actions">
+        <a href="#tools" class="btn-cta-primary">Browse all tools</a>
+        <a href="#privacy" class="btn-cta-ghost">Learn about privacy</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <a class="footer-logo" href="#">
+      <div class="footer-logo-mark">
+        <svg viewBox="0 0 12 12" fill="none"><rect x="1" y="1" width="7" height="9" rx="1.5" fill="white" opacity=".4"/><rect x="2" y="2" width="7" height="9" rx="1.5" fill="white"/></svg>
+      </div>
+      OfflinePDF
+    </a>
+    <ul class="footer-links">
+      <li><a href="#tools">Tools</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="#privacy">Privacy</a></li>
+      <li><a href="#how">How it works</a></li>
+    </ul>
+    <div class="footer-copy">
+      © 2025 OfflinePDF. Professional PDF tools built for people who value their privacy.
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
