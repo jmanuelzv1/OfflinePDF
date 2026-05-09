@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to Pro — OfflinePDF</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      background: #f5f5f7; color: #1d1d1f;
+      min-height: 100vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 24px; -webkit-font-smoothing: antialiased;
+    }
+    .card {
+      background: white; border-radius: 24px;
+      padding: 48px 40px; max-width: 480px; width: 100%;
+      text-align: center; box-shadow: 0 8px 40px rgba(0,0,0,.08);
+    }
+    .icon {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: rgba(52,199,89,.12); color: #34c759;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+    }
+    h1 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 36px; font-weight: 400; letter-spacing: -.02em;
+      margin-bottom: 12px;
+    }
+    h1 em { font-style: italic; color: #0071e3; }
+    p {
+      font-size: 16px; color: #6e6e73; line-height: 1.6;
+      margin-bottom: 32px;
+    }
+    .features {
+      background: #f5f5f7; border-radius: 16px;
+      padding: 20px; margin-bottom: 32px; text-align: left;
+    }
+    .feature {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; color: #1d1d1f; padding: 6px 0;
+    }
+    .feature-icon {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: rgba(52,199,89,.15); color: #34c759;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .feature-icon svg { width: 11px; height: 11px; }
+    .btn {
+      display: block; background: #0071e3; color: white;
+      padding: 14px 28px; border-radius: 980px;
+      font-size: 16px; font-weight: 600; text-decoration: none;
+      transition: background .15s, transform .15s;
+      margin-bottom: 12px;
+    }
+    .btn:hover { background: #0077ed; transform: translateY(-1px); }
+    .btn-ghost {
+      display: block; color: #6e6e73;
+      font-size: 14px; text-decoration: none;
+    }
+    .btn-ghost:hover { color: #1d1d1f; }
+    .logo {
+      display: flex; align-items: center; gap: 8px;
+      justify-content: center; margin-bottom: 32px;
+      text-decoration: none; color: #1d1d1f;
+      font-size: 15px; font-weight: 600;
+    }
+    .logo-mark {
+      width: 28px; height: 28px; background: #0071e3;
+      border-radius: 7px; display: flex; align-items: center; justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <a class="logo" href="index.html">
+      <div class="logo-mark">
+        <svg viewBox="0 0 16 16" fill="none" width="14" height="14">
+          <rect x="1" y="1" width="10" height="13" rx="2" fill="white" opacity=".3"/>
+          <rect x="3" y="3" width="10" height="13" rx="2" fill="white"/>
+        </svg>
+      </div>
+      OfflinePDF
+    </a>
+
+    <div class="icon">
+      <svg viewBox="0 0 32 32" fill="none" width="32" height="32">
+        <circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="2"/>
+        <path d="M10 16l4 4 8-8" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <h1>Welcome to <em>Pro.</em></h1>
+    <p>Your subscription is active. All limits have been removed across every tool.</p>
+
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 11 11" fill="none"><path d="M1.5 5.5l2.5 2.5 5.5-5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        Unlimited file sizes
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 11 11" fill="none"><path d="M1.5 5.5l2.5 2.5 5.5-5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        Unlimited daily operations
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 11 11" fill="none"><path d="M1.5 5.5l2.5 2.5 5.5-5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        Batch processing
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 11 11" fill="none"><path d="M1.5 5.5l2.5 2.5 5.5-5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        Priority support
+      </div>
+    </div>
+
+    <a href="index.html" class="btn">Start using Pro tools</a>
+    <a href="index.html" class="btn-ghost">Back to homepage</a>
+  </div>
+
+  <script>
+    // Mark user as Pro in localStorage after successful payment
+    const params = new URLSearchParams(window.location.search);
+    const sessionId = params.get('session_id');
+
+    if (sessionId) {
+      // The email was saved to localStorage before redirect
+      const email = localStorage.getItem('opdf_pro_email');
+      if (email) {
+        // Invalidate Pro cache so next check hits Supabase fresh
+        localStorage.removeItem('opdf_pro_cache');
+        localStorage.removeItem('opdf_pro_ts');
+      }
+    }
+  </script>
+</body>
+</html>
