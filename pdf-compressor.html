@@ -656,6 +656,9 @@
     async function handleFile(file) {
       hideError();
       if (!file.name.toLowerCase().endsWith('.pdf')) { showError('Please select a valid PDF file.'); return; }
+      // Paywall: check file size
+      try { await Paywall.checkFileSize(file); } catch(e) { if(e.message==='FILE_TOO_LARGE') return; }
+
       selectedFile = file;
       try {
         const buf = await file.arrayBuffer();
@@ -682,6 +685,11 @@
       if (!selectedFile) return;
       hideError();
       btnCompress.disabled = true;
+
+      // Paywall: check daily ops limit
+      try { await Paywall.checkOpsLimit(); } catch(e) { if(e.message==='OPS_LIMIT_REACHED') return; }
+
+
       actionWrap.classList.remove('visible');
       progressWrap.classList.add('visible');
       progressFill.style.width = '0%';
@@ -762,6 +770,7 @@
       const outName = selectedFile.name.replace(/\.pdf$/i, '') + '_compressed.pdf';
       btnDownload.onclick = () => {
         const blob = new Blob([compressedBytes], { type: 'application/pdf' });
+        Paywall.recordOperation();
         const url  = URL.createObjectURL(blob);
         const a    = Object.assign(document.createElement('a'), { href: url, download: outName });
         document.body.appendChild(a); a.click(); document.body.removeChild(a);

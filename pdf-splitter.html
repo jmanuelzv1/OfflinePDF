@@ -768,6 +768,11 @@
         return;
       }
 
+      // Paywall: check file size
+      try { await Paywall.checkFileSize(file); } catch(e) { if(e.message==='FILE_TOO_LARGE') return; }
+
+
+
       selectedFile = file;
 
       // Count pages
@@ -827,6 +832,11 @@
       if (!selectedFile) return;
 
       btnSplit.disabled = true;
+
+      // Paywall: check daily ops limit
+      try { await Paywall.checkOpsLimit(); } catch(e) { if(e.message==='OPS_LIMIT_REACHED') return; }
+
+
       actionArea.classList.remove('visible');
       progressArea.classList.add('visible');
 
@@ -909,6 +919,7 @@
     }
 
     function downloadBlob(blob, name) {
+      Paywall.recordOperation();
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;

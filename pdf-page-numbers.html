@@ -794,6 +794,9 @@
     async function handleFile(file) {
       hideError();
       if (!file.name.toLowerCase().endsWith('.pdf')) { showError('Please select a valid PDF file.'); return; }
+      // Paywall: check file size
+      try { await Paywall.checkFileSize(file); } catch(e) { if(e.message==='FILE_TOO_LARGE') return; }
+
       pdfFile = file;
 
       try {
@@ -880,6 +883,11 @@
       if (!pdfFile) return;
       hideError();
       btnApply.disabled = true;
+
+      // Paywall: check daily ops limit
+      try { await Paywall.checkOpsLimit(); } catch(e) { if(e.message==='OPS_LIMIT_REACHED') return; }
+
+
       actionWrap.classList.remove('visible');
       progressWrap.classList.add('visible');
       progressFill.style.width = '0%';
@@ -941,7 +949,8 @@
         const bytes  = await doc.save();
         const blob   = new Blob([bytes], { type: 'application/pdf' });
         const name   = pdfFile.name.replace(/\.pdf$/i, '') + '_numbered.pdf';
-        const url    = URL.createObjectURL(blob);
+        const url    = Paywall.recordOperation();
+        URL.createObjectURL(blob);
         const a      = Object.assign(document.createElement('a'), { href: url, download: name });
         document.body.appendChild(a); a.click(); document.body.removeChild(a);
         setTimeout(() => URL.revokeObjectURL(url), 1000);
