@@ -113,6 +113,7 @@
 
     .nav-links {
       display: flex; align-items: center; gap: 28px; list-style: none;
+      position: absolute; left: 50%; transform: translateX(-50%);
     }
     .nav-links a {
       font-size: 14px; font-weight: 500; color: var(--text-secondary);
@@ -120,13 +121,23 @@
     }
     .nav-links a:hover { color: var(--text-primary); }
 
-    .nav-cta {
-      background: var(--accent); color: white !important;
-      padding: 7px 16px; border-radius: 980px;
-      font-size: 14px !important; font-weight: 500 !important;
-      transition: background .15s !important;
+
+    .nav-auth {
+      display: flex; align-items: center; gap: 8px; margin-left: 8px;
     }
-    .nav-cta:hover { background: var(--accent-hover) !important; color: white !important; }
+    .nav-login {
+      font-size: 14px; font-weight: 500; color: var(--text-secondary);
+      text-decoration: none; padding: 7px 14px; border-radius: 980px;
+      border: 1px solid var(--border-mid);
+      transition: background .15s, border-color .15s, color .15s;
+    }
+    .nav-login:hover { background: var(--surface-3); border-color: rgba(0,0,0,.18); color: var(--text-primary); }
+    .nav-signup {
+      font-size: 14px; font-weight: 500; color: white;
+      text-decoration: none; padding: 7px 16px; border-radius: 980px;
+      background: var(--accent); transition: background .15s;
+    }
+    .nav-signup:hover { background: var(--accent-hover); }
 
     /* ─────────────────────────────
        HERO
@@ -649,6 +660,7 @@
     @media (max-width: 768px) {
       nav { padding: 0 20px; }
       .nav-links { display: none; }
+      .nav-auth { display: none; }
       .hero { padding: 80px 24px 60px; }
       .trust-strip { gap: 24px; padding: 20px 24px; }
       .pricing-section { padding: 72px 24px; }
@@ -695,8 +707,11 @@
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="#privacy">Privacy</a></li>
       <li><a href="#how">How it works</a></li>
-      <li><a href="#tools" class="nav-cta">Get started, it's free</a></li>
     </ul>
+    <div class="nav-auth">
+      <a href="login.html" class="nav-login">Log in</a>
+      <a href="login.html" class="nav-signup">Sign up</a>
+    </div>
   </nav>
 
   <!-- ── HERO ── -->

@@ -106,12 +106,6 @@
     }
     .nav-links a:hover { color: var(--text-primary); }
     .nav-links a.active { color: var(--text-primary); font-weight: 600; }
-    .nav-cta {
-      background: var(--accent); color: white !important;
-      padding: 7px 16px; border-radius: 980px;
-      font-size: 14px !important; font-weight: 500 !important;
-    }
-    .nav-cta:hover { background: var(--accent-hover) !important; }
     @media (max-width: 680px) {
       nav { padding: 0 20px; }
       .nav-links li:not(:last-child) { display: none; }
@@ -454,6 +448,29 @@
       .plans-grid { grid-template-columns: 1fr; }
       table thead th:first-child { min-width: 140px; }
     }
+  
+    .nav-links {
+      position: absolute; left: 50%; transform: translateX(-50%);
+    }
+    .nav-auth {
+      display: flex; align-items: center; gap: 8px;
+    }
+    .nav-login {
+      font-size: 14px; font-weight: 500; color: var(--text-secondary);
+      text-decoration: none; padding: 7px 14px; border-radius: 980px;
+      border: 1px solid var(--border-mid);
+      transition: background .15s, border-color .15s, color .15s;
+    }
+    .nav-login:hover { background: var(--surface-3); border-color: rgba(0,0,0,.18); color: var(--text-primary); }
+    .nav-signup {
+      font-size: 14px; font-weight: 500; color: white;
+      text-decoration: none; padding: 7px 16px; border-radius: 980px;
+      background: var(--accent); transition: background .15s;
+    }
+    .nav-signup:hover { background: var(--accent-hover); }
+    @media (max-width: 768px) {
+      .nav-auth { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -474,8 +491,11 @@
       <li><a href="pricing.html" class="active">Pricing</a></li>
       <li><a href="index.html#privacy">Privacy</a></li>
       <li><a href="index.html#how">How it works</a></li>
-      <li><a href="index.html#tools" class="nav-cta">Get started, it's free</a></li>
     </ul>
+    <div class="nav-auth">
+      <a href="login.html" class="nav-login">Log in</a>
+      <a href="login.html" class="nav-signup">Sign up</a>
+    </div>
   </nav>
 
   <!-- Hero -->

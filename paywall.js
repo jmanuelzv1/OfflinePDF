@@ -161,7 +161,7 @@ const Paywall = (() => {
 
           <div id="paywall-signin">
             Already have Pro?
-            <a href="#" id="paywall-signin-link">Sign in to restore access</a>
+            <a href="login.html" id="paywall-signin-link">Sign in to restore access</a>
           </div>
 
           <button id="paywall-close" aria-label="Close">
