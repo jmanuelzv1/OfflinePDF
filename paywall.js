@@ -1,3 +1,4 @@
+// v2.1
 /**
  * OfflinePDF Paywall
  * Handles free tier limits, Pro status checks, and upgrade modal.
