@@ -1,4 +1,4 @@
-// v2.2
+// v2.3
 /**
  * OfflinePDF Paywall
  * Handles free tier limits, Pro status checks, and upgrade modal.
@@ -346,11 +346,17 @@ const Paywall = (() => {
     // Upgrade CTA
     modal.querySelector('#paywall-cta').addEventListener('click', async () => {
       const emailInput = modal.querySelector('#paywall-email');
-      const email      = emailInput.value.trim(); // may be empty — Stripe collects it
+      const email      = emailInput.value.trim();
       const errorEl    = modal.querySelector('#paywall-error');
       const ctaBtn     = modal.querySelector('#paywall-cta');
 
       errorEl.textContent = '';
+
+      // If not logged in, redirect to login first then come back to upgrade
+      if (!loggedIn || !email) {
+        window.location.href = `login.html?plan=${selectedPlan}&reason=upgrade`;
+        return;
+      }
 
       ctaBtn.disabled    = true;
       ctaBtn.textContent = 'Redirecting…';
@@ -359,7 +365,7 @@ const Paywall = (() => {
         const res  = await fetch(CHECKOUT_URL, {
           method:  'POST',
           headers: { 'Content-Type': 'application/json' },
-          body:    JSON.stringify({ email: email || undefined, plan: selectedPlan }),
+          body:    JSON.stringify({ email, plan: selectedPlan }),
         });
         const data = await res.json();
 
