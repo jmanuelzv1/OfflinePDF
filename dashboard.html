@@ -231,6 +231,94 @@
       100% { background-position: -200% 0; }
     }
 
+    /* Upgrade modal */
+    #upgrade-overlay {
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,0.5); backdrop-filter: blur(4px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px; animation: fade-in .2s ease;
+    }
+    @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+    #upgrade-box {
+      background: white; border-radius: 20px;
+      padding: 36px; max-width: 420px; width: 100%;
+      position: relative; text-align: center;
+      box-shadow: 0 24px 64px rgba(0,0,0,.2);
+      animation: slide-up .25s cubic-bezier(.34,1.56,.64,1);
+    }
+    @keyframes slide-up {
+      from { transform: translateY(16px); opacity: 0; }
+      to   { transform: translateY(0); opacity: 1; }
+    }
+    #upgrade-box h2 {
+      font-size: 20px; font-weight: 700; color: #1d1d1f;
+      margin: 0 0 8px;
+    }
+    #upgrade-box p {
+      font-size: 14px; color: #6e6e73; margin: 0 0 24px; line-height: 1.6;
+    }
+    .upgrade-plans {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px;
+    }
+    .upgrade-plan {
+      border: 2px solid #e5e5ea; border-radius: 12px;
+      padding: 16px 10px; cursor: pointer; background: white;
+      position: relative; transition: border-color .15s; text-align: center;
+    }
+    .upgrade-plan.active { border-color: #0071e3; background: rgba(0,113,227,.04); }
+    .upgrade-plan:hover { border-color: #0071e3; }
+    .upgrade-plan-label {
+      font-size: 11px; font-weight: 700; color: #6e6e73;
+      text-transform: uppercase; letter-spacing: .5px; margin-bottom: 6px;
+    }
+    .upgrade-plan.active .upgrade-plan-label { color: #0071e3; }
+    .upgrade-plan-price { font-size: 28px; font-weight: 700; color: #1d1d1f; line-height: 1; }
+    .upgrade-plan-price span { font-size: 14px; font-weight: 400; color: #6e6e73; }
+    .upgrade-plan-note { font-size: 11px; color: #aeaeb2; margin-top: 4px; }
+    .upgrade-plan-badge {
+      position: absolute; top: -9px; right: 8px;
+      background: #34c759; color: white;
+      font-size: 10px; font-weight: 700; padding: 2px 8px;
+      border-radius: 20px;
+    }
+    .upgrade-features {
+      background: #f5f5f7; border-radius: 12px;
+      padding: 14px 16px; margin-bottom: 20px; text-align: left;
+    }
+    .upgrade-feature {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: #1d1d1f; padding: 4px 0;
+    }
+    .upgrade-feature-dot {
+      width: 16px; height: 16px; border-radius: 50%;
+      background: rgba(52,199,89,.15); color: #34c759;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      font-size: 9px; font-weight: 700;
+    }
+    #upgrade-cta {
+      width: 100%; padding: 14px; border-radius: 980px;
+      background: #0071e3; color: white; border: none;
+      font-size: 16px; font-weight: 600; cursor: pointer;
+      font-family: inherit; transition: background .15s, transform .15s;
+      margin-bottom: 8px;
+    }
+    #upgrade-cta:hover { background: #0077ed; transform: translateY(-1px); }
+    #upgrade-cta:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+    #upgrade-error { font-size: 13px; color: #ff3b30; min-height: 18px; margin-bottom: 4px; }
+    .upgrade-close {
+      position: absolute; top: 16px; right: 16px;
+      width: 28px; height: 28px; border-radius: 50%;
+      background: #f5f5f7; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: #6e6e73; transition: background .15s;
+    }
+    .upgrade-close:hover { background: #e8e8ed; }
+    .upgrade-signin {
+      font-size: 13px; color: #aeaeb2;
+    }
+    .upgrade-signin a { color: #0071e3; text-decoration: none; font-weight: 500; }
+    .upgrade-signin a:hover { text-decoration: underline; }
+
     @media (max-width: 480px) {
       nav { padding: 0 20px; }
       .page { padding: 32px 16px 60px; }
@@ -458,7 +546,7 @@
           <div class="plan-desc">5 operations/day · 25 MB file limit</div>
         </div>
       </div>
-      <a href="pricing.html" class="btn-upgrade">Upgrade to Pro</a>`;
+      <button class="btn-upgrade" onclick="showUpgradeModal()">Upgrade to Pro</button>`;
   }
 
   // ── Usage card ─────────────────────────────────────────────────────────
@@ -490,7 +578,7 @@
         <div class="usage-bar-fill ${full ? 'full' : ''}" style="width:${pct}%"></div>
       </div>
       <p class="usage-note">${full
-        ? 'Daily limit reached. Resets at midnight or <a href="pricing.html" style="color:#0071e3;text-decoration:none">upgrade to Pro</a> for unlimited.'
+        ? 'Daily limit reached. Resets at midnight or <a href="#" onclick="showUpgradeModal();return false;" style="color:#0071e3;text-decoration:none">upgrade to Pro</a> for unlimited.'
         : `${FREE_MAX_OPS - opsUsed} operation${FREE_MAX_OPS - opsUsed === 1 ? '' : 's'} remaining today.`
       }</p>`;
   }
@@ -552,6 +640,100 @@
     localStorage.removeItem('opdf_pro_ts');
     window.location.href = 'index.html';
   });
+
+  // ── Upgrade modal ─────────────────────────────────────────────────────
+  function showUpgradeModal() {
+    document.getElementById('upgrade-modal')?.remove();
+
+    const modal = document.createElement('div');
+    modal.id = 'upgrade-modal';
+    modal.innerHTML = `
+      <div id="upgrade-overlay">
+        <div id="upgrade-box">
+          <button class="upgrade-close" onclick="document.getElementById('upgrade-modal').remove()">
+            <svg viewBox="0 0 16 16" fill="none" width="14" height="14">
+              <path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <h2>Upgrade to Pro</h2>
+          <p>Unlimited file sizes, unlimited daily operations — no restrictions.</p>
+
+          <div class="upgrade-plans">
+            <button class="upgrade-plan active" data-plan="annual">
+              <div class="upgrade-plan-badge">Save 22%</div>
+              <div class="upgrade-plan-label">Annual</div>
+              <div class="upgrade-plan-price">$7<span>/mo</span></div>
+              <div class="upgrade-plan-note">Billed $84/year</div>
+            </button>
+            <button class="upgrade-plan" data-plan="monthly">
+              <div class="upgrade-plan-label">Monthly</div>
+              <div class="upgrade-plan-price">$9<span>/mo</span></div>
+              <div class="upgrade-plan-note">Billed monthly</div>
+            </button>
+          </div>
+
+          <div class="upgrade-features">
+            <div class="upgrade-feature">
+              <div class="upgrade-feature-dot">✓</div> Unlimited file sizes
+            </div>
+            <div class="upgrade-feature">
+              <div class="upgrade-feature-dot">✓</div> Unlimited daily operations
+            </div>
+            <div class="upgrade-feature">
+              <div class="upgrade-feature-dot">✓</div> All 12 PDF tools included
+            </div>
+            <div class="upgrade-feature">
+              <div class="upgrade-feature-dot">✓</div> Cancel anytime
+            </div>
+          </div>
+
+          <button id="upgrade-cta">Upgrade to Pro</button>
+          <div id="upgrade-error"></div>
+        </div>
+      </div>`;
+
+    document.body.appendChild(modal);
+
+    let selectedPlan = 'annual';
+    modal.querySelectorAll('.upgrade-plan').forEach(btn => {
+      btn.addEventListener('click', () => {
+        modal.querySelectorAll('.upgrade-plan').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        selectedPlan = btn.dataset.plan;
+      });
+    });
+
+    modal.querySelector('#upgrade-overlay').addEventListener('click', e => {
+      if (e.target === modal.querySelector('#upgrade-overlay')) modal.remove();
+    });
+
+    modal.querySelector('#upgrade-cta').addEventListener('click', async () => {
+      const ctaBtn  = modal.querySelector('#upgrade-cta');
+      const errorEl = modal.querySelector('#upgrade-error');
+      errorEl.textContent = '';
+      ctaBtn.disabled = true;
+      ctaBtn.textContent = 'Redirecting…';
+
+      try {
+        const res  = await fetch('https://offlinepdf-checkout.offlinepdf.workers.dev', {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify({ email, plan: selectedPlan }),
+        });
+        const data = await res.json();
+        if (data.url) {
+          window.location.href = data.url;
+        } else {
+          throw new Error(data.error || 'Could not create checkout session');
+        }
+      } catch (err) {
+        ctaBtn.disabled = false;
+        ctaBtn.textContent = 'Upgrade to Pro';
+        errorEl.textContent = 'Something went wrong. Please try again.';
+      }
+    });
+  }
+
 </script>
 
 </body>
