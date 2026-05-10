@@ -1,4 +1,4 @@
-// v2.1
+// v2.2
 /**
  * OfflinePDF Paywall
  * Handles free tier limits, Pro status checks, and upgrade modal.
@@ -147,7 +147,7 @@ const Paywall = (() => {
       ? `Your file is ${value} MB. The free plan supports files up to ${FREE_MAX_MB} MB. Upgrade to Pro for unlimited file sizes.`
       : `Free plan includes ${FREE_MAX_OPS} operations per day. You've used all ${value} today. Upgrade to Pro for unlimited daily operations.`;
 
-    // Hidden email field — Stripe collects email during checkout
+    // Always hidden — Stripe collects email during checkout
     const emailSection = `<div id="paywall-email-wrap" style="display:none">
       <input type="email" id="paywall-email" value="${userEmail}" />
     </div>`;
