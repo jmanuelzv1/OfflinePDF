@@ -146,20 +146,23 @@ const Paywall = (() => {
       ? `Your file is ${value} MB. The free plan supports files up to ${FREE_MAX_MB} MB. Upgrade to Pro for unlimited file sizes.`
       : `Free plan includes ${FREE_MAX_OPS} operations per day. You've used all ${value} today. Upgrade to Pro for unlimited daily operations.`;
 
-    // If logged in, hide email input and sign-in link
-    const emailSection = loggedIn
-      ? `<div id="paywall-email-wrap" style="display:none">
-           <input type="email" id="paywall-email" value="${userEmail}" />
-         </div>`
-      : `<div id="paywall-email-wrap">
-           <input type="email" id="paywall-email" placeholder="Your email address" autocomplete="email" />
-         </div>`;
+    // Hidden email field — Stripe collects email during checkout
+    const emailSection = `<div id="paywall-email-wrap" style="display:none">
+      <input type="email" id="paywall-email" value="${userEmail}" />
+    </div>`;
 
     const signinSection = loggedIn
       ? ''
       : `<div id="paywall-signin">
-           Already have Pro?
-           <a href="login.html" id="paywall-signin-link">Sign in to restore access</a>
+           <a href="login.html" id="paywall-signin-link">
+             <svg viewBox="0 0 16 16" fill="none" width="14" height="14" style="vertical-align:-2px;margin-right:5px">
+               <path d="M8 2L4 5.5V8c0 3 2.2 5.8 4 6.5 1.8-.7 4-3.5 4-6.5V5.5L8 2z"
+                 stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+               <path d="M6 8l1.5 1.5L10 6" stroke="currentColor" stroke-width="1.5"
+                 stroke-linecap="round" stroke-linejoin="round"/>
+             </svg>
+             Already have Pro? Sign in to restore access
+           </a>
          </div>`;
 
     const modal = document.createElement('div');
@@ -196,6 +199,7 @@ const Paywall = (() => {
 
           <button id="paywall-cta">Upgrade to Pro</button>
           <div id="paywall-error"></div>
+          <button id="paywall-free" onclick="document.getElementById('paywall-modal').remove()">Continue with free plan</button>
 
           ${signinSection}
 
@@ -297,6 +301,26 @@ const Paywall = (() => {
           color: #6e6e73; transition: background .15s;
         }
         #paywall-close:hover { background: #e8e8ed; }
+        #paywall-free {
+          background: none; border: none; cursor: pointer;
+          font-size: 13px; color: #aeaeb2; font-family: inherit;
+          padding: 4px 0; margin-bottom: 12px;
+          transition: color .15s;
+        }
+        #paywall-free:hover { color: #6e6e73; }
+        #paywall-signin {
+          margin-top: 4px;
+        }
+        #paywall-signin a {
+          display: inline-flex; align-items: center;
+          background: #f5f5f7; border-radius: 10px;
+          padding: 10px 16px; width: 100%;
+          font-size: 14px; font-weight: 500; color: #0071e3;
+          text-decoration: none; justify-content: center;
+          transition: background .15s;
+          box-sizing: border-box;
+        }
+        #paywall-signin a:hover { background: #e8e8ed; }
       </style>
     `;
 
@@ -321,18 +345,11 @@ const Paywall = (() => {
     // Upgrade CTA
     modal.querySelector('#paywall-cta').addEventListener('click', async () => {
       const emailInput = modal.querySelector('#paywall-email');
-      const email      = loggedIn ? userEmail : emailInput.value.trim();
+      const email      = emailInput.value.trim(); // may be empty — Stripe collects it
       const errorEl    = modal.querySelector('#paywall-error');
       const ctaBtn     = modal.querySelector('#paywall-cta');
 
       errorEl.textContent = '';
-      if (!loggedIn) emailInput.classList.remove('error');
-
-      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        if (!loggedIn) emailInput.classList.add('error');
-        errorEl.textContent = 'Please enter a valid email address.';
-        return;
-      }
 
       ctaBtn.disabled    = true;
       ctaBtn.textContent = 'Redirecting…';
@@ -341,7 +358,7 @@ const Paywall = (() => {
         const res  = await fetch(CHECKOUT_URL, {
           method:  'POST',
           headers: { 'Content-Type': 'application/json' },
-          body:    JSON.stringify({ email, plan: selectedPlan }),
+          body:    JSON.stringify({ email: email || undefined, plan: selectedPlan }),
         });
         const data = await res.json();
 
