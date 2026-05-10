@@ -642,7 +642,7 @@
   });
 
   // ── Upgrade modal ─────────────────────────────────────────────────────
-  function showUpgradeModal() {
+  window.showUpgradeModal = function showUpgradeModal() {
     document.getElementById('upgrade-modal')?.remove();
 
     const modal = document.createElement('div');
