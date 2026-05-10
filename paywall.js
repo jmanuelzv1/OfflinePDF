@@ -21,15 +21,34 @@ const Paywall = (() => {
   // ── localStorage keys ──────────────────────────────────────────────────
   const KEY_OPS_DATE  = 'opdf_ops_date';
   const KEY_OPS_COUNT = 'opdf_ops_count';
-  const KEY_PRO_EMAIL = 'opdf_pro_email';
   const KEY_PRO_CACHE = 'opdf_pro_cache';
   const KEY_PRO_TS    = 'opdf_pro_ts';
 
   const PRO_CACHE_TTL = 1000 * 60 * 30; // 30 minutes
 
+  // ── Supabase session ───────────────────────────────────────────────────
+  // Reads the session Supabase stores in localStorage after login.
+  // Returns { email, access_token } or null if not logged in.
+  function getSession() {
+    try {
+      // Supabase v2 stores session under a key like sb-<project>-auth-token
+      const key = Object.keys(localStorage).find(k =>
+        k.startsWith('sb-') && k.endsWith('-auth-token')
+      );
+      if (!key) return null;
+      const session = JSON.parse(localStorage.getItem(key));
+      if (!session?.access_token || !session?.user?.email) return null;
+      // Check expiry
+      if (session.expires_at && session.expires_at * 1000 < Date.now()) return null;
+      return { email: session.user.email, access_token: session.access_token };
+    } catch {
+      return null;
+    }
+  }
+
   // ── Ops counter ────────────────────────────────────────────────────────
   function getTodayKey() {
-    return new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+    return new Date().toISOString().slice(0, 10);
   }
 
   function getOpsToday() {
@@ -49,16 +68,16 @@ const Paywall = (() => {
   }
 
   // ── Pro status ─────────────────────────────────────────────────────────
-  async function checkProStatus(email) {
+  // Verifies Pro status using the real Supabase session JWT — not just email.
+  async function checkProStatus(email, accessToken) {
     try {
+      const headers = {
+        'apikey':        SUPABASE_ANON,
+        'Authorization': `Bearer ${accessToken || SUPABASE_ANON}`,
+      };
       const res = await fetch(
         `${SUPABASE_URL}/rest/v1/users?email=eq.${encodeURIComponent(email)}&select=plan,subscription_status`,
-        {
-          headers: {
-            'apikey':        SUPABASE_ANON,
-            'Authorization': `Bearer ${SUPABASE_ANON}`,
-          },
-        }
+        { headers }
       );
       const data = await res.json();
       const user = data[0];
@@ -69,8 +88,10 @@ const Paywall = (() => {
   }
 
   async function isPro() {
-    const email = localStorage.getItem(KEY_PRO_EMAIL);
-    if (!email) return false;
+    const session = getSession();
+    if (!session) return false;
+
+    const { email, access_token } = session;
 
     // Check cache
     const cached = localStorage.getItem(KEY_PRO_CACHE);
@@ -79,8 +100,8 @@ const Paywall = (() => {
       return cached === 'true';
     }
 
-    // Fresh check
-    const pro = await checkProStatus(email);
+    // Fresh check using real session token
+    const pro = await checkProStatus(email, access_token);
     localStorage.setItem(KEY_PRO_CACHE, String(pro));
     localStorage.setItem(KEY_PRO_TS,    String(Date.now()));
     return pro;
@@ -89,7 +110,7 @@ const Paywall = (() => {
   // ── Limit checks ───────────────────────────────────────────────────────
   async function checkFileSize(file) {
     const pro = await isPro();
-    if (pro) return; // Pro users have no limit
+    if (pro) return;
 
     const mb = file.size / 1024 / 1024;
     if (mb > FREE_MAX_MB) {
@@ -100,7 +121,7 @@ const Paywall = (() => {
 
   async function checkOpsLimit() {
     const pro = await isPro();
-    if (pro) return; // Pro users have no limit
+    if (pro) return;
 
     const ops = getOpsToday();
     if (ops >= FREE_MAX_OPS) {
@@ -111,8 +132,11 @@ const Paywall = (() => {
 
   // ── Upgrade modal ──────────────────────────────────────────────────────
   function showModal(reason, value) {
-    // Remove existing modal
     document.getElementById('paywall-modal')?.remove();
+
+    const session    = getSession();
+    const loggedIn   = !!session;
+    const userEmail  = session?.email || '';
 
     const title = reason === 'filesize'
       ? 'This file is too large for the free plan'
@@ -121,6 +145,22 @@ const Paywall = (() => {
     const desc = reason === 'filesize'
       ? `Your file is ${value} MB. The free plan supports files up to ${FREE_MAX_MB} MB. Upgrade to Pro for unlimited file sizes.`
       : `Free plan includes ${FREE_MAX_OPS} operations per day. You've used all ${value} today. Upgrade to Pro for unlimited daily operations.`;
+
+    // If logged in, hide email input and sign-in link
+    const emailSection = loggedIn
+      ? `<div id="paywall-email-wrap" style="display:none">
+           <input type="email" id="paywall-email" value="${userEmail}" />
+         </div>`
+      : `<div id="paywall-email-wrap">
+           <input type="email" id="paywall-email" placeholder="Your email address" autocomplete="email" />
+         </div>`;
+
+    const signinSection = loggedIn
+      ? ''
+      : `<div id="paywall-signin">
+           Already have Pro?
+           <a href="login.html" id="paywall-signin-link">Sign in to restore access</a>
+         </div>`;
 
     const modal = document.createElement('div');
     modal.id = 'paywall-modal';
@@ -152,17 +192,12 @@ const Paywall = (() => {
             </button>
           </div>
 
-          <div id="paywall-email-wrap">
-            <input type="email" id="paywall-email" placeholder="Your email address" autocomplete="email" />
-          </div>
+          ${emailSection}
 
           <button id="paywall-cta">Upgrade to Pro</button>
           <div id="paywall-error"></div>
 
-          <div id="paywall-signin">
-            Already have Pro?
-            <a href="login.html" id="paywall-signin-link">Sign in to restore access</a>
-          </div>
+          ${signinSection}
 
           <button id="paywall-close" aria-label="Close">
             <svg viewBox="0 0 16 16" fill="none" width="14" height="14">
@@ -181,10 +216,7 @@ const Paywall = (() => {
           display: flex; align-items: center; justify-content: center;
           padding: 20px; animation: paywall-fade .2s ease;
         }
-        @keyframes paywall-fade {
-          from { opacity: 0; }
-          to   { opacity: 1; }
-        }
+        @keyframes paywall-fade { from { opacity: 0; } to { opacity: 1; } }
         #paywall-box {
           background: white; border-radius: 20px;
           padding: 36px; max-width: 420px; width: 100%;
@@ -217,34 +249,25 @@ const Paywall = (() => {
         .paywall-plan-btn {
           border: 2px solid #e5e5ea; border-radius: 12px;
           padding: 14px 10px; cursor: pointer; background: white;
-          position: relative; transition: border-color .15s;
-          text-align: center;
+          position: relative; transition: border-color .15s; text-align: center;
         }
-        .paywall-plan-btn.active {
-          border-color: #0071e3; background: rgba(0,113,227,.04);
-        }
+        .paywall-plan-btn.active { border-color: #0071e3; background: rgba(0,113,227,.04); }
         .paywall-plan-btn:hover { border-color: #0071e3; }
         .paywall-plan-label {
           font-size: 11px; font-weight: 700; color: #6e6e73;
           text-transform: uppercase; letter-spacing: .5px; margin-bottom: 6px;
         }
         .paywall-plan-btn.active .paywall-plan-label { color: #0071e3; }
-        .paywall-plan-price {
-          font-size: 26px; font-weight: 700; color: #1d1d1f; line-height: 1;
-        }
+        .paywall-plan-price { font-size: 26px; font-weight: 700; color: #1d1d1f; line-height: 1; }
         .paywall-plan-price span { font-size: 14px; font-weight: 400; color: #6e6e73; }
-        .paywall-plan-note {
-          font-size: 11px; color: #aeaeb2; margin-top: 4px;
-        }
+        .paywall-plan-note { font-size: 11px; color: #aeaeb2; margin-top: 4px; }
         .paywall-plan-badge {
           position: absolute; top: -8px; right: 8px;
           background: #34c759; color: white;
           font-size: 10px; font-weight: 700; padding: 2px 7px;
           border-radius: 20px; letter-spacing: .2px;
         }
-        #paywall-email-wrap {
-          margin-bottom: 12px;
-        }
+        #paywall-email-wrap { margin-bottom: 12px; }
         #paywall-email {
           width: 100%; padding: 12px 16px; border-radius: 10px;
           border: 1.5px solid #e5e5ea; font-size: 15px;
@@ -262,16 +285,9 @@ const Paywall = (() => {
         }
         #paywall-cta:hover { background: #0077ed; transform: translateY(-1px); }
         #paywall-cta:disabled { opacity: .6; cursor: not-allowed; transform: none; }
-        #paywall-error {
-          font-size: 13px; color: #ff3b30; min-height: 18px;
-          margin-bottom: 4px;
-        }
-        #paywall-signin {
-          font-size: 13px; color: #aeaeb2; margin-top: 8px;
-        }
-        #paywall-signin a {
-          color: #0071e3; text-decoration: none; font-weight: 500;
-        }
+        #paywall-error { font-size: 13px; color: #ff3b30; min-height: 18px; margin-bottom: 4px; }
+        #paywall-signin { font-size: 13px; color: #aeaeb2; margin-top: 8px; }
+        #paywall-signin a { color: #0071e3; text-decoration: none; font-weight: 500; }
         #paywall-signin a:hover { text-decoration: underline; }
         #paywall-close {
           position: absolute; top: 16px; right: 16px;
@@ -304,35 +320,32 @@ const Paywall = (() => {
 
     // Upgrade CTA
     modal.querySelector('#paywall-cta').addEventListener('click', async () => {
-      const email = modal.querySelector('#paywall-email').value.trim();
       const emailInput = modal.querySelector('#paywall-email');
+      const email      = loggedIn ? userEmail : emailInput.value.trim();
       const errorEl    = modal.querySelector('#paywall-error');
       const ctaBtn     = modal.querySelector('#paywall-cta');
 
       errorEl.textContent = '';
-      emailInput.classList.remove('error');
+      if (!loggedIn) emailInput.classList.remove('error');
 
       if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        emailInput.classList.add('error');
+        if (!loggedIn) emailInput.classList.add('error');
         errorEl.textContent = 'Please enter a valid email address.';
         return;
       }
 
-      ctaBtn.disabled     = true;
-      ctaBtn.textContent  = 'Redirecting…';
+      ctaBtn.disabled    = true;
+      ctaBtn.textContent = 'Redirecting…';
 
       try {
-        const res = await fetch(CHECKOUT_URL, {
+        const res  = await fetch(CHECKOUT_URL, {
           method:  'POST',
           headers: { 'Content-Type': 'application/json' },
           body:    JSON.stringify({ email, plan: selectedPlan }),
         });
-
         const data = await res.json();
 
         if (data.url) {
-          // Save email for post-payment Pro check
-          localStorage.setItem(KEY_PRO_EMAIL, email);
           window.location.href = data.url;
         } else {
           throw new Error(data.error || 'Could not create checkout session');
@@ -342,41 +355,6 @@ const Paywall = (() => {
         ctaBtn.textContent = 'Upgrade to Pro';
         errorEl.textContent = 'Something went wrong. Please try again.';
       }
-    });
-
-    // Sign in link
-    modal.querySelector('#paywall-signin-link').addEventListener('click', e => {
-      e.preventDefault();
-      const emailInput = modal.querySelector('#paywall-email');
-      const email = emailInput.value.trim();
-
-      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        emailInput.classList.add('error');
-        modal.querySelector('#paywall-error').textContent = 'Enter your Pro account email to sign in.';
-        return;
-      }
-
-      // Check Pro status for this email
-      localStorage.setItem(KEY_PRO_EMAIL, email);
-      localStorage.removeItem(KEY_PRO_CACHE);
-      localStorage.removeItem(KEY_PRO_TS);
-
-      const ctaBtn = modal.querySelector('#paywall-cta');
-      ctaBtn.disabled    = true;
-      ctaBtn.textContent = 'Checking…';
-
-      checkProStatus(email).then(pro => {
-        if (pro) {
-          modal.remove();
-          // Reload to re-enable the tool
-          window.location.reload();
-        } else {
-          ctaBtn.disabled    = false;
-          ctaBtn.textContent = 'Upgrade to Pro';
-          modal.querySelector('#paywall-error').textContent =
-            'No active Pro subscription found for this email.';
-        }
-      });
     });
   }
 
