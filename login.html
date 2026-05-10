@@ -198,11 +198,11 @@
     if (isPro) {
       statusEl.className = 'status-msg success';
       statusEl.textContent = '✓ Pro access restored! Redirecting…';
-      setTimeout(() => window.location.href = 'index.html', 1500);
+      setTimeout(() => window.location.href = 'dashboard.html', 1500);
     } else {
       statusEl.className = 'status-msg';
       statusEl.textContent = 'Signed in as ' + email + '. No active Pro subscription found.';
-      setTimeout(() => window.location.href = 'pricing.html', 2500);
+      setTimeout(() => window.location.href = 'dashboard.html', 2500);
     }
   }
 
@@ -237,7 +237,7 @@
     const { error } = await client.auth.signInWithOtp({
       email,
       options: {
-        emailRedirectTo: 'https://offlinepdf.io/login.html',
+        emailRedirectTo: 'https://offlinepdf.io/dashboard.html',
       },
     });
 
@@ -269,7 +269,7 @@
     const { error } = await client.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: 'https://offlinepdf.io/login.html',
+        redirectTo: 'https://offlinepdf.io/dashboard.html',
       },
     });
 

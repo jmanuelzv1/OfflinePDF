@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Account — OfflinePDF</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      background: #f5f5f7; color: #1d1d1f;
+      min-height: 100vh; -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Nav ── */
+    nav {
+      background: rgba(245,245,247,0.92);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,.08);
+      padding: 0 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 56px; position: sticky; top: 0; z-index: 100;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 8px;
+      text-decoration: none; color: #1d1d1f; font-size: 15px; font-weight: 600;
+    }
+    .nav-logo-mark {
+      width: 28px; height: 28px; background: #0071e3;
+      border-radius: 7px; display: flex; align-items: center; justify-content: center;
+    }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .nav-tools {
+      font-size: 14px; color: #6e6e73; text-decoration: none;
+      padding: 6px 12px; border-radius: 8px; transition: background .15s, color .15s;
+    }
+    .nav-tools:hover { background: #e8e8ed; color: #1d1d1f; }
+    .nav-signout {
+      font-size: 14px; color: #6e6e73; background: none; border: none;
+      cursor: pointer; padding: 6px 12px; border-radius: 8px;
+      font-family: inherit; transition: background .15s, color .15s;
+    }
+    .nav-signout:hover { background: #e8e8ed; color: #1d1d1f; }
+
+    /* ── Layout ── */
+    .page {
+      max-width: 640px; margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    .page-title {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 32px; font-weight: 400; letter-spacing: -.02em;
+      margin-bottom: 4px;
+    }
+    .page-subtitle {
+      font-size: 15px; color: #6e6e73; margin-bottom: 32px;
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: white; border-radius: 18px;
+      padding: 28px; margin-bottom: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    }
+    .card-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .6px; color: #aeaeb2; margin-bottom: 16px;
+    }
+
+    /* ── Plan card ── */
+    .plan-row {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px;
+    }
+    .plan-info { display: flex; align-items: center; gap: 14px; }
+    .plan-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .plan-icon.free { background: #f5f5f7; color: #6e6e73; }
+    .plan-icon.pro  { background: rgba(0,113,227,.1); color: #0071e3; }
+    .plan-name { font-size: 17px; font-weight: 600; color: #1d1d1f; }
+    .plan-desc { font-size: 13px; color: #6e6e73; margin-top: 2px; }
+    .badge-pro {
+      display: inline-flex; align-items: center;
+      background: rgba(0,113,227,.1); color: #0071e3;
+      font-size: 11px; font-weight: 700; padding: 3px 10px;
+      border-radius: 20px; letter-spacing: .3px; text-transform: uppercase;
+    }
+    .badge-free {
+      display: inline-flex; align-items: center;
+      background: #f5f5f7; color: #6e6e73;
+      font-size: 11px; font-weight: 700; padding: 3px 10px;
+      border-radius: 20px; letter-spacing: .3px; text-transform: uppercase;
+    }
+    .btn-upgrade {
+      display: inline-block; background: #0071e3; color: white;
+      padding: 9px 20px; border-radius: 980px;
+      font-size: 14px; font-weight: 600; text-decoration: none;
+      transition: background .15s, transform .15s; white-space: nowrap;
+    }
+    .btn-upgrade:hover { background: #0077ed; transform: translateY(-1px); }
+
+    /* ── Usage card ── */
+    .usage-row {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .usage-label { font-size: 14px; color: #1d1d1f; font-weight: 500; }
+    .usage-count { font-size: 14px; color: #6e6e73; }
+    .usage-bar-bg {
+      height: 6px; background: #f0f0f5; border-radius: 6px; overflow: hidden;
+    }
+    .usage-bar-fill {
+      height: 100%; border-radius: 6px;
+      background: #0071e3; transition: width .4s ease;
+    }
+    .usage-bar-fill.full { background: #ff3b30; }
+    .usage-note {
+      font-size: 12px; color: #aeaeb2; margin-top: 8px;
+    }
+    .usage-unlimited {
+      font-size: 14px; color: #34c759; font-weight: 500;
+      display: flex; align-items: center; gap: 6px;
+    }
+
+    /* ── Account card ── */
+    .account-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 0; border-bottom: 1px solid #f0f0f5;
+    }
+    .account-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .account-row:first-child { padding-top: 0; }
+    .account-key { font-size: 13px; color: #6e6e73; }
+    .account-val { font-size: 14px; color: #1d1d1f; font-weight: 500; }
+
+    /* ── Tools grid ── */
+    .tools-link {
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px; background: #f5f5f7; border-radius: 12px;
+      padding: 14px; text-decoration: none; color: #1d1d1f;
+      font-size: 14px; font-weight: 500;
+      transition: background .15s, transform .15s;
+    }
+    .tools-link:hover { background: #e8e8ed; transform: translateY(-1px); }
+
+    /* ── Loading skeleton ── */
+    .skeleton {
+      background: linear-gradient(90deg, #f0f0f5 25%, #e8e8ed 50%, #f0f0f5 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.2s infinite;
+      border-radius: 6px; height: 16px;
+    }
+    @keyframes shimmer {
+      0%   { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    @media (max-width: 480px) {
+      nav { padding: 0 20px; }
+      .page { padding: 32px 16px 60px; }
+      .plan-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html">
+      <div class="nav-logo-mark">
+        <svg viewBox="0 0 16 16" fill="none" width="14" height="14">
+          <rect x="1" y="1" width="10" height="13" rx="2" fill="white" opacity=".3"/>
+          <rect x="3" y="3" width="10" height="13" rx="2" fill="white"/>
+        </svg>
+      </div>
+      OfflinePDF
+    </a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-tools">← All tools</a>
+      <button class="nav-signout" id="btn-signout">Sign out</button>
+    </div>
+  </nav>
+
+  <div class="page">
+    <h1 class="page-title">My Account</h1>
+    <p class="page-subtitle" id="page-subtitle">Loading your account…</p>
+
+    <!-- Plan -->
+    <div class="card">
+      <div class="card-label">Plan</div>
+      <div class="plan-row" id="plan-row">
+        <div class="skeleton" style="width:200px;height:44px;border-radius:12px"></div>
+        <div class="skeleton" style="width:80px;height:32px;border-radius:20px"></div>
+      </div>
+    </div>
+
+    <!-- Usage -->
+    <div class="card" id="usage-card">
+      <div class="card-label">Today's usage</div>
+      <div id="usage-content">
+        <div class="skeleton" style="width:100%;height:16px;margin-bottom:10px"></div>
+        <div class="skeleton" style="width:100%;height:6px;border-radius:6px"></div>
+      </div>
+    </div>
+
+    <!-- Account -->
+    <div class="card">
+      <div class="card-label">Account</div>
+      <div id="account-content">
+        <div class="skeleton" style="width:70%;height:14px;margin-bottom:12px"></div>
+        <div class="skeleton" style="width:50%;height:14px"></div>
+      </div>
+    </div>
+
+    <!-- Tools -->
+    <a href="index.html#tools" class="tools-link">
+      <svg viewBox="0 0 16 16" fill="none" width="16" height="16">
+        <rect x="1" y="1" width="10" height="13" rx="2" stroke="#6e6e73" stroke-width="1.5"/>
+        <path d="M5 6h6M5 9h4" stroke="#6e6e73" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      Browse all PDF tools
+    </a>
+  </div>
+
+<script type="module">
+  import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+  const SUPABASE_URL  = 'https://cboglntoucldhujbmeuc.supabase.co';
+  const SUPABASE_ANON = 'sb_publishable_k66dzxNIWHY7fL6G65fWLQ_nI6JBo6D';
+  const FREE_MAX_OPS  = 5;
+
+  const client = createClient(SUPABASE_URL, SUPABASE_ANON);
+
+  // ── Auth check ─────────────────────────────────────────────────────────
+  const { data: { session } } = await client.auth.getSession();
+
+  if (!session) {
+    window.location.href = 'login.html';
+  }
+
+  const user  = session.user;
+  const email = user.email;
+
+  // Save to localStorage for paywall
+  localStorage.setItem('opdf_pro_email', email);
+  localStorage.removeItem('opdf_pro_cache');
+  localStorage.removeItem('opdf_pro_ts');
+
+  // ── Fetch plan from Supabase ───────────────────────────────────────────
+  const { data: userData } = await client
+    .from('users')
+    .select('plan, subscription_status, created_at')
+    .eq('email', email)
+    .single();
+
+  const isPro = userData?.plan === 'pro' && userData?.subscription_status === 'active';
+
+  // ── Page subtitle ──────────────────────────────────────────────────────
+  document.getElementById('page-subtitle').textContent = `Signed in as ${email}`;
+
+  // ── Plan card ──────────────────────────────────────────────────────────
+  const planRow = document.getElementById('plan-row');
+  if (isPro) {
+    planRow.innerHTML = `
+      <div class="plan-info">
+        <div class="plan-icon pro">
+          <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
+            <path d="M12 2L4 6.5V12c0 5 3.8 9.7 8 11 4.2-1.3 8-6 8-11V6.5L12 2z"
+              stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            <path d="M8.5 12l2.5 2.5 5-5" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="plan-name">Pro Plan</div>
+          <div class="plan-desc">Unlimited file sizes &amp; operations</div>
+        </div>
+      </div>
+      <span class="badge-pro">Active</span>`;
+  } else {
+    planRow.innerHTML = `
+      <div class="plan-info">
+        <div class="plan-icon free">
+          <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
+            <rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M9 12h6M12 9v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="plan-name">Free Plan</div>
+          <div class="plan-desc">5 operations/day · 25 MB file limit</div>
+        </div>
+      </div>
+      <a href="pricing.html" class="btn-upgrade">Upgrade to Pro</a>`;
+  }
+
+  // ── Usage card ─────────────────────────────────────────────────────────
+  const usageContent = document.getElementById('usage-content');
+  if (isPro) {
+    usageContent.innerHTML = `
+      <div class="usage-unlimited">
+        <svg viewBox="0 0 16 16" fill="none" width="16" height="16">
+          <path d="M2 8c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6-6-2.7-6-6z" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Unlimited operations — no daily cap
+      </div>`;
+  } else {
+    const today     = new Date().toISOString().slice(0, 10);
+    const savedDate = localStorage.getItem('opdf_ops_date');
+    const opsUsed   = savedDate === today
+      ? parseInt(localStorage.getItem('opdf_ops_count') || '0', 10)
+      : 0;
+    const pct  = Math.min((opsUsed / FREE_MAX_OPS) * 100, 100);
+    const full = opsUsed >= FREE_MAX_OPS;
+
+    usageContent.innerHTML = `
+      <div class="usage-row">
+        <span class="usage-label">Operations today</span>
+        <span class="usage-count">${opsUsed} / ${FREE_MAX_OPS}</span>
+      </div>
+      <div class="usage-bar-bg">
+        <div class="usage-bar-fill ${full ? 'full' : ''}" style="width:${pct}%"></div>
+      </div>
+      <p class="usage-note">${full
+        ? 'Daily limit reached. Resets at midnight or <a href="pricing.html" style="color:#0071e3;text-decoration:none">upgrade to Pro</a> for unlimited.'
+        : `${FREE_MAX_OPS - opsUsed} operation${FREE_MAX_OPS - opsUsed === 1 ? '' : 's'} remaining today.`
+      }</p>`;
+  }
+
+  // ── Account card ───────────────────────────────────────────────────────
+  const joinDate = userData?.created_at
+    ? new Date(userData.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+    : new Date(user.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+  document.getElementById('account-content').innerHTML = `
+    <div class="account-row">
+      <span class="account-key">Email</span>
+      <span class="account-val">${email}</span>
+    </div>
+    <div class="account-row">
+      <span class="account-key">Member since</span>
+      <span class="account-val">${joinDate}</span>
+    </div>
+    <div class="account-row">
+      <span class="account-key">Plan</span>
+      <span class="account-val">${isPro ? 'Pro' : 'Free'}</span>
+    </div>`;
+
+  // ── Sign out ───────────────────────────────────────────────────────────
+  document.getElementById('btn-signout').addEventListener('click', async () => {
+    await client.auth.signOut();
+    localStorage.removeItem('opdf_pro_email');
+    localStorage.removeItem('opdf_pro_cache');
+    localStorage.removeItem('opdf_pro_ts');
+    window.location.href = 'index.html';
+  });
+</script>
+
+</body>
+</html>
