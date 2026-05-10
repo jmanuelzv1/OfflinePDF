@@ -8,7 +8,7 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/supabase/2.39.3/umd/supabase.min.js"></script>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -161,11 +161,13 @@
   <a class="back-link" href="index.html">← Back to all tools</a>
 </div>
 
-<script>
+<script type="module">
+  import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
   const SUPABASE_URL  = 'https://cboglntoucldhujbmeuc.supabase.co';
   const SUPABASE_ANON = 'sb_publishable_k66dzxNIWHY7fL6G65fWLQ_nI6JBo6D';
 
-  const client   = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+  const client   = createClient(SUPABASE_URL, SUPABASE_ANON);
   const statusEl = document.getElementById('status-msg');
   const btnGoogle = document.getElementById('btn-google');
 
