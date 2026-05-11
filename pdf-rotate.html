@@ -426,10 +426,7 @@
       white-space: nowrap;
     }
     .site-nav-links a:hover { color: #1d1d1f; }
-    @media (max-width: 640px) {
-      .site-nav { padding: 0 20px; }
-      .site-nav-links li:not(:last-child) { display: none; }
-    }
+
   
     .site-nav-links {
       position: absolute; left: 50%; transform: translateX(-50%);
@@ -450,15 +447,12 @@
       background: #0071e3; transition: background .15s;
     }
     .site-nav-signup:hover { background: #0077ed; }
-    @media (max-width: 768px) {
-      .site-nav-auth { display: none; }
-    }
+    /* Mobile nav */
     .site-nav-hamburger {
       display: none; background: none; border: none;
       cursor: pointer; padding: 8px; color: #1d1d1f;
       border-radius: 8px; transition: background .15s;
     }
-    .site-nav-hamburger:hover { background: #e8e8ed; }
     .site-nav-hamburger svg { display: block; }
     .site-nav-mobile-menu {
       display: none; position: fixed; top: 56px; left: 0; right: 0;
@@ -485,9 +479,10 @@
     .site-nav-mobile-login { border: 1.5px solid rgba(0,0,0,.11) !important; color: #6e6e73 !important; background: white; }
     .site-nav-mobile-signup { background: #0071e3 !important; color: white !important; }
     @media (max-width: 768px) {
-      .site-nav-links { display: none; }
-      .site-nav-auth { display: none; }
-      .site-nav-hamburger { display: block; }
+      .site-nav { padding: 0 20px; }
+      .site-nav-links { display: none !important; }
+      .site-nav-auth { display: none !important; }
+      .site-nav-hamburger { display: block !important; }
     }
   </style>
     <nav class="site-nav" aria-label="Site navigation">
@@ -510,7 +505,23 @@
       <a href="login.html" class="site-nav-login">Log in</a>
       <a href="login.html" class="site-nav-signup">Sign up</a>
     </div>
+    <button class="site-nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
+        <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
   </nav>
+
+  <div class="site-nav-mobile-menu" id="nav-mobile-menu">
+    <a href="index.html#tools" onclick="closeMobileMenu()">All tools</a>
+    <a href="pricing.html" onclick="closeMobileMenu()">Pricing</a>
+    <a href="privacy.html" onclick="closeMobileMenu()">Privacy</a>
+    <a href="index.html#how" onclick="closeMobileMenu()">How it works</a>
+    <div class="site-nav-mobile-auth" id="nav-mobile-auth">
+      <a href="login.html" class="site-nav-mobile-login">Log in</a>
+      <a href="login.html" class="site-nav-mobile-signup">Sign up</a>
+    </div>
+  </div>
   <style>
     .site-nav {
       position: sticky; top: 0; z-index: 200;
@@ -542,11 +553,6 @@
       text-decoration: none; transition: color .15s;
     }
     .site-nav-links a:hover { color: #1d1d1f; }
-    @media (max-width: 600px) {
-      .site-nav { padding: 0 20px; }
-      .site-nav-links { gap: 16px; }
-      .site-nav-links li:not(:last-child) { display: none; }
-    }
   </style>
   <div class="header">
     <div class="header-icon">
