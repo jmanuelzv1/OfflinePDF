@@ -235,10 +235,13 @@
     document.getElementById('login-subtitle').textContent = 'Sign in or create an account to complete your Pro upgrade.';
   }
 
-  // Check if we're returning from OAuth
+  // Check if we're returning from OAuth or magic link
   const hash = window.location.hash;
   if (hash && (hash.includes('access_token') || hash.includes('error'))) {
     statusEl.textContent = 'Signing you in…';
+    handleAuthCallback();
+  } else if (new URLSearchParams(window.location.search).get('plan')) {
+    // Page loaded with ?plan= — check if already has a session (magic link callback)
     handleAuthCallback();
   }
 
@@ -263,10 +266,15 @@
     btnMagic.disabled    = true;
     btnMagic.textContent = 'Sending…';
 
+    const planParam = new URLSearchParams(window.location.search).get('plan');
+    const magicRedirect = planParam
+      ? `https://offlinepdf.io/login.html?plan=${planParam}`
+      : 'https://offlinepdf.io/dashboard.html';
+
     const { error } = await client.auth.signInWithOtp({
       email,
       options: {
-        emailRedirectTo: 'https://offlinepdf.io/dashboard.html',
+        emailRedirectTo: magicRedirect,
       },
     });
 
@@ -295,10 +303,15 @@
     btnGoogle.innerHTML = '<div class="spinner"></div> Connecting to Google…';
     statusEl.textContent = '';
 
+    const planParamGoogle = new URLSearchParams(window.location.search).get('plan');
+    const googleRedirect = planParamGoogle
+      ? `https://offlinepdf.io/login.html?plan=${planParamGoogle}`
+      : 'https://offlinepdf.io/dashboard.html';
+
     const { error } = await client.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: 'https://offlinepdf.io/dashboard.html',
+        redirectTo: googleRedirect,
       },
     });
 
