@@ -4,193 +4,228 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy — OfflinePDF</title>
-  <meta name="description" content="OfflinePDF privacy policy. Your files never leave your device. We collect minimal data and never sell it." />
-  <link rel="canonical" href="https://offlinepdf.io/privacy.html" />
+  <meta name="description" content="OfflinePDF Privacy Policy. We take your privacy seriously — your files never leave your device." />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --text: #1d1d1f; --secondary: #6e6e73; --tertiary: #aeaeb2;
-      --accent: #0071e3; --bg: #f5f5f7; --border: rgba(0,0,0,0.08);
-    }
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
-      background: var(--bg); color: var(--text);
-      -webkit-font-smoothing: antialiased;
+      background: #f5f5f7; color: #1d1d1f;
+      min-height: 100vh; -webkit-font-smoothing: antialiased;
     }
 
-    /* Nav */
     nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(245,245,247,0.88); backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 40px; height: 56px;
+      background: rgba(245,245,247,0.92);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,.08);
+      padding: 0 40px;
       display: flex; align-items: center; justify-content: space-between;
+      height: 56px; position: sticky; top: 0; z-index: 100;
     }
     .nav-logo {
-      display: flex; align-items: center; gap: 10px;
-      text-decoration: none; color: var(--text);
-      font-size: 16px; font-weight: 600; letter-spacing: -.3px;
+      display: flex; align-items: center; gap: 8px;
+      text-decoration: none; color: #1d1d1f; font-size: 15px; font-weight: 600;
     }
-    .nav-mark {
-      width: 30px; height: 30px; background: var(--accent);
-      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+    .nav-logo-mark {
+      width: 28px; height: 28px; background: #0071e3;
+      border-radius: 7px; display: flex; align-items: center; justify-content: center;
     }
     .nav-back {
-      font-size: 13px; font-weight: 500; color: var(--accent); text-decoration: none;
+      font-size: 14px; color: #6e6e73; text-decoration: none;
+      padding: 6px 12px; border-radius: 8px; transition: background .15s, color .15s;
     }
-    .nav-back:hover { text-decoration: underline; }
+    .nav-back:hover { background: #e8e8ed; color: #1d1d1f; }
 
-    /* Content */
-    .wrap {
-      max-width: 680px; margin: 0 auto; padding: 64px 24px 96px;
+    .page {
+      max-width: 720px; margin: 0 auto;
+      padding: 64px 24px 100px;
     }
-    .tag {
-      display: inline-block; background: rgba(0,113,227,0.08);
-      color: var(--accent); font-size: 12px; font-weight: 600;
-      padding: 4px 12px; border-radius: 20px; letter-spacing: .3px;
-      margin-bottom: 20px;
+    .page-header { margin-bottom: 48px; }
+    .page-label {
+      font-size: 12px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: .8px; color: #0071e3; margin-bottom: 12px;
     }
     h1 {
       font-family: 'Instrument Serif', Georgia, serif;
-      font-size: clamp(32px, 5vw, 44px); font-weight: 400;
-      letter-spacing: -.02em; line-height: 1.1; margin-bottom: 12px;
+      font-size: 42px; font-weight: 400; letter-spacing: -.02em;
+      color: #1d1d1f; margin-bottom: 16px; line-height: 1.2;
     }
-    .updated {
-      font-size: 14px; color: var(--tertiary);
-      margin-bottom: 40px; padding-bottom: 40px;
-      border-bottom: 1px solid var(--border);
+    .page-meta {
+      font-size: 14px; color: #aeaeb2;
     }
+
+    .highlight-box {
+      background: rgba(0,113,227,.06); border: 1px solid rgba(0,113,227,.15);
+      border-radius: 16px; padding: 24px 28px; margin-bottom: 48px;
+      display: flex; gap: 16px; align-items: flex-start;
+    }
+    .highlight-box-icon {
+      width: 36px; height: 36px; background: rgba(0,113,227,.1);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      color: #0071e3; flex-shrink: 0;
+    }
+    .highlight-box-text { font-size: 15px; color: #1d1d1f; line-height: 1.6; }
+    .highlight-box-text strong { font-weight: 600; }
+
+    section { margin-bottom: 48px; }
     h2 {
-      font-size: 20px; font-weight: 600; letter-spacing: -.3px;
-      margin: 40px 0 12px;
+      font-size: 20px; font-weight: 600; color: #1d1d1f;
+      margin-bottom: 16px; padding-bottom: 12px;
+      border-bottom: 1px solid #e5e5ea;
     }
     p {
-      font-size: 16px; line-height: 1.75; color: #3a3a3c;
+      font-size: 15px; color: #3a3a3c; line-height: 1.75;
       margin-bottom: 16px;
     }
+    p:last-child { margin-bottom: 0; }
     ul {
-      padding-left: 20px; margin-bottom: 16px;
+      list-style: none; padding: 0; margin: 0 0 16px;
     }
-    li {
-      font-size: 16px; line-height: 1.75; color: #3a3a3c;
-      margin-bottom: 6px;
+    ul li {
+      font-size: 15px; color: #3a3a3c; line-height: 1.75;
+      padding: 4px 0 4px 24px; position: relative;
     }
-    strong { font-weight: 600; color: var(--text); }
-    a { color: var(--accent); text-decoration: none; }
+    ul li::before {
+      content: ''; position: absolute; left: 0; top: 13px;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #0071e3;
+    }
+    a { color: #0071e3; text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* Highlight box */
-    .highlight {
-      background: rgba(0,113,227,0.06); border: 1px solid rgba(0,113,227,0.15);
-      border-radius: 14px; padding: 20px 24px; margin: 32px 0;
+    .contact-card {
+      background: white; border-radius: 16px;
+      padding: 24px 28px; border: 1px solid #e5e5ea;
     }
-    .highlight p { margin: 0; color: var(--text); font-weight: 500; }
+    .contact-card p { margin: 0; }
 
-    /* Footer */
-    footer {
-      background: var(--text); padding: 32px 40px; text-align: center;
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .page { padding: 40px 20px 80px; }
+      h1 { font-size: 32px; }
     }
-    footer a {
-      color: rgba(255,255,255,.4); font-size: 13px;
-      text-decoration: none; margin: 0 12px;
-    }
-    footer a:hover { color: rgba(255,255,255,.7); }
   </style>
 </head>
 <body>
 
-<nav>
-  <a class="nav-logo" href="index.html">
-    <div class="nav-mark">
-      <svg viewBox="0 0 16 16" fill="none" width="14" height="14">
-        <rect x="1" y="1" width="10" height="13" rx="2" fill="white" opacity=".3"/>
-        <rect x="3" y="3" width="10" height="13" rx="2" fill="white"/>
-      </svg>
+  <nav>
+    <a class="nav-logo" href="index.html">
+      <div class="nav-logo-mark">
+        <svg viewBox="0 0 16 16" fill="none" width="14" height="14">
+          <rect x="1" y="1" width="10" height="13" rx="2" fill="white" opacity=".3"/>
+          <rect x="3" y="3" width="10" height="13" rx="2" fill="white"/>
+        </svg>
+      </div>
+      OfflinePDF
+    </a>
+    <a href="index.html" class="nav-back">← Back to tools</a>
+  </nav>
+
+  <div class="page">
+
+    <div class="page-header">
+      <div class="page-label">Legal</div>
+      <h1>Privacy Policy</h1>
+      <p class="page-meta">Last updated: May 2026</p>
     </div>
-    OfflinePDF
-  </a>
-  <a class="nav-back" href="index.html">← All tools</a>
-</nav>
 
-<div class="wrap">
-  <div class="tag">Legal</div>
-  <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: May 9, 2026</p>
+    <div class="highlight-box">
+      <div class="highlight-box-icon">
+        <svg viewBox="0 0 20 20" fill="none" width="18" height="18">
+          <path d="M10 2L3 5.5V10c0 4.4 3.1 8.5 7 9.5 3.9-1 7-5.1 7-9.5V5.5L10 2z"
+            stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M7 10l2 2 4-4" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="highlight-box-text">
+        <strong>Your files never leave your device.</strong> All PDF processing happens locally in your browser using JavaScript. We never upload, store, or have access to your documents.
+      </div>
+    </div>
 
-  <div class="highlight">
-    <p>The short version: your PDF files never leave your device. All processing happens locally in your browser. We don't upload, store, or analyze your documents — ever.</p>
+    <section>
+      <h2>1. Who we are</h2>
+      <p>OfflinePDF ("we", "us", or "our") provides browser-based PDF tools at offlinepdf.io. Our tools run entirely in your browser — no files are ever sent to our servers.</p>
+    </section>
+
+    <section>
+      <h2>2. Information we collect</h2>
+      <p>We collect only what's necessary to provide and improve our service:</p>
+      <ul>
+        <li><strong>Email address</strong> — collected when you create an account or sign in. Used to manage your subscription and send authentication links.</li>
+        <li><strong>Subscription and billing information</strong> — handled by Stripe. We store your plan status (free or Pro) and subscription state. We never store payment card details.</li>
+        <li><strong>Usage data</strong> — we may collect anonymized usage analytics in the future to understand how tools are used and improve the product. We will update this policy before doing so.</li>
+      </ul>
+      <p>We do <strong>not</strong> collect, store, or process any files you work with in our tools. All document processing happens entirely within your browser.</p>
+    </section>
+
+    <section>
+      <h2>3. How we use your information</h2>
+      <ul>
+        <li>To verify your identity and manage your account</li>
+        <li>To process payments and manage your Pro subscription</li>
+        <li>To send authentication emails (magic links) via Resend</li>
+        <li>To enforce free plan limits and unlock Pro features</li>
+        <li>To respond to support requests</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. Third-party services</h2>
+      <p>We use the following third-party services to operate OfflinePDF:</p>
+      <ul>
+        <li><strong>Supabase</strong> — authentication and user data storage</li>
+        <li><strong>Stripe</strong> — payment processing and subscription management</li>
+        <li><strong>Resend</strong> — transactional email delivery</li>
+        <li><strong>Cloudflare</strong> — website hosting and delivery</li>
+      </ul>
+      <p>We do not sell, rent, or share your personal information with any other third parties.</p>
+    </section>
+
+    <section>
+      <h2>5. Cookies and local storage</h2>
+      <p>We use browser local storage (not cookies) to store your session state, plan status, and daily usage count. This data stays on your device and is not transmitted to our servers.</p>
+      <p>Supabase may use cookies to manage authentication sessions. No advertising or tracking cookies are used.</p>
+    </section>
+
+    <section>
+      <h2>6. Data retention</h2>
+      <p>We retain your account information for as long as your account is active. If you cancel your subscription and request account deletion, we will remove your data within 30 days.</p>
+    </section>
+
+    <section>
+      <h2>7. Your rights</h2>
+      <p>You have the right to:</p>
+      <ul>
+        <li>Access the personal data we hold about you</li>
+        <li>Request correction of inaccurate data</li>
+        <li>Request deletion of your account and associated data</li>
+        <li>Cancel your subscription at any time via the dashboard</li>
+      </ul>
+      <p>To exercise any of these rights, contact us at the address below.</p>
+    </section>
+
+    <section>
+      <h2>8. Security</h2>
+      <p>We take reasonable measures to protect your information. Authentication is handled by Supabase, payments by Stripe — both are industry-standard secure platforms. We never store passwords or payment card details.</p>
+    </section>
+
+    <section>
+      <h2>9. Changes to this policy</h2>
+      <p>We may update this Privacy Policy from time to time. We will notify registered users of significant changes by email. Continued use of OfflinePDF after changes constitutes acceptance of the updated policy.</p>
+    </section>
+
+    <section>
+      <h2>10. Contact</h2>
+      <div class="contact-card">
+        <p>If you have questions about this Privacy Policy or how we handle your data, please contact us at <a href="mailto:hello@offlinepdf.io">hello@offlinepdf.io</a>.</p>
+      </div>
+    </section>
+
   </div>
-
-  <h2>Who we are</h2>
-  <p>OfflinePDF is a browser-based PDF tool suite available at offlinepdf.io. We provide PDF processing tools that run entirely in your browser without uploading your files to any server.</p>
-
-  <h2>Your files</h2>
-  <p>All PDF processing on OfflinePDF happens locally in your browser using JavaScript. Your files are never transmitted to our servers or any third party. They never leave your device.</p>
-  <p>You can verify this yourself by opening your browser's developer tools, going to the Network tab, and watching what happens when you process a file — you will see zero file upload requests.</p>
-
-  <h2>What data we collect</h2>
-  <p>We collect the minimum data necessary to operate the service:</p>
-  <ul>
-    <li><strong>Email address</strong> — collected when you sign up for a Pro subscription or sign in. We use this to verify your subscription status and send you account-related emails.</li>
-    <li><strong>Stripe customer data</strong> — when you subscribe to Pro, Stripe processes your payment. We store your Stripe customer ID and subscription ID to manage your account. We never see or store your card details.</li>
-    <li><strong>Usage data</strong> — free plan usage (number of daily operations) is tracked locally in your browser using localStorage. This data never leaves your device.</li>
-  </ul>
-
-  <h2>What data we do not collect</h2>
-  <ul>
-    <li>We do not collect your PDF files or their contents</li>
-    <li>We do not track what you do with our tools</li>
-    <li>We do not use advertising tracking or analytics cookies</li>
-    <li>We do not sell your data to any third party</li>
-    <li>We do not build advertising profiles</li>
-  </ul>
-
-  <h2>Third-party services</h2>
-  <p>We use a small number of third-party services to operate OfflinePDF:</p>
-  <ul>
-    <li><strong>Stripe</strong> — payment processing for Pro subscriptions. Stripe's privacy policy applies to payment data. We never see your card number.</li>
-    <li><strong>Supabase</strong> — database that stores your email and subscription status. Data is stored securely and never shared.</li>
-    <li><strong>Cloudflare</strong> — hosting and content delivery. Cloudflare may log request metadata (IP address, timestamp) as part of normal web infrastructure operation.</li>
-    <li><strong>Google OAuth</strong> — if you choose to sign in with Google, Google's privacy policy applies to that authentication process. We only receive your email address from Google.</li>
-  </ul>
-
-  <h2>Cookies and local storage</h2>
-  <p>We use browser localStorage (not cookies) to store your daily operation count and Pro status cache on the free plan. This data stays on your device and is never transmitted to our servers. You can clear it at any time by clearing your browser's local storage.</p>
-  <p>We do not use advertising cookies or third-party tracking cookies.</p>
-
-  <h2>Data retention</h2>
-  <p>We retain your email and subscription data for as long as your account is active. If you cancel your subscription and request deletion, we will remove your data from our database within 30 days. To request deletion, email us at the address below.</p>
-
-  <h2>Your rights</h2>
-  <p>You have the right to:</p>
-  <ul>
-    <li>Access the personal data we hold about you</li>
-    <li>Request correction of inaccurate data</li>
-    <li>Request deletion of your data</li>
-    <li>Object to processing of your data</li>
-    <li>Export your data in a portable format</li>
-  </ul>
-  <p>To exercise any of these rights, contact us at <a href="mailto:contact@offlinepdf.io">contact@offlinepdf.io</a>.</p>
-
-  <h2>Children's privacy</h2>
-  <p>OfflinePDF is not directed at children under 13. We do not knowingly collect personal data from children. If you believe a child has provided us with personal data, please contact us and we will delete it.</p>
-
-  <h2>Changes to this policy</h2>
-  <p>We may update this privacy policy from time to time. We will notify subscribers of material changes by email. The "last updated" date at the top of this page reflects the most recent revision.</p>
-
-  <h2>Contact</h2>
-  <p>If you have questions about this privacy policy or how we handle your data, contact us at <a href="mailto:contact@offlinepdf.io">contact@offlinepdf.io</a>.</p>
-
-</div>
-
-<footer>
-  <a href="index.html">All tools</a>
-  <a href="pricing.html">Pricing</a>
-  <a href="privacy.html">Privacy</a>
-</footer>
 
 </body>
 </html>
