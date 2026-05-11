@@ -1389,7 +1389,8 @@
       hamburger.innerHTML = hamburgerIcon;
     }
 
-    hamburger.addEventListener('click', () => {
+    hamburger.addEventListener('click', e => {
+      e.stopPropagation();
       const isOpen = mobileMenu.classList.toggle('open');
       hamburger.innerHTML = isOpen ? closeIcon : hamburgerIcon;
     });
