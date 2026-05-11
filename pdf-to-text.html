@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Extract Text from PDF Free — PDF to TXT | OfflinePDF</title>
-  <meta name="description" content="Extract text from any PDF for free. Download as TXT or Markdown, or copy to clipboard. No upload required, no account needed. 100% private." />
+  <title>Extract Text from PDF Online Free — PDF to TXT | OfflinePDF</title>
+  <meta name="description" content="Extract all text from your PDF online for free. Download as TXT or Markdown, or copy it to the clipboard. No upload required, no account needed." />
   <meta name="keywords" content="pdf to text, extract text from pdf online free, pdf to txt, pdf text extractor, copy text from pdf" />
   <meta name="author" content="OfflinePDF" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -331,80 +331,40 @@
       padding: 3px 12px;
       display: inline-block;
     }
-    </style>
-</head>
-<body>
-  <style>
-    /* ── Site nav ── */
-    .site-nav {
-      position: sticky;
-      top: 0;
-      z-index: 200;
-      width: 100%;
-      background: rgba(245,245,247,0.88);
+      .site-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(245,245,247,0.82);
       backdrop-filter: saturate(180%) blur(20px);
       -webkit-backdrop-filter: saturate(180%) blur(20px);
-      border-bottom: 1px solid rgba(0,0,0,0.08);
+      border-bottom: 1px solid rgba(0,0,0,.08);
       padding: 0 40px;
+      display: flex; align-items: center; justify-content: space-between;
       height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-left: calc(-50vw + 50%);
-      margin-right: calc(-50vw + 50%);
-      box-sizing: border-box;
     }
     .site-nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: #1d1d1f;
-      flex-shrink: 0;
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: #1d1d1f;
     }
     .site-nav-mark {
-      width: 30px;
-      height: 30px;
-      background: #0071e3;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+      width: 30px; height: 30px; background: #0071e3;
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
     }
     .site-nav-mark svg { width: 16px; height: 16px; }
-    .site-nav-name {
-      font-size: 16px;
-      font-weight: 600;
-      letter-spacing: -.3px;
-    }
+    .site-nav-name { font-size: 16px; font-weight: 600; letter-spacing: -.3px; }
     .site-nav-links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      list-style: none;
-    }
-    .site-nav-links a {
-      font-size: 14px;
-      font-weight: 500;
-      color: #6e6e73;
-      text-decoration: none;
-      transition: color .15s;
-      white-space: nowrap;
-    }
-    .site-nav-links a:hover { color: #1d1d1f; }
-
-  
-    .site-nav-links {
+      display: flex; align-items: center; gap: 28px; list-style: none;
       position: absolute; left: 50%; transform: translateX(-50%);
     }
-    .site-nav-auth {
-      display: flex; align-items: center; gap: 8px;
+    .site-nav-links a {
+      font-size: 14px; font-weight: 500; color: #6e6e73;
+      text-decoration: none; transition: color .15s;
     }
+    .site-nav-links a:hover { color: #1d1d1f; }
+    .site-nav-auth { display: flex; align-items: center; gap: 8px; }
     .site-nav-login {
-      font-size: 14px; font-weight: 500; color: var(--text-secondary, #6e6e73);
+      font-size: 14px; font-weight: 500; color: #6e6e73;
       text-decoration: none; padding: 7px 14px; border-radius: 980px;
-      border: 1px solid rgba(0,0,0,0.11);
+      border: 1px solid rgba(0,0,0,.11);
       transition: background .15s, border-color .15s, color .15s;
     }
     .site-nav-login:hover { background: #e8e8ed; border-color: rgba(0,0,0,.18); color: #1d1d1f; }
@@ -414,12 +374,12 @@
       background: #0071e3; transition: background .15s;
     }
     .site-nav-signup:hover { background: #0077ed; }
-    /* Mobile nav */
     .site-nav-hamburger {
       display: none; background: none; border: none;
       cursor: pointer; padding: 8px; color: #1d1d1f;
       border-radius: 8px; transition: background .15s;
     }
+    .site-nav-hamburger:hover { background: #e8e8ed; }
     .site-nav-hamburger svg { display: block; }
     .site-nav-mobile-menu {
       display: none; position: fixed; top: 56px; left: 0; right: 0;
@@ -427,10 +387,8 @@
       backdrop-filter: saturate(180%) blur(20px);
       -webkit-backdrop-filter: saturate(180%) blur(20px);
       border-bottom: 1px solid rgba(0,0,0,.08);
-      padding: 16px 20px 24px; z-index: 9999;
+      padding: 16px 20px 24px; z-index: 99;
       flex-direction: column; gap: 4px;
-      width: 100vw;
-      margin-left: calc(-50vw + 50%);
     }
     .site-nav-mobile-menu.open { display: flex; }
     .site-nav-mobile-menu a {
@@ -448,546 +406,16 @@
     .site-nav-mobile-login { border: 1.5px solid rgba(0,0,0,.11) !important; color: #6e6e73 !important; background: white; }
     .site-nav-mobile-signup { background: #0071e3 !important; color: white !important; }
     @media (max-width: 768px) {
-      .site-nav {
-        padding: 0 20px !important;
-        margin-left: -20px !important;
-        margin-right: -20px !important;
-        width: calc(100% + 40px) !important;
-        box-sizing: border-box !important;
-      }
-      .site-nav-links { display: none !important; }
-      .site-nav-auth { display: none !important; }
-      .site-nav-hamburger { display: block !important; }
+      .site-nav { padding: 0 20px; }
+      .site-nav-links { display: none; }
+      .site-nav-auth { display: none; }
+      .site-nav-hamburger { display: block; }
     }
   </style>
-    <nav class="site-nav" aria-label="Site navigation">
-    <a class="site-nav-logo" href="index.html" aria-label="OfflinePDF home">
-      <div class="site-nav-mark" aria-hidden="true">
-        <svg viewBox="0 0 16 16" fill="none">
-          <rect x="1" y="1" width="10" height="13" rx="2" fill="white" opacity=".3"/>
-          <rect x="3" y="3" width="10" height="13" rx="2" fill="white"/>
-        </svg>
-      </div>
-      <span class="site-nav-name">OfflinePDF</span>
-    </a>
-    <ul class="site-nav-links">
-      <li><a href="index.html#tools">All tools</a></li>
-      <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="index.html#privacy">Privacy</a></li>
-      <li><a href="index.html#how">How it works</a></li>
-    </ul>
-    <div class="site-nav-auth">
-      <a href="login.html" class="site-nav-login">Log in</a>
-      <a href="login.html" class="site-nav-signup">Sign up</a>
-    </div>
-    <button class="site-nav-hamburger" id="nav-hamburger" aria-label="Open menu">
-      <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
-        <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-    </button>
-  </nav>
-
-  <div class="site-nav-mobile-menu" id="nav-mobile-menu">
-    <a href="index.html#tools" onclick="closeMobileMenu()">All tools</a>
-    <a href="pricing.html" onclick="closeMobileMenu()">Pricing</a>
-    <a href="privacy.html" onclick="closeMobileMenu()">Privacy</a>
-    <a href="index.html#how" onclick="closeMobileMenu()">How it works</a>
-    <div class="site-nav-mobile-auth" id="nav-mobile-auth">
-      <a href="login.html" class="site-nav-mobile-login">Log in</a>
-      <a href="login.html" class="site-nav-mobile-signup">Sign up</a>
-    </div>
-  </div>
+</head>
+<body>
   <style>
-    .site-nav {
-      position: sticky; top: 0; z-index: 200;
-      background: rgba(245,245,247,0.88);
-      backdrop-filter: saturate(180%) blur(20px);
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-      padding: 0 40px; height: 56px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .site-nav-logo {
-      display: flex; align-items: center; gap: 10px;
-      text-decoration: none; color: #1d1d1f;
-    }
-    .site-nav-mark {
-      width: 30px; height: 30px;
-      background: #0071e3; border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .site-nav-mark svg { width: 16px; height: 16px; }
-    .site-nav-name {
-      font-size: 16px; font-weight: 600; letter-spacing: -.3px;
-    }
-    .site-nav-links {
-      display: flex; align-items: center; gap: 28px; list-style: none;
-    }
-    .site-nav-links a {
-      font-size: 14px; font-weight: 500; color: #6e6e73;
-      text-decoration: none; transition: color .15s;
-    }
-    .site-nav-links a:hover { color: #1d1d1f; }
-  </style>
-  <div class="header">
-    <div class="header-icon">
-      <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g transform="scale(1.214)">
-        <rect x="2" y="2" width="14" height="18" rx="2" fill="#ff3b30" opacity=".4"/>
-            <rect x="3" y="3" width="14" height="18" rx="2" fill="#ff3b30"/>
-            <path d="M6 8h8M6 12h8M6 16h5" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
-            <path d="M19 14h7" stroke="#0071e3" stroke-width="1.6" stroke-linecap="round"/>
-            <path d="M22 10l4 4-4 4" stroke="#0071e3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="23" y="5" width="5" height="7" rx="1.5" fill="#0071e3"/>
-            <path d="M24.5 7h2M25.5 7v4" stroke="white" stroke-width="1" stroke-linecap="round"/>
-        </g>
-      </svg>
-    </div>
-    <h1>PDF to Text</h1>
-    <p class="subtitle">Extract all readable text from your PDF. Download as TXT or Markdown, or copy to clipboard. No upload required.</p>
-  </div>
-
-  <div class="card">
-
-    <!-- Drop zone -->
-    <div class="drop-zone" id="drop-zone">
-      <div class="dz-icon">
-        <svg viewBox="0 0 34 34" fill="none">
-          <path d="M17 6v16M10 13l7-7 7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M5 26h24" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <p class="dz-label">Drop your PDF here</p>
-      <p class="dz-sub">Extracts all readable text from every page</p>
-      <p class="dz-limit">Free plan: up to 25 MB · 5 operations/day</p>
-      <button class="btn-choose" onclick="document.getElementById('file-input').click()">Choose PDF</button>
-      <input type="file" id="file-input" accept=".pdf" />
-    </div>
-
-    <!-- File info -->
-    <div class="divider" id="div-file" style="display:none"></div>
-    <div class="file-info" id="file-info">
-      <div class="file-thumb">
-        <svg viewBox="0 0 40 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4 4a3 3 0 013-3h18l11 11v32a3 3 0 01-3 3H7a3 3 0 01-3-3V4z" fill="currentColor" opacity=".15"/>
-          <path d="M25 1l11 11H28a3 3 0 01-3-3V1z" fill="currentColor" opacity=".4"/>
-          <text x="20" y="36" font-size="11" font-weight="800" fill="currentColor" text-anchor="middle" font-family="-apple-system,Helvetica,sans-serif" letter-spacing="0.5">PDF</text>
-        </svg>
-      </div>
-      <div class="file-details">
-        <div class="file-name" id="file-name">document.pdf</div>
-        <div class="file-meta" id="file-meta">— pages</div>
-      </div>
-      <button class="btn-clear" id="btn-clear">
-        <svg viewBox="0 0 18 18" fill="none"><path d="M13.5 4.5l-9 9M4.5 4.5l9 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-      </button>
-    </div>
-
-    <!-- Options -->
-    <div class="options-wrap" id="options-wrap">
-      <div class="opts-row">
-        <!-- Format -->
-        <div class="opt-block">
-          <div class="opt-label">Output format</div>
-          <div class="pill-group">
-            <button class="pill active" data-fmt="txt">TXT</button>
-            <button class="pill" data-fmt="md">Markdown</button>
-          </div>
-        </div>
-        <!-- Page separator -->
-        <div class="opt-block">
-          <div class="opt-label">Page breaks</div>
-          <div class="pill-group">
-            <button class="pill active" data-sep="line">Line</button>
-            <button class="pill" data-sep="marker">Marker</button>
-            <button class="pill" data-sep="none">None</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Options toggles -->
-      <div class="opt-block" style="margin-top:10px;">
-        <div class="toggle-row">
-          <div>
-            <div class="toggle-label">Include page numbers</div>
-            <div class="toggle-sub">Label each section with the page number</div>
-          </div>
-          <label class="toggle">
-            <input type="checkbox" id="toggle-pagenum" checked />
-            <div class="toggle-track"></div>
-            <div class="toggle-thumb"></div>
-          </label>
-        </div>
-        <div class="toggle-row" style="margin-top:12px; padding-top:12px; border-top:1px solid var(--border);">
-          <div>
-            <div class="toggle-label">Trim whitespace</div>
-            <div class="toggle-sub">Remove excess blank lines between paragraphs</div>
-          </div>
-          <label class="toggle">
-            <input type="checkbox" id="toggle-trim" checked />
-            <div class="toggle-track"></div>
-            <div class="toggle-thumb"></div>
-          </label>
-        </div>
-      </div>
-    </div>
-
-    <!-- Info banner -->
-    <div class="info-banner" id="info-banner">
-      ⓘ Works best on PDFs with real embedded text. Scanned or image-based documents may return little or no content.
-    </div>
-
-    <!-- Error -->
-    <div class="error-msg" id="error-msg"></div>
-
-    <!-- Action -->
-    <div class="action-wrap" id="action-wrap">
-      <button class="btn-extract" id="btn-extract">
-        <svg viewBox="0 0 20 20" fill="none"><path d="M4 5h12M4 9h12M4 13h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        Extract Text
-      </button>
-    </div>
-
-    <!-- Progress -->
-    <div class="progress-wrap" id="progress-wrap">
-      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
-      <p class="progress-label" id="progress-label">Reading page 1…</p>
-    </div>
-
-    <!-- Result -->
-    <div class="result-wrap" id="result-wrap">
-      <div class="result-stats">
-        <div class="stat-card">
-          <div class="stat-val" id="stat-pages">—</div>
-          <div class="stat-label">Pages</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-val" id="stat-words">—</div>
-          <div class="stat-label">Words</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-val" id="stat-chars">—</div>
-          <div class="stat-label">Characters</div>
-        </div>
-      </div>
-
-      <div class="text-preview-wrap">
-        <div class="text-preview-header">
-          <span class="text-preview-title">Preview</span>
-          <button class="btn-copy" id="btn-copy">
-            <svg viewBox="0 0 13 13" fill="none"><rect x="1" y="3" width="8" height="9" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M4 3V2a1 1 0 011-1h6a1 1 0 011 1v8a1 1 0 01-1 1h-1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-            Copy all
-          </button>
-        </div>
-        <div class="text-preview" id="text-preview"></div>
-      </div>
-
-      <div class="download-actions result-footer">
-        <button class="btn-download" id="btn-download">
-          <svg viewBox="0 0 17 17" fill="none"><path d="M8.5 2v9M5 7.5l3.5 3.5 3.5-3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 14h13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-          Download
-        </button>
-        <button class="btn-reset" id="btn-reset">Extract another</button>
-      </div>
-    </div>
-
-  </div>
-
-  <script>
-    pdfjsLib.GlobalWorkerOptions.workerSrc =
-      'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-
-    // ── State ──
-    let pdfFile    = null;
-    let extractedText = '';
-    let selectedFmt = 'txt';
-    let selectedSep = 'line';
-
-    // ── Elements ──
-    const dropZone      = document.getElementById('drop-zone');
-    const fileInput     = document.getElementById('file-input');
-    const divFile       = document.getElementById('div-file');
-    const fileInfo      = document.getElementById('file-info');
-    const fileName      = document.getElementById('file-name');
-    const fileMeta      = document.getElementById('file-meta');
-    const btnClear      = document.getElementById('btn-clear');
-    const optionsWrap   = document.getElementById('options-wrap');
-    const infoBanner    = document.getElementById('info-banner');
-    const actionWrap    = document.getElementById('action-wrap');
-    const btnExtract    = document.getElementById('btn-extract');
-    const progressWrap  = document.getElementById('progress-wrap');
-    const progressFill  = document.getElementById('progress-fill');
-    const progressLabel = document.getElementById('progress-label');
-    const resultWrap    = document.getElementById('result-wrap');
-    const statPages     = document.getElementById('stat-pages');
-    const statWords     = document.getElementById('stat-words');
-    const statChars     = document.getElementById('stat-chars');
-    const textPreview   = document.getElementById('text-preview');
-    const btnCopy       = document.getElementById('btn-copy');
-    const btnDownload   = document.getElementById('btn-download');
-    const btnReset      = document.getElementById('btn-reset');
-    const errorMsg      = document.getElementById('error-msg');
-
-    // ── Format pills ──
-    document.querySelectorAll('[data-fmt]').forEach(b => {
-      b.addEventListener('click', () => {
-        document.querySelectorAll('[data-fmt]').forEach(x => x.classList.remove('active'));
-        b.classList.add('active'); selectedFmt = b.dataset.fmt;
-      });
-    });
-
-    // ── Separator pills ──
-    document.querySelectorAll('[data-sep]').forEach(b => {
-      b.addEventListener('click', () => {
-        document.querySelectorAll('[data-sep]').forEach(x => x.classList.remove('active'));
-        b.classList.add('active'); selectedSep = b.dataset.sep;
-      });
-    });
-
-    // ── Drop ──
-    dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
-    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
-    dropZone.addEventListener('drop', e => {
-      e.preventDefault(); dropZone.classList.remove('dragover');
-      const f = e.dataTransfer.files[0]; if (f) handleFile(f);
-    });
-    fileInput.addEventListener('change', () => { if (fileInput.files[0]) handleFile(fileInput.files[0]); fileInput.value = ''; });
-
-    async function handleFile(file) {
-      hideError();
-      if (!file.name.toLowerCase().endsWith('.pdf')) { showError('Please select a valid PDF file.'); return; }
-      // Paywall: check file size
-      try { await Paywall.checkFileSize(file); } catch(e) { if(e.message==='FILE_TOO_LARGE') return; }
-
-      pdfFile = file;
-      try {
-        const buf = await file.arrayBuffer();
-        const doc = await pdfjsLib.getDocument({ data: buf }).promise;
-        const pc  = doc.numPages;
-        fileMeta.textContent = `${pc} page${pc !== 1 ? 's' : ''} · ${(file.size/1024/1024).toFixed(2)} MB`;
-      } catch {
-        showError('Could not read this PDF. It may be corrupted or password-protected.');
-        pdfFile = null; return;
-      }
-      fileName.textContent = file.name;
-      divFile.style.display = '';
-      fileInfo.classList.add('visible');
-      optionsWrap.classList.add('visible');
-      infoBanner.classList.add('visible');
-      actionWrap.classList.add('visible');
-      resultWrap.classList.remove('visible');
-      extractedText = '';
-    }
-
-    btnClear.addEventListener('click', resetAll);
-
-    // ── Extract ──
-    btnExtract.addEventListener('click', async () => {
-      if (!pdfFile) return;
-      hideError();
-      btnExtract.disabled = true;
-
-      // Paywall: check daily ops limit
-      try { await Paywall.checkOpsLimit(); } catch(e) { if(e.message==='OPS_LIMIT_REACHED') return; }
-
-
-      actionWrap.classList.remove('visible');
-      progressWrap.classList.add('visible');
-      progressFill.style.width = '0%';
-      resultWrap.classList.remove('visible');
-
-      const includePageNums = document.getElementById('toggle-pagenum').checked;
-      const trimWhitespace  = document.getElementById('toggle-trim').checked;
-      const isMd = selectedFmt === 'md';
-
-      try {
-        const buf    = await pdfFile.arrayBuffer();
-        const pdfDoc = await pdfjsLib.getDocument({ data: buf }).promise;
-        const total  = pdfDoc.numPages;
-        const parts  = [];
-
-        for (let i = 1; i <= total; i++) {
-          progressLabel.textContent = `Reading page ${i} of ${total}…`;
-          progressFill.style.width  = Math.round((i / total) * 90) + '%';
-
-          const page    = await pdfDoc.getPage(i);
-          const content = await page.getTextContent();
-          let pageText  = content.items.map(item => item.str).join(' ');
-
-          if (trimWhitespace) {
-            pageText = pageText.replace(/[ \t]{2,}/g, ' ').replace(/\n{3,}/g, '\n\n').trim();
-          }
-
-          // Build page block
-          let block = '';
-          if (includePageNums) {
-            block += isMd ? `## Page ${i}\n\n` : `--- Page ${i} ---\n`;
-          }
-          block += pageText;
-
-          parts.push(block);
-        }
-
-        // Join with separator
-        let sep = '\n\n';
-        if (selectedSep === 'line')   sep = '\n\n' + '─'.repeat(40) + '\n\n';
-        if (selectedSep === 'marker') sep = '\n\n[PAGE BREAK]\n\n';
-        if (selectedSep === 'none')   sep = '\n\n';
-
-        extractedText = parts.join(sep);
-
-        progressFill.style.width  = '100%';
-        progressLabel.textContent = 'Done!';
-        await new Promise(r => setTimeout(r, 250));
-        progressWrap.classList.remove('visible');
-
-        // Stats
-        const wordCount = extractedText.trim().split(/\s+/).filter(Boolean).length;
-        const charCount = extractedText.length;
-
-        statPages.textContent = total;
-        statWords.textContent = wordCount > 999 ? (wordCount/1000).toFixed(1) + 'k' : wordCount;
-        statChars.textContent = charCount > 999 ? (charCount/1000).toFixed(1) + 'k' : charCount;
-
-        // Preview (first 3000 chars)
-        textPreview.textContent = extractedText.length > 3000
-          ? extractedText.slice(0, 3000) + '\n\n… (truncated in preview. Full content in the downloaded file.)'
-          : extractedText;
-
-        resultWrap.classList.add('visible');
-
-        // Wire download
-        const ext  = selectedFmt === 'md' ? 'md' : 'txt';
-        const name = pdfFile.name.replace(/\.pdf$/i, '') + '.' + ext;
-        btnDownload.onclick = () => {
-          const blob = new Blob([extractedText], { type: 'text/plain;charset=utf-8' });
-          const url  = Paywall.recordOperation();
-        URL.createObjectURL(blob);
-          const a    = Object.assign(document.createElement('a'), { href: url, download: name });
-          document.body.appendChild(a); a.click(); document.body.removeChild(a);
-          setTimeout(() => URL.revokeObjectURL(url), 1000);
-        };
-
-      } catch {
-        progressWrap.classList.remove('visible');
-        actionWrap.classList.add('visible');
-        btnExtract.disabled = false;
-        showError('Something went wrong during extraction. Please try again.');
-      }
-    });
-
-    // ── Copy ──
-    btnCopy.addEventListener('click', async () => {
-      if (!extractedText) return;
-      try {
-        await navigator.clipboard.writeText(extractedText);
-        btnCopy.classList.add('copied');
-        btnCopy.innerHTML = `<svg viewBox="0 0 13 13" fill="none"><path d="M2 6.5l2.5 2.5 6.5-6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Copied!`;
-        setTimeout(() => {
-          btnCopy.classList.remove('copied');
-          btnCopy.innerHTML = `<svg viewBox="0 0 13 13" fill="none"><rect x="1" y="3" width="8" height="9" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M4 3V2a1 1 0 011-1h6a1 1 0 011 1v8a1 1 0 01-1 1h-1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> Copy all`;
-        }, 2000);
-      } catch { showError('Could not copy to clipboard. Please try downloading instead.'); }
-    });
-
-    btnReset.addEventListener('click', resetAll);
-
-    function resetAll() {
-      pdfFile = null; extractedText = ''; fileInput.value = '';
-      [fileInfo, optionsWrap, infoBanner, actionWrap, progressWrap, resultWrap]
-        .forEach(el => el.classList.remove('visible'));
-      divFile.style.display = 'none';
-      progressFill.style.width = '0%';
-      textPreview.textContent = '';
-      btnExtract.disabled = false;
-      hideError();
-    }
-
-    function showError(msg) { errorMsg.textContent = msg; errorMsg.classList.add('visible'); }
-    function hideError()    { errorMsg.classList.remove('visible'); }
-  </script>
-  <style>
-    .related-section {
-      width: 100%;
-      background: #ffffff;
-      border-top: 1px solid rgba(0,0,0,0.07);
-      margin-top: 48px;
-      padding: 40px 24px 48px;
-    }
-    .related-inner {
-      max-width: 680px;
-      margin: 0 auto;
-    }
-    .related-heading {
-      font-size: 11px;
-      font-weight: 700;
-      color: #aeaeb2;
-      text-transform: uppercase;
-      letter-spacing: .7px;
-      margin-bottom: 16px;
-    }
-    .related-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-    .related-card {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      background: #f5f5f7;
-      border: 1px solid rgba(0,0,0,0.07);
-      border-radius: 14px;
-      padding: 16px;
-      text-decoration: none;
-      color: #1d1d1f;
-      transition: border-color .2s, box-shadow .2s, transform .2s;
-    }
-    .related-card:hover {
-      border-color: rgba(0,0,0,0.15);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-      transform: translateY(-2px);
-    }
-    .related-card-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 9px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .related-card-icon svg {
-      width: 20px;
-      height: 20px;
-    }
-    .related-card-name {
-      font-size: 14px;
-      font-weight: 600;
-      color: #1d1d1f;
-      line-height: 1.3;
-    }
-    .related-card-desc {
-      font-size: 12px;
-      color: #6e6e73;
-      line-height: 1.4;
-      margin-top: -4px;
-    }
-    .related-card-arrow {
-      margin-top: auto;
-      font-size: 12px;
-      font-weight: 500;
-      color: #0071e3;
-      display: flex;
-      align-items: center;
-      gap: 3px;
-    }
-    .related-card-arrow svg {
-      width: 11px;
-      height: 11px;
-    }
-    @media (max-width: 560px) {
-      .related-grid { grid-template-columns: 1fr; }
+    /* ── Site nav ── */
       .related-section { padding: 32px 20px 40px; }
     }
     .related-footer {
@@ -1070,7 +498,6 @@
       </div>
     </div>
   </div>
-
   <script type="module">
     import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
     const client = createClient(
@@ -1081,34 +508,13 @@
     if (session) {
       const email = session.user.email;
       const initial = email.charAt(0).toUpperCase();
-      // Find nav-auth div (index.html uses nav-auth, tool pages use site-nav-auth)
-      const authDiv = document.querySelector('.nav-auth, .site-nav-auth');
+      const authDiv = document.querySelector('.site-nav-auth');
       const mobileAuth = document.getElementById('nav-mobile-auth');
       if (authDiv) {
-        authDiv.innerHTML = `
-          <a href="dashboard.html" style="
-            display:flex;align-items:center;gap:8px;text-decoration:none;
-            color:#1d1d1f;font-size:14px;font-weight:500;padding:5px 12px 5px 6px;
-            border-radius:980px;border:1px solid rgba(0,0,0,.11);
-            transition:background .15s;background:white;
-          " onmouseover="this.style.background='#f0f0f5'" onmouseout="this.style.background='white'">
-            <span style="
-              width:26px;height:26px;border-radius:50%;background:#0071e3;
-              color:white;font-size:12px;font-weight:700;
-              display:flex;align-items:center;justify-content:center;flex-shrink:0;
-            ">${initial}</span>
-            My account
-          </a>`;
+        authDiv.innerHTML = `<a href="dashboard.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#1d1d1f;font-size:14px;font-weight:500;padding:5px 12px 5px 6px;border-radius:980px;border:1px solid rgba(0,0,0,.11);transition:background .15s;background:white;" onmouseover="this.style.background='#f0f0f5'" onmouseout="this.style.background='white'"><span style="width:26px;height:26px;border-radius:50%;background:#0071e3;color:white;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">${initial}</span>My account</a>`;
       }
-      // Update mobile menu auth too
-      const mobileAuth = document.getElementById('nav-mobile-auth');
       if (mobileAuth) {
-        mobileAuth.innerHTML = `
-          <a href="dashboard.html" style="
-            flex:1;text-align:center;padding:12px;border-radius:12px;
-            background:#0071e3;color:white;text-decoration:none;
-            font-size:15px;font-weight:500;border-bottom:none;
-          ">My account (${initial})</a>`;
+        mobileAuth.innerHTML = `<a href="dashboard.html" style="flex:1;text-align:center;padding:12px;border-radius:12px;background:#0071e3;color:white;text-decoration:none;font-size:15px;font-weight:500;border-bottom:none;">My account (${initial})</a>`;
       }
     }
   </script>
@@ -1118,14 +524,16 @@
     const hamburgerIcon = `<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
     const closeIcon = `<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
     function closeMobileMenu() { mobileMenu.classList.remove('open'); hamburger.innerHTML = hamburgerIcon; }
-    hamburger.addEventListener('click', e => {
-      e.stopPropagation();
-      const isOpen = mobileMenu.classList.toggle('open');
-      hamburger.innerHTML = isOpen ? closeIcon : hamburgerIcon;
-    });
-    document.addEventListener('click', e => {
-      if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) closeMobileMenu();
-    });
+    if (hamburger) {
+      hamburger.addEventListener('click', e => {
+        e.stopPropagation();
+        const isOpen = mobileMenu.classList.toggle('open');
+        hamburger.innerHTML = isOpen ? closeIcon : hamburgerIcon;
+      });
+      document.addEventListener('click', e => {
+        if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) closeMobileMenu();
+      });
+    }
   </script>
 </body>
 </html>

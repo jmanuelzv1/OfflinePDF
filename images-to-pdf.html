@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Convert Images to PDF Free — JPG PNG WebP | OfflinePDF</title>
-  <meta name="description" content="Convert JPG, PNG and WebP images to a PDF for free. Drag to reorder, choose page size and orientation. No upload required. Files stay on your device." />
+  <title>Convert Images to PDF Online Free — JPG PNG WebP | OfflinePDF</title>
+  <meta name="description" content="Convert JPG, PNG and WebP images to a PDF online for free. Drag to reorder pages, choose page size and orientation. No upload required." />
   <meta name="keywords" content="images to pdf, jpg to pdf, png to pdf, convert images to pdf online free, photos to pdf" />
   <meta name="author" content="OfflinePDF" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -401,80 +401,40 @@
       padding: 3px 12px;
       display: inline-block;
     }
-    </style>
-</head>
-<body>
-  <style>
-    /* ── Site nav ── */
-    .site-nav {
-      position: sticky;
-      top: 0;
-      z-index: 200;
-      width: 100%;
-      background: rgba(245,245,247,0.88);
+      .site-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(245,245,247,0.82);
       backdrop-filter: saturate(180%) blur(20px);
       -webkit-backdrop-filter: saturate(180%) blur(20px);
-      border-bottom: 1px solid rgba(0,0,0,0.08);
+      border-bottom: 1px solid rgba(0,0,0,.08);
       padding: 0 40px;
+      display: flex; align-items: center; justify-content: space-between;
       height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-left: calc(-50vw + 50%);
-      margin-right: calc(-50vw + 50%);
-      box-sizing: border-box;
     }
     .site-nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: #1d1d1f;
-      flex-shrink: 0;
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: #1d1d1f;
     }
     .site-nav-mark {
-      width: 30px;
-      height: 30px;
-      background: #0071e3;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+      width: 30px; height: 30px; background: #0071e3;
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
     }
     .site-nav-mark svg { width: 16px; height: 16px; }
-    .site-nav-name {
-      font-size: 16px;
-      font-weight: 600;
-      letter-spacing: -.3px;
-    }
+    .site-nav-name { font-size: 16px; font-weight: 600; letter-spacing: -.3px; }
     .site-nav-links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      list-style: none;
-    }
-    .site-nav-links a {
-      font-size: 14px;
-      font-weight: 500;
-      color: #6e6e73;
-      text-decoration: none;
-      transition: color .15s;
-      white-space: nowrap;
-    }
-    .site-nav-links a:hover { color: #1d1d1f; }
-
-  
-    .site-nav-links {
+      display: flex; align-items: center; gap: 28px; list-style: none;
       position: absolute; left: 50%; transform: translateX(-50%);
     }
-    .site-nav-auth {
-      display: flex; align-items: center; gap: 8px;
+    .site-nav-links a {
+      font-size: 14px; font-weight: 500; color: #6e6e73;
+      text-decoration: none; transition: color .15s;
     }
+    .site-nav-links a:hover { color: #1d1d1f; }
+    .site-nav-auth { display: flex; align-items: center; gap: 8px; }
     .site-nav-login {
-      font-size: 14px; font-weight: 500; color: var(--text-secondary, #6e6e73);
+      font-size: 14px; font-weight: 500; color: #6e6e73;
       text-decoration: none; padding: 7px 14px; border-radius: 980px;
-      border: 1px solid rgba(0,0,0,0.11);
+      border: 1px solid rgba(0,0,0,.11);
       transition: background .15s, border-color .15s, color .15s;
     }
     .site-nav-login:hover { background: #e8e8ed; border-color: rgba(0,0,0,.18); color: #1d1d1f; }
@@ -484,12 +444,12 @@
       background: #0071e3; transition: background .15s;
     }
     .site-nav-signup:hover { background: #0077ed; }
-    /* Mobile nav */
     .site-nav-hamburger {
       display: none; background: none; border: none;
       cursor: pointer; padding: 8px; color: #1d1d1f;
       border-radius: 8px; transition: background .15s;
     }
+    .site-nav-hamburger:hover { background: #e8e8ed; }
     .site-nav-hamburger svg { display: block; }
     .site-nav-mobile-menu {
       display: none; position: fixed; top: 56px; left: 0; right: 0;
@@ -497,10 +457,8 @@
       backdrop-filter: saturate(180%) blur(20px);
       -webkit-backdrop-filter: saturate(180%) blur(20px);
       border-bottom: 1px solid rgba(0,0,0,.08);
-      padding: 16px 20px 24px; z-index: 9999;
+      padding: 16px 20px 24px; z-index: 99;
       flex-direction: column; gap: 4px;
-      width: 100vw;
-      margin-left: calc(-50vw + 50%);
     }
     .site-nav-mobile-menu.open { display: flex; }
     .site-nav-mobile-menu a {
@@ -518,699 +476,16 @@
     .site-nav-mobile-login { border: 1.5px solid rgba(0,0,0,.11) !important; color: #6e6e73 !important; background: white; }
     .site-nav-mobile-signup { background: #0071e3 !important; color: white !important; }
     @media (max-width: 768px) {
-      .site-nav {
-        padding: 0 20px !important;
-        margin-left: -20px !important;
-        margin-right: -20px !important;
-        width: calc(100% + 40px) !important;
-        box-sizing: border-box !important;
-      }
-      .site-nav-links { display: none !important; }
-      .site-nav-auth { display: none !important; }
-      .site-nav-hamburger { display: block !important; }
+      .site-nav { padding: 0 20px; }
+      .site-nav-links { display: none; }
+      .site-nav-auth { display: none; }
+      .site-nav-hamburger { display: block; }
     }
   </style>
-    <nav class="site-nav" aria-label="Site navigation">
-    <a class="site-nav-logo" href="index.html" aria-label="OfflinePDF home">
-      <div class="site-nav-mark" aria-hidden="true">
-        <svg viewBox="0 0 16 16" fill="none">
-          <rect x="1" y="1" width="10" height="13" rx="2" fill="white" opacity=".3"/>
-          <rect x="3" y="3" width="10" height="13" rx="2" fill="white"/>
-        </svg>
-      </div>
-      <span class="site-nav-name">OfflinePDF</span>
-    </a>
-    <ul class="site-nav-links">
-      <li><a href="index.html#tools">All tools</a></li>
-      <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="index.html#privacy">Privacy</a></li>
-      <li><a href="index.html#how">How it works</a></li>
-    </ul>
-    <div class="site-nav-auth">
-      <a href="login.html" class="site-nav-login">Log in</a>
-      <a href="login.html" class="site-nav-signup">Sign up</a>
-    </div>
-    <button class="site-nav-hamburger" id="nav-hamburger" aria-label="Open menu">
-      <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
-        <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-    </button>
-  </nav>
-
-  <div class="site-nav-mobile-menu" id="nav-mobile-menu">
-    <a href="index.html#tools" onclick="closeMobileMenu()">All tools</a>
-    <a href="pricing.html" onclick="closeMobileMenu()">Pricing</a>
-    <a href="privacy.html" onclick="closeMobileMenu()">Privacy</a>
-    <a href="index.html#how" onclick="closeMobileMenu()">How it works</a>
-    <div class="site-nav-mobile-auth" id="nav-mobile-auth">
-      <a href="login.html" class="site-nav-mobile-login">Log in</a>
-      <a href="login.html" class="site-nav-mobile-signup">Sign up</a>
-    </div>
-  </div>
+</head>
+<body>
   <style>
-    .site-nav {
-      position: sticky; top: 0; z-index: 200;
-      background: rgba(245,245,247,0.88);
-      backdrop-filter: saturate(180%) blur(20px);
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-      padding: 0 40px; height: 56px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .site-nav-logo {
-      display: flex; align-items: center; gap: 10px;
-      text-decoration: none; color: #1d1d1f;
-    }
-    .site-nav-mark {
-      width: 30px; height: 30px;
-      background: #0071e3; border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .site-nav-mark svg { width: 16px; height: 16px; }
-    .site-nav-name {
-      font-size: 16px; font-weight: 600; letter-spacing: -.3px;
-    }
-    .site-nav-links {
-      display: flex; align-items: center; gap: 28px; list-style: none;
-    }
-    .site-nav-links a {
-      font-size: 14px; font-weight: 500; color: #6e6e73;
-      text-decoration: none; transition: color .15s;
-    }
-    .site-nav-links a:hover { color: #1d1d1f; }
-  </style>
-  <div class="header">
-    <div class="header-icon">
-      <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g transform="scale(1.214)">
-        <rect x="2" y="4" width="11" height="11" rx="2" fill="#34c759" opacity=".4"/>
-            <rect x="3" y="5" width="11" height="11" rx="2" fill="#34c759"/>
-            <path d="M4 13l3-3 2 2 2.5-3 3 4H4z" fill="white" opacity=".8"/>
-            <path d="M16 12h6M19 9l3 3-3 3" stroke="#0071e3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="20" y="15" width="7" height="9" rx="1.5" fill="#ff3b30" opacity=".4"/>
-            <rect x="21" y="16" width="7" height="9" rx="1.5" fill="#ff3b30"/>
-        </g>
-      </svg>
-    </div>
-    <h1>Images to PDF</h1>
-    <p class="subtitle">Combine JPG, PNG or WebP images into a single PDF. Drag to reorder pages. No upload required.</p>
-  </div>
-
-  <div class="card">
-
-    <!-- Drop Zone -->
-    <div class="drop-zone" id="drop-zone">
-      <div class="dz-icon">
-        <svg viewBox="0 0 34 34" fill="none">
-          <path d="M17 6v16M10 13l7-7 7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M5 26h24" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <p class="dz-label">Drop your images here</p>
-      <p class="dz-sub">JPG, PNG, WebP · Add as many as you need</p>
-      <p class="dz-limit">Free plan: up to 25 MB · 5 operations/day</p>
-      <button class="btn-choose" onclick="document.getElementById('file-input').click()">Choose Images</button>
-      <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp" multiple />
-    </div>
-
-    <!-- Toolbar -->
-    <div class="divider" id="div-toolbar" style="display:none"></div>
-    <div class="toolbar" id="toolbar">
-      <span class="toolbar-left" id="toolbar-count">0 images</span>
-      <div class="toolbar-right">
-        <button class="btn-toolbar primary" onclick="document.getElementById('file-input').click()">
-          <svg viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-          Add more
-        </button>
-        <button class="btn-toolbar" id="btn-clear-all">
-          <svg viewBox="0 0 14 14" fill="none"><path d="M10.5 3.5l-7 7M3.5 3.5l7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-          Clear all
-        </button>
-      </div>
-    </div>
-
-    <!-- Image grid -->
-    <div class="grid-wrap" id="grid-wrap">
-      <div class="img-grid" id="img-grid"></div>
-      <div class="drag-hint">
-        <svg viewBox="0 0 13 13" fill="none"><circle cx="4.5" cy="3.5" r="1.1" fill="currentColor"/><circle cx="8.5" cy="3.5" r="1.1" fill="currentColor"/><circle cx="4.5" cy="6.5" r="1.1" fill="currentColor"/><circle cx="8.5" cy="6.5" r="1.1" fill="currentColor"/><circle cx="4.5" cy="9.5" r="1.1" fill="currentColor"/><circle cx="8.5" cy="9.5" r="1.1" fill="currentColor"/></svg>
-        Drag images to reorder
-      </div>
-    </div>
-
-    <!-- Options -->
-    <div class="divider" id="div-opts" style="display:none"></div>
-    <div class="options-wrap" id="options-wrap">
-      <div class="options-row">
-        <!-- Page size -->
-        <div class="opt-block">
-          <div class="opt-label">Page size</div>
-          <div class="opt-pills">
-            <button class="opt-pill active" data-size="fit">Fit image</button>
-            <button class="opt-pill" data-size="a4">A4</button>
-            <button class="opt-pill" data-size="letter">Letter</button>
-          </div>
-        </div>
-        <!-- Orientation -->
-        <div class="opt-block">
-          <div class="opt-label">Orientation</div>
-          <div class="opt-pills">
-            <button class="opt-pill active" data-orient="auto">Auto</button>
-            <button class="opt-pill" data-orient="portrait">Portrait</button>
-            <button class="opt-pill" data-orient="landscape">Landscape</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Filename -->
-    <div class="filename-wrap" id="filename-wrap">
-      <div class="filename-label">Output filename</div>
-      <input class="filename-input" id="filename-input" type="text" value="images" placeholder="images" spellcheck="false" />
-    </div>
-
-    <!-- Error -->
-    <div class="error-msg" id="error-msg"></div>
-
-    <!-- Action -->
-    <div class="action-wrap" id="action-wrap">
-      <button class="btn-build" id="btn-build">
-        <svg viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="11" y="3" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="11" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="11" y="11" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.8"/></svg>
-        Build PDF
-      </button>
-    </div>
-
-    <!-- Progress -->
-    <div class="progress-wrap" id="progress-wrap">
-      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
-      <p class="progress-label" id="progress-label">Adding image 1…</p>
-    </div>
-
-    <!-- Done -->
-    <div class="done-wrap" id="done-wrap">
-      <div class="done-icon">
-        <svg viewBox="0 0 30 30" fill="none"><path d="M6 15l7 7 11-13" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <div class="done-title" id="done-title">PDF created</div>
-      <div class="done-sub"  id="done-sub">Your PDF has been downloaded.</div>
-      <button class="btn-reset" id="btn-reset">Convert more images</button>
-    </div>
-
-  </div>
-
-  <script>
-    // ── State ──
-    let images = []; // { id, file, dataUrl }
-    let dragSrcId = null;
-    let ghostEl   = null;
-    let ghostOffX = 0, ghostOffY = 0;
-    let pageSize  = 'fit';
-    let orient    = 'auto';
-
-    // ── Elements ──
-    const dropZone     = document.getElementById('drop-zone');
-    const fileInput    = document.getElementById('file-input');
-    const divToolbar   = document.getElementById('div-toolbar');
-    const toolbar      = document.getElementById('toolbar');
-    const toolbarCount = document.getElementById('toolbar-count');
-    const btnClearAll  = document.getElementById('btn-clear-all');
-    const gridWrap     = document.getElementById('grid-wrap');
-    const imgGrid      = document.getElementById('img-grid');
-    const divOpts      = document.getElementById('div-opts');
-    const optionsWrap  = document.getElementById('options-wrap');
-    const filenameWrap = document.getElementById('filename-wrap');
-    const filenameInput= document.getElementById('filename-input');
-    const actionWrap   = document.getElementById('action-wrap');
-    const btnBuild     = document.getElementById('btn-build');
-    const progressWrap = document.getElementById('progress-wrap');
-    const progressFill = document.getElementById('progress-fill');
-    const progressLabel= document.getElementById('progress-label');
-    const doneWrap     = document.getElementById('done-wrap');
-    const doneTitle    = document.getElementById('done-title');
-    const doneSub      = document.getElementById('done-sub');
-    const btnReset     = document.getElementById('btn-reset');
-    const errorMsg     = document.getElementById('error-msg');
-
-    // ── Option pills ──
-    document.querySelectorAll('[data-size]').forEach(b => {
-      b.addEventListener('click', () => {
-        document.querySelectorAll('[data-size]').forEach(x => x.classList.remove('active'));
-        b.classList.add('active'); pageSize = b.dataset.size;
-      });
-    });
-    document.querySelectorAll('[data-orient]').forEach(b => {
-      b.addEventListener('click', () => {
-        document.querySelectorAll('[data-orient]').forEach(x => x.classList.remove('active'));
-        b.classList.add('active'); orient = b.dataset.orient;
-      });
-    });
-
-    // ── Drop zone ──
-    dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
-    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
-    dropZone.addEventListener('drop', e => {
-      e.preventDefault(); dropZone.classList.remove('dragover');
-      handleFiles([...e.dataTransfer.files]);
-    });
-    fileInput.addEventListener('change', () => { handleFiles([...fileInput.files]); fileInput.value = ''; });
-
-    async function handleFiles(files) {
-      hideError();
-      const valid = files.filter(f => f.type.startsWith('image/'));
-      if (!valid.length) { showError('Please select JPG, PNG, or WebP images.'); return; }
-
-      for (const f of valid) {
-        const dataUrl = await readAsDataURL(f);
-        images.push({ id: Date.now() + Math.random(), file: f, dataUrl });
-      }
-      renderGrid();
-    }
-
-    function readAsDataURL(file) {
-      return new Promise(res => {
-        const r = new FileReader();
-        r.onload = e => res(e.target.result);
-        r.readAsDataURL(file);
-      });
-    }
-
-    // ── Render grid ──
-    function renderGrid() {
-      if (!images.length) { resetUI(); return; }
-
-      divToolbar.style.display = '';
-      toolbar.classList.add('visible');
-      gridWrap.classList.add('visible');
-      divOpts.style.display = '';
-      optionsWrap.classList.add('visible');
-      filenameWrap.classList.add('visible');
-      actionWrap.classList.add('visible');
-      toolbarCount.textContent = `${images.length} image${images.length !== 1 ? 's' : ''}`;
-
-      imgGrid.innerHTML = '';
-      images.forEach((entry, idx) => {
-        const card = document.createElement('div');
-        card.className = 'img-card';
-        card.dataset.id = entry.id;
-        card.style.animationDelay = Math.min(idx * 0.04, 0.4) + 's';
-
-        const img = document.createElement('img');
-        img.src = entry.dataUrl;
-        img.alt = entry.file.name;
-
-        const footer = document.createElement('div');
-        footer.className = 'img-card-footer';
-
-        const name = document.createElement('div');
-        name.className = 'img-card-name';
-        name.textContent = entry.file.name;
-        name.title = entry.file.name;
-
-        const order = document.createElement('div');
-        order.className = 'img-card-order';
-        order.textContent = idx + 1;
-
-        const removeBtn = document.createElement('button');
-        removeBtn.className = 'btn-remove-img';
-        removeBtn.title = 'Remove';
-        removeBtn.innerHTML = `<svg viewBox="0 0 11 11" fill="none"><path d="M8.5 2.5l-6 6M2.5 2.5l6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`;
-        removeBtn.addEventListener('click', e => { e.stopPropagation(); removeImage(entry.id); });
-
-        footer.appendChild(name); footer.appendChild(order);
-        card.appendChild(img); card.appendChild(footer); card.appendChild(removeBtn);
-
-        // Drag to reorder
-        card.addEventListener('mousedown', onDragStart);
-        imgGrid.appendChild(card);
-      });
-    }
-
-    function removeImage(id) {
-      images = images.filter(i => i.id !== id);
-      renderGrid();
-    }
-
-    // ── Drag to reorder ──
-    let spacerEl = null;
-    let lastInsertBefore = undefined; // undefined = unset, null = append at end
-
-    function onDragStart(e) {
-      if (e.target.closest('.btn-remove-img')) return;
-      e.preventDefault();
-      const card = e.currentTarget;
-      dragSrcId = card.dataset.id;
-      const rect = card.getBoundingClientRect();
-      ghostOffX = e.clientX - rect.left;
-      ghostOffY = e.clientY - rect.top;
-
-      // Ghost
-      ghostEl = document.createElement('div');
-      ghostEl.className = 'drag-ghost';
-      const gImg = document.createElement('img');
-      const entry = images.find(i => i.id == dragSrcId);
-      gImg.src = entry ? entry.dataUrl : '';
-      ghostEl.appendChild(gImg);
-      ghostEl.style.left = (e.clientX - ghostOffX) + 'px';
-      ghostEl.style.top  = (e.clientY - ghostOffY) + 'px';
-      document.body.appendChild(ghostEl);
-
-      // Spacer — insert once, move it in place, never remove until drop
-      spacerEl = document.createElement('div');
-      spacerEl.className = 'img-drop-spacer active';
-      spacerEl.innerHTML = '<span class="img-drop-spacer-label">Drop here</span>';
-      imgGrid.insertBefore(spacerEl, card);
-      card.classList.add('dragging');
-      lastInsertBefore = undefined;
-
-      document.addEventListener('mousemove', onDragMove);
-      document.addEventListener('mouseup',   onDragEnd);
-    }
-
-    function onDragMove(e) {
-      if (!ghostEl || !spacerEl) return;
-
-      // Move ghost
-      ghostEl.style.left = (e.clientX - ghostOffX) + 'px';
-      ghostEl.style.top  = (e.clientY - ghostOffY) + 'px';
-
-      // Snapshot card rects once per move event (before any DOM change)
-      const allCards = [...imgGrid.querySelectorAll('.img-card:not(.dragging)')];
-      const rects = allCards.map(el => ({ el, r: el.getBoundingClientRect() }));
-
-      // Find nearest card centre
-      let nearest = null;
-      let nearestDist = Infinity;
-
-      for (const { el, r } of rects) {
-        const cx   = r.left + r.width  / 2;
-        const cy   = r.top  + r.height / 2;
-        const dist = Math.hypot(e.clientX - cx, e.clientY - cy);
-        if (dist < nearestDist) { nearestDist = dist; nearest = { el, r }; }
-      }
-
-      // Decide insert position
-      let insertBefore = null; // null = append at end
-      if (nearest) {
-        const cx = nearest.r.left + nearest.r.width / 2;
-        insertBefore = e.clientX < cx ? nearest.el : (nearest.el.nextSibling || null);
-      }
-
-      // Only move spacer if position actually changed
-      if (insertBefore === lastInsertBefore) return;
-      lastInsertBefore = insertBefore;
-
-      // Move spacer without removing it (avoids reflow flash)
-      if (insertBefore) {
-        imgGrid.insertBefore(spacerEl, insertBefore);
-      } else {
-        imgGrid.appendChild(spacerEl);
-      }
-    }
-
-    function onDragEnd(e) {
-      document.removeEventListener('mousemove', onDragMove);
-      document.removeEventListener('mouseup',   onDragEnd);
-      if (ghostEl) { ghostEl.remove(); ghostEl = null; }
-
-      // Where spacer ended up = drop position
-      let targetId = null;
-      if (spacerEl) {
-        const next = spacerEl.nextElementSibling;
-        if (next && next.classList.contains('img-card') && next.dataset.id !== dragSrcId) {
-          targetId = next.dataset.id;
-        }
-        spacerEl.remove();
-        spacerEl = null;
-      }
-      lastInsertBefore = undefined;
-
-      imgGrid.querySelectorAll('.img-card').forEach(el => el.classList.remove('dragging'));
-
-      if (dragSrcId) {
-        const si = images.findIndex(i => i.id == dragSrcId);
-        const movedEntry = images[si];
-        const ti = targetId
-          ? images.findIndex(i => i.id == targetId)
-          : images.length - 1;
-
-        if (si !== -1 && si !== ti) {
-          images.splice(si, 1);
-          images.splice(ti, 0, movedEntry);
-          renderGrid();
-
-          requestAnimationFrame(() => {
-            const newCard = imgGrid.querySelector(`.img-card[data-id="${movedEntry.id}"]`);
-            if (newCard) {
-              newCard.classList.add('just-dropped');
-              newCard.addEventListener('animationend', () => newCard.classList.remove('just-dropped'), { once: true });
-            }
-          });
-        }
-      }
-
-      dragSrcId = null;
-    }
-
-    btnClearAll.addEventListener('click', resetAll);
-
-    // ── Build PDF ──
-    btnBuild.addEventListener('click', async () => {
-      if (!images.length) return;
-      hideError();
-      // Paywall: check file size
-      if (selectedFiles.length > 0) { try { await Paywall.checkFileSize(selectedFiles[0]); } catch(e) { if(e.message==='FILE_TOO_LARGE') return; } }
-
-      btnBuild.disabled = true;
-
-      // Paywall: check daily ops limit
-      try { await Paywall.checkOpsLimit(); } catch(e) { if(e.message==='OPS_LIMIT_REACHED') return; }
-
-
-      actionWrap.classList.remove('visible');
-      progressWrap.classList.add('visible');
-      progressFill.style.width = '0%';
-
-      try {
-        const pdf   = await PDFLib.PDFDocument.create();
-        const total = images.length;
-
-        // Page size constants (points: 1pt = 1/72 inch)
-        const A4     = [595.28, 841.89];
-        const LETTER = [612, 792];
-
-        for (let i = 0; i < total; i++) {
-          progressLabel.textContent = `Adding image ${i + 1} of ${total}…`;
-          progressFill.style.width  = Math.round(((i + .5) / total) * 90) + '%';
-          await new Promise(r => setTimeout(r, 0));
-
-          const entry    = images[i];
-          const dataUrl  = entry.dataUrl;
-          const isPng    = dataUrl.startsWith('data:image/png');
-          const isWebp   = dataUrl.startsWith('data:image/webp');
-
-          // Convert webp to jpeg via canvas if needed (pdf-lib doesn't support webp natively)
-          let embedData;
-          let embedFn;
-
-          if (isWebp) {
-            const canvas = document.createElement('canvas');
-            const imgEl  = await loadImage(dataUrl);
-            canvas.width = imgEl.naturalWidth; canvas.height = imgEl.naturalHeight;
-            canvas.getContext('2d').drawImage(imgEl, 0, 0);
-            const jpegDataUrl = canvas.toDataURL('image/jpeg', 0.92);
-            embedData = base64ToUint8(jpegDataUrl.split(',')[1]);
-            embedFn   = pdf.embedJpg.bind(pdf);
-          } else if (isPng) {
-            embedData = base64ToUint8(dataUrl.split(',')[1]);
-            embedFn   = pdf.embedPng.bind(pdf);
-          } else {
-            embedData = base64ToUint8(dataUrl.split(',')[1]);
-            embedFn   = pdf.embedJpg.bind(pdf);
-          }
-
-          const embeddedImg = await embedFn(embedData);
-          const imgW = embeddedImg.width;
-          const imgH = embeddedImg.height;
-
-          let pageW, pageH;
-
-          if (pageSize === 'fit') {
-            pageW = imgW; pageH = imgH;
-          } else {
-            const base = pageSize === 'a4' ? A4 : LETTER;
-            // Determine orientation
-            const isLandscape = orient === 'landscape' || (orient === 'auto' && imgW > imgH);
-            pageW = isLandscape ? base[1] : base[0];
-            pageH = isLandscape ? base[0] : base[1];
-          }
-
-          const page = pdf.addPage([pageW, pageH]);
-
-          // Scale image to fit page while maintaining aspect ratio
-          const scale  = Math.min(pageW / imgW, pageH / imgH);
-          const drawW  = imgW * scale;
-          const drawH  = imgH * scale;
-          const drawX  = (pageW - drawW) / 2;
-          const drawY  = (pageH - drawH) / 2;
-
-          page.drawImage(embeddedImg, { x: drawX, y: drawY, width: drawW, height: drawH });
-        }
-
-        progressLabel.textContent = 'Finalising…';
-        progressFill.style.width  = '95%';
-        await new Promise(r => setTimeout(r, 0));
-
-        const bytes  = await pdf.save();
-        const blob   = new Blob([bytes], { type: 'application/pdf' });
-        const name   = (filenameInput.value.trim() || 'images').replace(/\.pdf$/i, '') + '.pdf';
-        const url    = Paywall.recordOperation();
-        URL.createObjectURL(blob);
-        const a      = Object.assign(document.createElement('a'), { href: url, download: name });
-        document.body.appendChild(a); a.click(); document.body.removeChild(a);
-        setTimeout(() => URL.revokeObjectURL(url), 1000);
-
-        progressFill.style.width = '100%';
-        await new Promise(r => setTimeout(r, 250));
-
-        progressWrap.classList.remove('visible');
-        doneWrap.classList.add('visible');
-        doneTitle.textContent = `${total} image${total !== 1 ? 's' : ''} → PDF`;
-        doneSub.textContent   = `Saved as "${name}"`;
-
-      } catch (err) {
-        progressWrap.classList.remove('visible');
-        actionWrap.classList.add('visible');
-        btnBuild.disabled = false;
-        showError('Something went wrong while building the PDF. Please try again.');
-      }
-    });
-
-    function loadImage(src) {
-      return new Promise((res, rej) => {
-        const img = new Image();
-        img.onload = () => res(img);
-        img.onerror = rej;
-        img.src = src;
-      });
-    }
-
-    function base64ToUint8(b64) {
-      const bin = atob(b64);
-      const arr = new Uint8Array(bin.length);
-      for (let i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
-      return arr;
-    }
-
-    btnReset.addEventListener('click', resetAll);
-
-    function resetUI() {
-      divToolbar.style.display = 'none';
-      toolbar.classList.remove('visible');
-      gridWrap.classList.remove('visible');
-      divOpts.style.display = 'none';
-      optionsWrap.classList.remove('visible');
-      filenameWrap.classList.remove('visible');
-      actionWrap.classList.remove('visible');
-      imgGrid.innerHTML = '';
-    }
-
-    function resetAll() {
-      images = [];
-      fileInput.value = '';
-      resetUI();
-      progressWrap.classList.remove('visible');
-      doneWrap.classList.remove('visible');
-      progressFill.style.width = '0%';
-      btnBuild.disabled = false;
-      filenameInput.value = 'images';
-      hideError();
-    }
-
-    function showError(msg) { errorMsg.textContent = msg; errorMsg.classList.add('visible'); }
-    function hideError()    { errorMsg.classList.remove('visible'); }
-  </script>
-  <style>
-    .related-section {
-      width: 100%;
-      background: #ffffff;
-      border-top: 1px solid rgba(0,0,0,0.07);
-      margin-top: 48px;
-      padding: 40px 24px 48px;
-    }
-    .related-inner {
-      max-width: 680px;
-      margin: 0 auto;
-    }
-    .related-heading {
-      font-size: 11px;
-      font-weight: 700;
-      color: #aeaeb2;
-      text-transform: uppercase;
-      letter-spacing: .7px;
-      margin-bottom: 16px;
-    }
-    .related-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-    .related-card {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      background: #f5f5f7;
-      border: 1px solid rgba(0,0,0,0.07);
-      border-radius: 14px;
-      padding: 16px;
-      text-decoration: none;
-      color: #1d1d1f;
-      transition: border-color .2s, box-shadow .2s, transform .2s;
-    }
-    .related-card:hover {
-      border-color: rgba(0,0,0,0.15);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-      transform: translateY(-2px);
-    }
-    .related-card-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 9px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .related-card-icon svg {
-      width: 20px;
-      height: 20px;
-    }
-    .related-card-name {
-      font-size: 14px;
-      font-weight: 600;
-      color: #1d1d1f;
-      line-height: 1.3;
-    }
-    .related-card-desc {
-      font-size: 12px;
-      color: #6e6e73;
-      line-height: 1.4;
-      margin-top: -4px;
-    }
-    .related-card-arrow {
-      margin-top: auto;
-      font-size: 12px;
-      font-weight: 500;
-      color: #0071e3;
-      display: flex;
-      align-items: center;
-      gap: 3px;
-    }
-    .related-card-arrow svg {
-      width: 11px;
-      height: 11px;
-    }
-    @media (max-width: 560px) {
-      .related-grid { grid-template-columns: 1fr; }
+    /* ── Site nav ── */
       .related-section { padding: 32px 20px 40px; }
     }
     .related-footer {
@@ -1293,7 +568,6 @@
       </div>
     </div>
   </div>
-
   <script type="module">
     import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
     const client = createClient(
@@ -1304,34 +578,13 @@
     if (session) {
       const email = session.user.email;
       const initial = email.charAt(0).toUpperCase();
-      // Find nav-auth div (index.html uses nav-auth, tool pages use site-nav-auth)
-      const authDiv = document.querySelector('.nav-auth, .site-nav-auth');
+      const authDiv = document.querySelector('.site-nav-auth');
       const mobileAuth = document.getElementById('nav-mobile-auth');
       if (authDiv) {
-        authDiv.innerHTML = `
-          <a href="dashboard.html" style="
-            display:flex;align-items:center;gap:8px;text-decoration:none;
-            color:#1d1d1f;font-size:14px;font-weight:500;padding:5px 12px 5px 6px;
-            border-radius:980px;border:1px solid rgba(0,0,0,.11);
-            transition:background .15s;background:white;
-          " onmouseover="this.style.background='#f0f0f5'" onmouseout="this.style.background='white'">
-            <span style="
-              width:26px;height:26px;border-radius:50%;background:#0071e3;
-              color:white;font-size:12px;font-weight:700;
-              display:flex;align-items:center;justify-content:center;flex-shrink:0;
-            ">${initial}</span>
-            My account
-          </a>`;
+        authDiv.innerHTML = `<a href="dashboard.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#1d1d1f;font-size:14px;font-weight:500;padding:5px 12px 5px 6px;border-radius:980px;border:1px solid rgba(0,0,0,.11);transition:background .15s;background:white;" onmouseover="this.style.background='#f0f0f5'" onmouseout="this.style.background='white'"><span style="width:26px;height:26px;border-radius:50%;background:#0071e3;color:white;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">${initial}</span>My account</a>`;
       }
-      // Update mobile menu auth too
-      const mobileAuth = document.getElementById('nav-mobile-auth');
       if (mobileAuth) {
-        mobileAuth.innerHTML = `
-          <a href="dashboard.html" style="
-            flex:1;text-align:center;padding:12px;border-radius:12px;
-            background:#0071e3;color:white;text-decoration:none;
-            font-size:15px;font-weight:500;border-bottom:none;
-          ">My account (${initial})</a>`;
+        mobileAuth.innerHTML = `<a href="dashboard.html" style="flex:1;text-align:center;padding:12px;border-radius:12px;background:#0071e3;color:white;text-decoration:none;font-size:15px;font-weight:500;border-bottom:none;">My account (${initial})</a>`;
       }
     }
   </script>
@@ -1341,14 +594,16 @@
     const hamburgerIcon = `<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
     const closeIcon = `<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
     function closeMobileMenu() { mobileMenu.classList.remove('open'); hamburger.innerHTML = hamburgerIcon; }
-    hamburger.addEventListener('click', e => {
-      e.stopPropagation();
-      const isOpen = mobileMenu.classList.toggle('open');
-      hamburger.innerHTML = isOpen ? closeIcon : hamburgerIcon;
-    });
-    document.addEventListener('click', e => {
-      if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) closeMobileMenu();
-    });
+    if (hamburger) {
+      hamburger.addEventListener('click', e => {
+        e.stopPropagation();
+        const isOpen = mobileMenu.classList.toggle('open');
+        hamburger.innerHTML = isOpen ? closeIcon : hamburgerIcon;
+      });
+      document.addEventListener('click', e => {
+        if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) closeMobileMenu();
+      });
+    }
   </script>
 </body>
 </html>

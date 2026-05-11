@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Unlock PDF Free — Remove Password in Your Browser | OfflinePDF</title>
-  <meta name="description" content="Remove password protection from any PDF for free. Unlock instantly in your browser. No upload required, no account, completely private." />
+  <title>Unlock PDF Online Free — Remove Password | OfflinePDF</title>
+  <meta name="description" content="Remove password protection from your PDF online for free. Unlock PDF files instantly in your browser — no upload required, no account, completely private." />
   <meta name="keywords" content="unlock pdf, remove pdf password free, pdf password remover, decrypt pdf online, unlock pdf free" />
   <meta name="author" content="OfflinePDF" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -310,80 +310,40 @@
       padding: 3px 12px;
       display: inline-block;
     }
-    </style>
-</head>
-<body>
-  <style>
-    /* ── Site nav ── */
-    .site-nav {
-      position: sticky;
-      top: 0;
-      z-index: 200;
-      width: 100%;
-      background: rgba(245,245,247,0.88);
+      .site-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(245,245,247,0.82);
       backdrop-filter: saturate(180%) blur(20px);
       -webkit-backdrop-filter: saturate(180%) blur(20px);
-      border-bottom: 1px solid rgba(0,0,0,0.08);
+      border-bottom: 1px solid rgba(0,0,0,.08);
       padding: 0 40px;
+      display: flex; align-items: center; justify-content: space-between;
       height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-left: calc(-50vw + 50%);
-      margin-right: calc(-50vw + 50%);
-      box-sizing: border-box;
     }
     .site-nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: #1d1d1f;
-      flex-shrink: 0;
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: #1d1d1f;
     }
     .site-nav-mark {
-      width: 30px;
-      height: 30px;
-      background: #0071e3;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+      width: 30px; height: 30px; background: #0071e3;
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
     }
     .site-nav-mark svg { width: 16px; height: 16px; }
-    .site-nav-name {
-      font-size: 16px;
-      font-weight: 600;
-      letter-spacing: -.3px;
-    }
+    .site-nav-name { font-size: 16px; font-weight: 600; letter-spacing: -.3px; }
     .site-nav-links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      list-style: none;
-    }
-    .site-nav-links a {
-      font-size: 14px;
-      font-weight: 500;
-      color: #6e6e73;
-      text-decoration: none;
-      transition: color .15s;
-      white-space: nowrap;
-    }
-    .site-nav-links a:hover { color: #1d1d1f; }
-
-  
-    .site-nav-links {
+      display: flex; align-items: center; gap: 28px; list-style: none;
       position: absolute; left: 50%; transform: translateX(-50%);
     }
-    .site-nav-auth {
-      display: flex; align-items: center; gap: 8px;
+    .site-nav-links a {
+      font-size: 14px; font-weight: 500; color: #6e6e73;
+      text-decoration: none; transition: color .15s;
     }
+    .site-nav-links a:hover { color: #1d1d1f; }
+    .site-nav-auth { display: flex; align-items: center; gap: 8px; }
     .site-nav-login {
-      font-size: 14px; font-weight: 500; color: var(--text-secondary, #6e6e73);
+      font-size: 14px; font-weight: 500; color: #6e6e73;
       text-decoration: none; padding: 7px 14px; border-radius: 980px;
-      border: 1px solid rgba(0,0,0,0.11);
+      border: 1px solid rgba(0,0,0,.11);
       transition: background .15s, border-color .15s, color .15s;
     }
     .site-nav-login:hover { background: #e8e8ed; border-color: rgba(0,0,0,.18); color: #1d1d1f; }
@@ -393,12 +353,12 @@
       background: #0071e3; transition: background .15s;
     }
     .site-nav-signup:hover { background: #0077ed; }
-    /* Mobile nav */
     .site-nav-hamburger {
       display: none; background: none; border: none;
       cursor: pointer; padding: 8px; color: #1d1d1f;
       border-radius: 8px; transition: background .15s;
     }
+    .site-nav-hamburger:hover { background: #e8e8ed; }
     .site-nav-hamburger svg { display: block; }
     .site-nav-mobile-menu {
       display: none; position: fixed; top: 56px; left: 0; right: 0;
@@ -406,10 +366,8 @@
       backdrop-filter: saturate(180%) blur(20px);
       -webkit-backdrop-filter: saturate(180%) blur(20px);
       border-bottom: 1px solid rgba(0,0,0,.08);
-      padding: 16px 20px 24px; z-index: 9999;
+      padding: 16px 20px 24px; z-index: 99;
       flex-direction: column; gap: 4px;
-      width: 100vw;
-      margin-left: calc(-50vw + 50%);
     }
     .site-nav-mobile-menu.open { display: flex; }
     .site-nav-mobile-menu a {
@@ -427,528 +385,16 @@
     .site-nav-mobile-login { border: 1.5px solid rgba(0,0,0,.11) !important; color: #6e6e73 !important; background: white; }
     .site-nav-mobile-signup { background: #0071e3 !important; color: white !important; }
     @media (max-width: 768px) {
-      .site-nav {
-        padding: 0 20px !important;
-        margin-left: -20px !important;
-        margin-right: -20px !important;
-        width: calc(100% + 40px) !important;
-        box-sizing: border-box !important;
-      }
-      .site-nav-links { display: none !important; }
-      .site-nav-auth { display: none !important; }
-      .site-nav-hamburger { display: block !important; }
+      .site-nav { padding: 0 20px; }
+      .site-nav-links { display: none; }
+      .site-nav-auth { display: none; }
+      .site-nav-hamburger { display: block; }
     }
   </style>
-    <nav class="site-nav" aria-label="Site navigation">
-    <a class="site-nav-logo" href="index.html" aria-label="OfflinePDF home">
-      <div class="site-nav-mark" aria-hidden="true">
-        <svg viewBox="0 0 16 16" fill="none">
-          <rect x="1" y="1" width="10" height="13" rx="2" fill="white" opacity=".3"/>
-          <rect x="3" y="3" width="10" height="13" rx="2" fill="white"/>
-        </svg>
-      </div>
-      <span class="site-nav-name">OfflinePDF</span>
-    </a>
-    <ul class="site-nav-links">
-      <li><a href="index.html#tools">All tools</a></li>
-      <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="index.html#privacy">Privacy</a></li>
-      <li><a href="index.html#how">How it works</a></li>
-    </ul>
-    <div class="site-nav-auth">
-      <a href="login.html" class="site-nav-login">Log in</a>
-      <a href="login.html" class="site-nav-signup">Sign up</a>
-    </div>
-    <button class="site-nav-hamburger" id="nav-hamburger" aria-label="Open menu">
-      <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
-        <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-    </button>
-  </nav>
-
-  <div class="site-nav-mobile-menu" id="nav-mobile-menu">
-    <a href="index.html#tools" onclick="closeMobileMenu()">All tools</a>
-    <a href="pricing.html" onclick="closeMobileMenu()">Pricing</a>
-    <a href="privacy.html" onclick="closeMobileMenu()">Privacy</a>
-    <a href="index.html#how" onclick="closeMobileMenu()">How it works</a>
-    <div class="site-nav-mobile-auth" id="nav-mobile-auth">
-      <a href="login.html" class="site-nav-mobile-login">Log in</a>
-      <a href="login.html" class="site-nav-mobile-signup">Sign up</a>
-    </div>
-  </div>
+</head>
+<body>
   <style>
-    .site-nav {
-      position: sticky; top: 0; z-index: 200;
-      background: rgba(245,245,247,0.88);
-      backdrop-filter: saturate(180%) blur(20px);
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-      padding: 0 40px; height: 56px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .site-nav-logo {
-      display: flex; align-items: center; gap: 10px;
-      text-decoration: none; color: #1d1d1f;
-    }
-    .site-nav-mark {
-      width: 30px; height: 30px;
-      background: #0071e3; border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .site-nav-mark svg { width: 16px; height: 16px; }
-    .site-nav-name {
-      font-size: 16px; font-weight: 600; letter-spacing: -.3px;
-    }
-    .site-nav-links {
-      display: flex; align-items: center; gap: 28px; list-style: none;
-    }
-    .site-nav-links a {
-      font-size: 14px; font-weight: 500; color: #6e6e73;
-      text-decoration: none; transition: color .15s;
-    }
-    .site-nav-links a:hover { color: #1d1d1f; }
-  </style>
-  <div class="header">
-    <div class="header-icon">
-      <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g transform="scale(1.214)">
-        <path d="M9 13V9a5 5 0 0110 0" stroke="#34c759" stroke-width="1.8" stroke-linecap="round"/>
-            <rect x="5" y="13" width="18" height="12" rx="3" fill="#34c759" opacity=".25"/>
-            <rect x="6" y="14" width="16" height="11" rx="2.5" fill="#34c759"/>
-            <circle cx="14" cy="19" r="2" fill="white"/>
-            <path d="M14 21v2" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
-        </g>
-      </svg>
-    </div>
-    <h1>Unlock PDF</h1>
-    <p class="subtitle">Remove password protection from any PDF you own. Processed entirely in your browser. No upload required.</p>
-  </div>
-
-  <div class="card">
-
-    <!-- Drop zone -->
-    <div class="drop-zone" id="drop-zone">
-      <div class="dz-icon">
-        <svg viewBox="0 0 34 34" fill="none">
-          <path d="M17 6v16M10 13l7-7 7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M5 26h24" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <p class="dz-label">Drop your PDF here</p>
-      <p class="dz-sub">Password-protected PDFs welcome</p>
-      <p class="dz-limit">Free plan: up to 25 MB · 5 operations/day</p>
-      <button class="btn-choose" onclick="document.getElementById('file-input').click()">Choose PDF</button>
-      <input type="file" id="file-input" accept=".pdf" />
-    </div>
-
-    <!-- File info -->
-    <div class="divider" id="div-file" style="display:none"></div>
-    <div class="file-info" id="file-info">
-      <div class="file-thumb">
-        <svg viewBox="0 0 40 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4 4a3 3 0 013-3h18l11 11v32a3 3 0 01-3 3H7a3 3 0 01-3-3V4z" fill="currentColor" opacity=".15"/>
-          <path d="M25 1l11 11H28a3 3 0 01-3-3V1z" fill="currentColor" opacity=".4"/>
-          <text x="20" y="36" font-size="11" font-weight="800" fill="currentColor" text-anchor="middle" font-family="-apple-system,Helvetica,sans-serif" letter-spacing="0.5">PDF</text>
-        </svg>
-      </div>
-      <div class="file-details">
-        <div class="file-name" id="file-name">document.pdf</div>
-        <div class="file-meta" id="file-meta">—</div>
-      </div>
-      <button class="btn-clear" id="btn-clear">
-        <svg viewBox="0 0 18 18" fill="none"><path d="M13.5 4.5l-9 9M4.5 4.5l9 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-      </button>
-    </div>
-
-    <!-- Status badge -->
-    <div class="status-badge locked" id="status-locked">
-      <svg viewBox="0 0 18 18" fill="none"><rect x="3" y="8" width="12" height="8" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M6 8V6a3 3 0 016 0v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-      This PDF is password-protected. Enter the password below to unlock it.
-    </div>
-    <div class="status-badge unlocked" id="status-unlocked">
-      <svg viewBox="0 0 18 18" fill="none"><rect x="3" y="8" width="12" height="8" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M6 8V6a3 3 0 016 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-      This PDF has no password, it can be unlocked to remove any permission restrictions.
-    </div>
-
-    <!-- Password field -->
-    <div class="pw-section" id="pw-section">
-      <div class="opt-label">Password</div>
-      <div class="pw-field-wrap">
-        <input class="pw-field" id="pw-field" type="password" placeholder="Enter the PDF password…" autocomplete="current-password" />
-        <button class="btn-toggle-pw" id="toggle-pw" tabindex="-1">
-          <svg id="eye-open" viewBox="0 0 18 18" fill="none"><ellipse cx="9" cy="9" rx="7" ry="5" stroke="currentColor" stroke-width="1.5"/><circle cx="9" cy="9" r="2" fill="currentColor"/></svg>
-          <svg id="eye-closed" viewBox="0 0 18 18" fill="none" style="display:none"><path d="M2 2l14 14M7.5 7.7A2 2 0 0011 11M4 5.3C2.7 6.4 2 8 2 8s2.7 5 7 5c1.1 0 2.1-.3 3-.7M8 4.1C8.3 4 8.7 4 9 4c4.3 0 7 4 7 4s-.6 1.3-1.7 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- Info banner -->
-    <div class="info-banner" id="info-banner">
-      <svg viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="6" stroke="currentColor" stroke-width="1.3"/><path d="M7.5 7v3.5M7.5 5v.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-      Only unlock PDFs you own or have permission to decrypt. This tool removes password protection and permission restrictions, saving a clean copy locally.
-    </div>
-
-    <!-- Error -->
-    <div class="error-msg" id="error-msg"></div>
-
-    <!-- Action -->
-    <div class="action-wrap" id="action-wrap">
-      <button class="btn-unlock" id="btn-unlock">
-        <svg viewBox="0 0 20 20" fill="none"><rect x="3" y="9" width="14" height="10" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M7 9V7a3 3 0 016 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="10" cy="14" r="1.5" fill="currentColor"/><path d="M10 15.5v1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        Unlock PDF
-      </button>
-    </div>
-
-    <!-- Progress -->
-    <div class="progress-wrap" id="progress-wrap">
-      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
-      <p class="progress-label" id="progress-label">Verifying password…</p>
-    </div>
-
-    <!-- Done -->
-    <div class="done-wrap" id="done-wrap">
-      <div class="done-icon">
-        <svg viewBox="0 0 30 30" fill="none">
-          <circle cx="15" cy="15" r="11" stroke="currentColor" stroke-width="2"/>
-          <path d="M10 15l3.5 3.5 6.5-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <div class="done-title">Unlocked successfully</div>
-      <div class="done-sub" id="done-sub">Your PDF is ready. No password required to open it.</div>
-      <button class="btn-unlock" id="btn-download" style="margin-top:4px;">
-        <svg viewBox="0 0 22 22" fill="none" width="20" height="20"><path d="M11 3v10M7 9l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 16v1a2 2 0 002 2h10a2 2 0 002-2v-1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        Download unlocked PDF
-      </button>
-      <button class="btn-reset" id="btn-reset">Unlock another PDF</button>
-    </div>
-
-  </div>
-
-  <script>
-    pdfjsLib.GlobalWorkerOptions.workerSrc =
-      'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-
-    // ── State ──
-    let pdfFile     = null;
-    let isEncrypted = false;
-    let unlockedBlob = null;
-    let unlockedName = null;
-
-    // ── Elements ──
-    const dropZone       = document.getElementById('drop-zone');
-    const fileInput      = document.getElementById('file-input');
-    const divFile        = document.getElementById('div-file');
-    const fileInfo       = document.getElementById('file-info');
-    const fileName       = document.getElementById('file-name');
-    const fileMeta       = document.getElementById('file-meta');
-    const btnClear       = document.getElementById('btn-clear');
-    const statusLocked   = document.getElementById('status-locked');
-    const statusUnlocked = document.getElementById('status-unlocked');
-    const pwSection      = document.getElementById('pw-section');
-    const pwField        = document.getElementById('pw-field');
-    const infoBanner     = document.getElementById('info-banner');
-    const actionWrap     = document.getElementById('action-wrap');
-    const btnUnlock      = document.getElementById('btn-unlock');
-    const progressWrap   = document.getElementById('progress-wrap');
-    const progressFill   = document.getElementById('progress-fill');
-    const progressLabel  = document.getElementById('progress-label');
-    const doneWrap       = document.getElementById('done-wrap');
-    const doneSub        = document.getElementById('done-sub');
-    const errorMsg       = document.getElementById('error-msg');
-    const pwToggle       = document.getElementById('pw-toggle');
-
-    // ── Show/hide password toggle ──
-    if (pwToggle) {
-      pwToggle.addEventListener('click', () => {
-        const show = pwField.type === 'password';
-        pwField.type = show ? 'text' : 'password';
-        pwToggle.querySelector('svg')?.classList.toggle('active', show);
-      });
-    }
-
-    // ── Drag & drop ──
-    dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
-    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
-    dropZone.addEventListener('drop', e => {
-      e.preventDefault(); dropZone.classList.remove('dragover');
-      const f = e.dataTransfer.files[0]; if (f) handleFile(f);
-    });
-    fileInput.addEventListener('change', () => { if (fileInput.files[0]) handleFile(fileInput.files[0]); fileInput.value = ''; });
-
-    // ── Handle file ──
-    async function handleFile(file) {
-      hideError();
-      if (!file.name.toLowerCase().endsWith('.pdf')) { showError('Please select a valid PDF file.'); return; }
-      // Paywall: check file size
-      try { await Paywall.checkFileSize(file); } catch(e) { if(e.message==='FILE_TOO_LARGE') return; }
-
-      pdfFile = file;
-
-      try {
-        const buf = await file.arrayBuffer();
-        // Use pdf.js to detect encryption — it handles RC4/AES properly
-        const loadTask = pdfjsLib.getDocument({ data: buf.slice(0) });
-        let pageCount = 0;
-        isEncrypted = false;
-
-        try {
-          const doc  = await loadTask.promise;
-          pageCount  = doc.numPages;
-          isEncrypted = false;
-        } catch (err) {
-          if (err.name === 'PasswordException' || (err.message && err.message.toLowerCase().includes('password'))) {
-            isEncrypted = true;
-            pageCount   = 0;
-          } else {
-            throw err;
-          }
-        }
-
-        fileMeta.textContent = isEncrypted
-          ? 'Password protected'
-          : `${pageCount} page${pageCount !== 1 ? 's' : ''} · ${(file.size/1024/1024).toFixed(2)} MB`;
-
-      } catch {
-        showError('Could not read this PDF. It may be corrupted.');
-        pdfFile = null; return;
-      }
-
-      fileName.textContent = file.name;
-      divFile.style.display = '';
-      fileInfo.classList.add('visible');
-      statusLocked.classList.toggle('visible', isEncrypted);
-      statusUnlocked.classList.toggle('visible', !isEncrypted);
-      pwSection.classList.toggle('visible', isEncrypted);
-      infoBanner.classList.add('visible');
-      actionWrap.classList.add('visible');
-
-      if (isEncrypted) setTimeout(() => pwField.focus(), 100);
-    }
-
-    btnClear.addEventListener('click', resetAll);
-
-    // ── Unlock ──
-    btnUnlock.addEventListener('click', async () => {
-      if (!pdfFile) return;
-      hideError();
-
-      const password = isEncrypted ? pwField.value.trim() : '';
-
-      btnUnlock.disabled = true;
-
-      // Paywall: check daily ops limit
-      try { await Paywall.checkOpsLimit(); } catch(e) { if(e.message==='OPS_LIMIT_REACHED') return; }
-
-
-      actionWrap.classList.remove('visible');
-      progressWrap.classList.add('visible');
-      progressFill.style.width = '0%';
-
-      try {
-        progressLabel.textContent = 'Reading PDF…';
-        progressFill.style.width  = '15%';
-        await tick();
-
-        const buf = await pdfFile.arrayBuffer();
-
-        progressLabel.textContent = isEncrypted ? 'Verifying password…' : 'Loading document…';
-        progressFill.style.width  = '35%';
-        await tick();
-
-        // Step 1: Use pdf.js to load and decrypt — it supports RC4 & AES
-        let pdfJsDoc;
-        try {
-          const loadTask = pdfjsLib.getDocument({
-            data:     buf.slice(0),
-            password: password || '',
-          });
-          pdfJsDoc = await loadTask.promise;
-        } catch (err) {
-          progressWrap.classList.remove('visible');
-          actionWrap.classList.add('visible');
-          btnUnlock.disabled = false;
-
-          if (err.name === 'PasswordException' || (err.message && err.message.toLowerCase().includes('password'))) {
-            pwField.classList.add('error');
-            setTimeout(() => pwField.classList.remove('error'), 400);
-            showError('Incorrect password. Please try again.');
-          } else {
-            showError('Could not open this PDF. It may be corrupted.');
-          }
-          return;
-        }
-
-        progressLabel.textContent = 'Removing encryption…';
-        progressFill.style.width  = '55%';
-        await tick();
-
-        // Step 2: Re-render each page via canvas and rebuild with pdf-lib
-        // This produces a clean, unencrypted PDF regardless of encryption method
-        const newDoc = await PDFLib.PDFDocument.create();
-        const total  = pdfJsDoc.numPages;
-
-        for (let i = 1; i <= total; i++) {
-          const pct = Math.round(55 + ((i - 1) / total) * 35);
-          setProgress(pct, `Processing page ${i} of ${total}…`);
-          await tick();
-
-          const page     = await pdfJsDoc.getPage(i);
-          const viewport = page.getViewport({ scale: 2.0 }); // 2x for quality
-
-          const canvas  = document.createElement('canvas');
-          canvas.width  = Math.floor(viewport.width);
-          canvas.height = Math.floor(viewport.height);
-
-          await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
-
-          // Encode at high quality PNG-like via JPEG 95%
-          const jpegDataUrl = canvas.toDataURL('image/jpeg', 0.95);
-          const jpegBytes   = Uint8Array.from(atob(jpegDataUrl.split(',')[1]), c => c.charCodeAt(0));
-
-          const origVp  = page.getViewport({ scale: 1 });
-          const pdfPage = newDoc.addPage([origVp.width, origVp.height]);
-          const img     = await newDoc.embedJpg(jpegBytes);
-          pdfPage.drawImage(img, { x: 0, y: 0, width: origVp.width, height: origVp.height });
-
-          canvas.width = canvas.height = 0;
-          await tick();
-        }
-
-        progressLabel.textContent = 'Saving…';
-        progressFill.style.width  = '95%';
-        await tick();
-
-        const unlockedBytes = await newDoc.save();
-        unlockedBlob = new Blob([unlockedBytes], { type: 'application/pdf' });
-        unlockedName = pdfFile.name.replace(/\.pdf$/i, '') + '_unlocked.pdf';
-
-        progressFill.style.width = '100%';
-        await new Promise(r => setTimeout(r, 250));
-
-        progressWrap.classList.remove('visible');
-        doneSub.textContent = `"${unlockedName}" is ready. No password required to open it.`;
-        doneWrap.classList.add('visible');
-
-      } catch (err) {
-        console.error('Unlock error:', err);
-        progressWrap.classList.remove('visible');
-        actionWrap.classList.add('visible');
-        btnUnlock.disabled = false;
-        showError('Something went wrong. Please try again.');
-      }
-    });
-
-    function resetAll() {
-      pdfFile = null; isEncrypted = false;
-      unlockedBlob = null; unlockedName = null;
-      fileInput.value = ''; pwField.value = '';
-      [fileInfo, statusLocked, statusUnlocked, pwSection,
-       infoBanner, actionWrap, progressWrap, doneWrap]
-        .forEach(el => el.classList.remove('visible'));
-      divFile.style.display = 'none';
-      progressFill.style.width = '0%';
-      btnUnlock.disabled = false;
-      hideError();
-    }
-
-    // Download button
-    document.getElementById('btn-download').addEventListener('click', () => {
-      if (!unlockedBlob || !unlockedName) return;
-      const url = Paywall.recordOperation(); URL.createObjectURL(unlockedBlob);
-      const a   = Object.assign(document.createElement('a'), { href: url, download: unlockedName });
-      document.body.appendChild(a); a.click(); document.body.removeChild(a);
-      setTimeout(() => URL.revokeObjectURL(url), 1000);
-    });
-
-    document.getElementById('btn-reset').addEventListener('click', resetAll);
-
-    function setProgress(pct, label) { progressFill.style.width = pct + '%'; progressLabel.textContent = label; }
-    function tick()               { return new Promise(r => setTimeout(r, 0)); }
-    function showError(msg)       { errorMsg.textContent = msg; errorMsg.classList.add('visible'); }
-    function hideError()          { errorMsg.classList.remove('visible'); }
-  </script>
-  <style>
-    .related-section {
-      width: 100%;
-      background: #ffffff;
-      border-top: 1px solid rgba(0,0,0,0.07);
-      margin-top: 48px;
-      padding: 40px 24px 48px;
-    }
-    .related-inner {
-      max-width: 680px;
-      margin: 0 auto;
-    }
-    .related-heading {
-      font-size: 11px;
-      font-weight: 700;
-      color: #aeaeb2;
-      text-transform: uppercase;
-      letter-spacing: .7px;
-      margin-bottom: 16px;
-    }
-    .related-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-    .related-card {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      background: #f5f5f7;
-      border: 1px solid rgba(0,0,0,0.07);
-      border-radius: 14px;
-      padding: 16px;
-      text-decoration: none;
-      color: #1d1d1f;
-      transition: border-color .2s, box-shadow .2s, transform .2s;
-    }
-    .related-card:hover {
-      border-color: rgba(0,0,0,0.15);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-      transform: translateY(-2px);
-    }
-    .related-card-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 9px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .related-card-icon svg {
-      width: 20px;
-      height: 20px;
-    }
-    .related-card-name {
-      font-size: 14px;
-      font-weight: 600;
-      color: #1d1d1f;
-      line-height: 1.3;
-    }
-    .related-card-desc {
-      font-size: 12px;
-      color: #6e6e73;
-      line-height: 1.4;
-      margin-top: -4px;
-    }
-    .related-card-arrow {
-      margin-top: auto;
-      font-size: 12px;
-      font-weight: 500;
-      color: #0071e3;
-      display: flex;
-      align-items: center;
-      gap: 3px;
-    }
-    .related-card-arrow svg {
-      width: 11px;
-      height: 11px;
-    }
-    @media (max-width: 560px) {
-      .related-grid { grid-template-columns: 1fr; }
+    /* ── Site nav ── */
       .related-section { padding: 32px 20px 40px; }
     }
     .related-footer {
@@ -1031,7 +477,6 @@
       </div>
     </div>
   </div>
-
   <script type="module">
     import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
     const client = createClient(
@@ -1042,34 +487,13 @@
     if (session) {
       const email = session.user.email;
       const initial = email.charAt(0).toUpperCase();
-      // Find nav-auth div (index.html uses nav-auth, tool pages use site-nav-auth)
-      const authDiv = document.querySelector('.nav-auth, .site-nav-auth');
+      const authDiv = document.querySelector('.site-nav-auth');
       const mobileAuth = document.getElementById('nav-mobile-auth');
       if (authDiv) {
-        authDiv.innerHTML = `
-          <a href="dashboard.html" style="
-            display:flex;align-items:center;gap:8px;text-decoration:none;
-            color:#1d1d1f;font-size:14px;font-weight:500;padding:5px 12px 5px 6px;
-            border-radius:980px;border:1px solid rgba(0,0,0,.11);
-            transition:background .15s;background:white;
-          " onmouseover="this.style.background='#f0f0f5'" onmouseout="this.style.background='white'">
-            <span style="
-              width:26px;height:26px;border-radius:50%;background:#0071e3;
-              color:white;font-size:12px;font-weight:700;
-              display:flex;align-items:center;justify-content:center;flex-shrink:0;
-            ">${initial}</span>
-            My account
-          </a>`;
+        authDiv.innerHTML = `<a href="dashboard.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#1d1d1f;font-size:14px;font-weight:500;padding:5px 12px 5px 6px;border-radius:980px;border:1px solid rgba(0,0,0,.11);transition:background .15s;background:white;" onmouseover="this.style.background='#f0f0f5'" onmouseout="this.style.background='white'"><span style="width:26px;height:26px;border-radius:50%;background:#0071e3;color:white;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">${initial}</span>My account</a>`;
       }
-      // Update mobile menu auth too
-      const mobileAuth = document.getElementById('nav-mobile-auth');
       if (mobileAuth) {
-        mobileAuth.innerHTML = `
-          <a href="dashboard.html" style="
-            flex:1;text-align:center;padding:12px;border-radius:12px;
-            background:#0071e3;color:white;text-decoration:none;
-            font-size:15px;font-weight:500;border-bottom:none;
-          ">My account (${initial})</a>`;
+        mobileAuth.innerHTML = `<a href="dashboard.html" style="flex:1;text-align:center;padding:12px;border-radius:12px;background:#0071e3;color:white;text-decoration:none;font-size:15px;font-weight:500;border-bottom:none;">My account (${initial})</a>`;
       }
     }
   </script>
@@ -1079,14 +503,16 @@
     const hamburgerIcon = `<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
     const closeIcon = `<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
     function closeMobileMenu() { mobileMenu.classList.remove('open'); hamburger.innerHTML = hamburgerIcon; }
-    hamburger.addEventListener('click', e => {
-      e.stopPropagation();
-      const isOpen = mobileMenu.classList.toggle('open');
-      hamburger.innerHTML = isOpen ? closeIcon : hamburgerIcon;
-    });
-    document.addEventListener('click', e => {
-      if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) closeMobileMenu();
-    });
+    if (hamburger) {
+      hamburger.addEventListener('click', e => {
+        e.stopPropagation();
+        const isOpen = mobileMenu.classList.toggle('open');
+        hamburger.innerHTML = isOpen ? closeIcon : hamburgerIcon;
+      });
+      document.addEventListener('click', e => {
+        if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) closeMobileMenu();
+      });
+    }
   </script>
 </body>
 </html>
