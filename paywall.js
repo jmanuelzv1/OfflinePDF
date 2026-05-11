@@ -208,10 +208,10 @@ const Paywall = (() => {
 
           <button id="paywall-cta">Upgrade to Pro</button>
           <div id="paywall-error"></div>
-          <p style="font-size:12px;color:#aeaeb2;margin:0 0 8px;">🔒 Secure payment via Stripe. No card stored on our servers.</p>
           <button id="paywall-free" onclick="document.getElementById('paywall-modal').remove()">Continue with free plan</button>
 
           ${signinSection}
+          <p style="font-size:12px;color:#aeaeb2;margin:12px 0 0;">🔒 Secure payment via Stripe. No card stored on our servers.</p>
 
           <button id="paywall-close" aria-label="Close">
             <svg viewBox="0 0 16 16" fill="none" width="14" height="14">
