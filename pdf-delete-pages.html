@@ -404,6 +404,42 @@
     @media (max-width: 768px) {
       .site-nav-auth { display: none; }
     }
+    .site-nav-hamburger {
+      display: none; background: none; border: none;
+      cursor: pointer; padding: 8px; color: #1d1d1f;
+      border-radius: 8px; transition: background .15s;
+    }
+    .site-nav-hamburger:hover { background: #e8e8ed; }
+    .site-nav-hamburger svg { display: block; }
+    .site-nav-mobile-menu {
+      display: none; position: fixed; top: 56px; left: 0; right: 0;
+      background: rgba(245,245,247,0.98);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,.08);
+      padding: 16px 20px 24px; z-index: 99;
+      flex-direction: column; gap: 4px;
+    }
+    .site-nav-mobile-menu.open { display: flex; }
+    .site-nav-mobile-menu a {
+      font-size: 16px; color: #1d1d1f; text-decoration: none;
+      padding: 12px 4px; border-bottom: 1px solid rgba(0,0,0,.08);
+      font-weight: 500;
+    }
+    .site-nav-mobile-menu a:last-child { border-bottom: none; }
+    .site-nav-mobile-auth { display: flex; gap: 10px; margin-top: 12px; }
+    .site-nav-mobile-auth a {
+      flex: 1; text-align: center; padding: 12px !important;
+      border-radius: 12px !important; border-bottom: none !important;
+      font-size: 15px !important;
+    }
+    .site-nav-mobile-login { border: 1.5px solid rgba(0,0,0,.11) !important; color: #6e6e73 !important; background: white; }
+    .site-nav-mobile-signup { background: #0071e3 !important; color: white !important; }
+    @media (max-width: 768px) {
+      .site-nav-links { display: none; }
+      .site-nav-auth { display: none; }
+      .site-nav-hamburger { display: block; }
+    }
   </style>
     <nav class="site-nav" aria-label="Site navigation">
     <a class="site-nav-logo" href="index.html" aria-label="OfflinePDF home">
@@ -1003,6 +1039,7 @@
       const initial = email.charAt(0).toUpperCase();
       // Find nav-auth div (index.html uses nav-auth, tool pages use site-nav-auth)
       const authDiv = document.querySelector('.nav-auth, .site-nav-auth');
+      const mobileAuth = document.getElementById('nav-mobile-auth');
       if (authDiv) {
         authDiv.innerHTML = `
           <a href="dashboard.html" style="
@@ -1019,7 +1056,31 @@
             My account
           </a>`;
       }
+      // Update mobile menu auth too
+      const mobileAuth = document.getElementById('nav-mobile-auth');
+      if (mobileAuth) {
+        mobileAuth.innerHTML = `
+          <a href="dashboard.html" style="
+            flex:1;text-align:center;padding:12px;border-radius:12px;
+            background:#0071e3;color:white;text-decoration:none;
+            font-size:15px;font-weight:500;border-bottom:none;
+          ">My account (${initial})</a>`;
+      }
     }
+  </script>
+  <script>
+    const hamburger = document.getElementById('nav-hamburger');
+    const mobileMenu = document.getElementById('nav-mobile-menu');
+    const hamburgerIcon = `<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
+    const closeIcon = `<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
+    function closeMobileMenu() { mobileMenu.classList.remove('open'); hamburger.innerHTML = hamburgerIcon; }
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.innerHTML = isOpen ? closeIcon : hamburgerIcon;
+    });
+    document.addEventListener('click', e => {
+      if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) closeMobileMenu();
+    });
   </script>
 </body>
 </html>
