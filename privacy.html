@@ -33,11 +33,60 @@
       width: 28px; height: 28px; background: #0071e3;
       border-radius: 7px; display: flex; align-items: center; justify-content: center;
     }
-    .nav-back {
-      font-size: 14px; color: #6e6e73; text-decoration: none;
-      padding: 6px 12px; border-radius: 8px; transition: background .15s, color .15s;
+    .nav-logo-name { font-size: 15px; font-weight: 600; }
+    .nav-links {
+      display: flex; align-items: center; gap: 28px; list-style: none;
+      position: absolute; left: 50%; transform: translateX(-50%);
     }
-    .nav-back:hover { background: #e8e8ed; color: #1d1d1f; }
+    .nav-links a {
+      font-size: 14px; color: #6e6e73; text-decoration: none; transition: color .15s;
+    }
+    .nav-links a:hover { color: #1d1d1f; }
+    .nav-auth { display: flex; align-items: center; gap: 8px; }
+    .nav-login {
+      font-size: 14px; font-weight: 500; color: #6e6e73;
+      text-decoration: none; padding: 7px 14px; border-radius: 980px;
+      border: 1px solid rgba(0,0,0,.11); transition: background .15s, color .15s;
+    }
+    .nav-login:hover { background: #e8e8ed; color: #1d1d1f; }
+    .nav-signup {
+      font-size: 14px; font-weight: 500; color: white;
+      text-decoration: none; padding: 7px 16px; border-radius: 980px;
+      background: #0071e3; transition: background .15s;
+    }
+    .nav-signup:hover { background: #0077ed; }
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .nav-auth { display: none; }
+    }
+    footer {
+      background: #1d1d1f;
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding: 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo {
+      display: flex; align-items: center; gap: 8px;
+      text-decoration: none; color: rgba(255,255,255,.7);
+      font-size: 14px; font-weight: 500;
+    }
+    .footer-logo-mark {
+      width: 24px; height: 24px; background: #0071e3;
+      border-radius: 6px; display: flex; align-items: center; justify-content: center;
+    }
+    .footer-logo-mark svg { width: 12px; height: 12px; }
+    .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+    .footer-links a {
+      font-size: 13px; color: rgba(255,255,255,.4);
+      text-decoration: none; transition: color .15s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,.8); }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,.3); width: 100%; }
+    @media (max-width: 768px) {
+      footer { padding: 28px 20px; flex-direction: column; align-items: flex-start; }
+    }
 
     .page {
       max-width: 720px; margin: 0 auto;
@@ -119,9 +168,18 @@
           <rect x="3" y="3" width="10" height="13" rx="2" fill="white"/>
         </svg>
       </div>
-      OfflinePDF
+      <span class="nav-logo-name">OfflinePDF</span>
     </a>
-    <a href="index.html" class="nav-back">← Back to tools</a>
+    <ul class="nav-links">
+      <li><a href="index.html#tools">Tools</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="index.html#how">How it works</a></li>
+    </ul>
+    <div class="nav-auth">
+      <a href="login.html" class="nav-login">Log in</a>
+      <a href="login.html" class="nav-signup">Sign up</a>
+    </div>
   </nav>
 
   <div class="page">
@@ -227,5 +285,53 @@
 
   </div>
 
+  <footer>
+    <a class="footer-logo" href="index.html">
+      <div class="footer-logo-mark">
+        <svg viewBox="0 0 12 12" fill="none"><rect x="1" y="1" width="7" height="9" rx="1.5" fill="white" opacity=".4"/><rect x="2" y="2" width="7" height="9" rx="1.5" fill="white"/></svg>
+      </div>
+      OfflinePDF
+    </a>
+    <ul class="footer-links">
+      <li><a href="index.html#tools">Tools</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="index.html#how">How it works</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="terms.html">Terms of Service</a></li>
+    </ul>
+    <div class="footer-copy">
+      © 2026 OfflinePDF. Professional PDF tools built for people who value their privacy.
+    </div>
+  </footer>
+
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+    const client = createClient(
+      'https://cboglntoucldhujbmeuc.supabase.co',
+      'sb_publishable_k66dzxNIWHY7fL6G65fWLQ_nI6JBo6D'
+    );
+    const { data: { session } } = await client.auth.getSession();
+    if (session) {
+      const email = session.user.email;
+      const initial = email.charAt(0).toUpperCase();
+      const authDiv = document.querySelector('.nav-auth');
+      if (authDiv) {
+        authDiv.innerHTML = `
+          <a href="dashboard.html" style="
+            display:flex;align-items:center;gap:8px;text-decoration:none;
+            color:#1d1d1f;font-size:14px;font-weight:500;padding:5px 12px 5px 6px;
+            border-radius:980px;border:1px solid rgba(0,0,0,.11);
+            transition:background .15s;background:white;
+          " onmouseover="this.style.background='#f0f0f5'" onmouseout="this.style.background='white'">
+            <span style="
+              width:26px;height:26px;border-radius:50%;background:#0071e3;
+              color:white;font-size:12px;font-weight:700;
+              display:flex;align-items:center;justify-content:center;flex-shrink:0;
+            ">${initial}</span>
+            My account
+          </a>`;
+      }
+    }
+  </script>
 </body>
 </html>
