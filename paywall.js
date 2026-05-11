@@ -1,4 +1,4 @@
-// v2.3
+// v2.4
 /**
  * OfflinePDF Paywall
  * Handles free tier limits, Pro status checks, and upgrade modal.
@@ -198,8 +198,17 @@ const Paywall = (() => {
 
           ${emailSection}
 
+          <div id="paywall-features">
+            <div class="paywall-feature"><div class="paywall-feature-dot">✓</div> Unlimited file sizes — process any PDF, no matter how large</div>
+            <div class="paywall-feature"><div class="paywall-feature-dot">✓</div> Unlimited daily operations — no caps, ever</div>
+            <div class="paywall-feature"><div class="paywall-feature-dot">✓</div> All 12 PDF tools, fully unlocked</div>
+            <div class="paywall-feature"><div class="paywall-feature-dot">✓</div> Your files never leave your device</div>
+            <div class="paywall-feature"><div class="paywall-feature-dot">✓</div> Cancel anytime, no questions asked</div>
+          </div>
+
           <button id="paywall-cta">Upgrade to Pro</button>
           <div id="paywall-error"></div>
+          <p style="font-size:12px;color:#aeaeb2;margin:0 0 8px;">🔒 Secure payment via Stripe. No card stored on our servers.</p>
           <button id="paywall-free" onclick="document.getElementById('paywall-modal').remove()">Continue with free plan</button>
 
           ${signinSection}
@@ -302,6 +311,20 @@ const Paywall = (() => {
           color: #6e6e73; transition: background .15s;
         }
         #paywall-close:hover { background: #e8e8ed; }
+        #paywall-features {
+          background: #f5f5f7; border-radius: 12px;
+          padding: 12px 16px; margin-bottom: 16px; text-align: left;
+        }
+        .paywall-feature {
+          display: flex; align-items: flex-start; gap: 8px;
+          font-size: 13px; color: #1d1d1f; padding: 3px 0;
+        }
+        .paywall-feature-dot {
+          width: 16px; height: 16px; border-radius: 50%;
+          background: rgba(52,199,89,.15); color: #34c759;
+          display: flex; align-items: center; justify-content: center;
+          flex-shrink: 0; font-size: 9px; font-weight: 700; margin-top: 1px;
+        }
         #paywall-free {
           background: none; border: none; cursor: pointer;
           font-size: 13px; color: #aeaeb2; font-family: inherit;
