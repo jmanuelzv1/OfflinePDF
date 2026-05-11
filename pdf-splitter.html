@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Split PDF Online Free — No Upload, No Account | OfflinePDF</title>
-  <meta name="description" content="Split a PDF into individual pages instantly. Free, no upload required, no account needed. Files never leave your browser. Download pages or as a ZIP." />
+  <title>Split PDF Free — No Upload, No Account | OfflinePDF</title>
+  <meta name="description" content="Split a PDF into individual pages for free. No upload required, no account needed. Download pages individually or as a ZIP. 100% private." />
   <meta name="keywords" content="split pdf, split pdf online free, split pdf without uploading, pdf splitter, separate pdf pages" />
   <meta name="author" content="OfflinePDF" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -487,40 +487,84 @@
       from { transform: scale(0.5); opacity: 0; }
       to   { transform: scale(1); opacity: 1; }
     }
+  </style>
+</head>
+<body>
+  <style>
+    /* ── Site nav ── */
     .site-nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(245,245,247,0.82);
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      width: 100%;
+      background: rgba(245,245,247,0.88);
       backdrop-filter: saturate(180%) blur(20px);
       -webkit-backdrop-filter: saturate(180%) blur(20px);
-      border-bottom: 1px solid rgba(0,0,0,.08);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
       padding: 0 40px;
-      display: flex; align-items: center; justify-content: space-between;
       height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      /* Escape the body flex/padding so nav is full-width and flush to top */
+      margin-left: calc(-50vw + 50%);
+      margin-right: calc(-50vw + 50%);
+      box-sizing: border-box;
     }
     .site-nav-logo {
-      display: flex; align-items: center; gap: 10px;
-      text-decoration: none; color: #1d1d1f;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #1d1d1f;
+      flex-shrink: 0;
     }
     .site-nav-mark {
-      width: 30px; height: 30px; background: #0071e3;
-      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      width: 30px;
+      height: 30px;
+      background: #0071e3;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
     }
     .site-nav-mark svg { width: 16px; height: 16px; }
-    .site-nav-name { font-size: 16px; font-weight: 600; letter-spacing: -.3px; }
+    .site-nav-name {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -.3px;
+    }
     .site-nav-links {
-      display: flex; align-items: center; gap: 28px; list-style: none;
-      position: absolute; left: 50%; transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
     }
     .site-nav-links a {
-      font-size: 14px; font-weight: 500; color: #6e6e73;
-      text-decoration: none; transition: color .15s;
+      font-size: 14px;
+      font-weight: 500;
+      color: #6e6e73;
+      text-decoration: none;
+      transition: color .15s;
+      white-space: nowrap;
     }
     .site-nav-links a:hover { color: #1d1d1f; }
-    .site-nav-auth { display: flex; align-items: center; gap: 8px; }
+    @media (max-width: 640px) {
+      .site-nav { padding: 0 20px; }
+      .site-nav-links li:not(:last-child) { display: none; }
+    }
+  
+    .site-nav-links {
+      position: absolute; left: 50%; transform: translateX(-50%);
+    }
+    .site-nav-auth {
+      display: flex; align-items: center; gap: 8px;
+    }
     .site-nav-login {
-      font-size: 14px; font-weight: 500; color: #6e6e73;
+      font-size: 14px; font-weight: 500; color: var(--text-secondary, #6e6e73);
       text-decoration: none; padding: 7px 14px; border-radius: 980px;
-      border: 1px solid rgba(0,0,0,.11);
+      border: 1px solid rgba(0,0,0,0.11);
       transition: background .15s, border-color .15s, color .15s;
     }
     .site-nav-login:hover { background: #e8e8ed; border-color: rgba(0,0,0,.18); color: #1d1d1f; }
@@ -530,48 +574,465 @@
       background: #0071e3; transition: background .15s;
     }
     .site-nav-signup:hover { background: #0077ed; }
-    .site-nav-hamburger {
-      display: none; background: none; border: none;
-      cursor: pointer; padding: 8px; color: #1d1d1f;
-      border-radius: 8px; transition: background .15s;
-    }
-    .site-nav-hamburger:hover { background: #e8e8ed; }
-    .site-nav-hamburger svg { display: block; }
-    .site-nav-mobile-menu {
-      display: none; position: fixed; top: 56px; left: 0; right: 0;
-      background: rgba(245,245,247,0.98);
-      backdrop-filter: saturate(180%) blur(20px);
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
-      border-bottom: 1px solid rgba(0,0,0,.08);
-      padding: 16px 20px 24px; z-index: 99;
-      flex-direction: column; gap: 4px;
-    }
-    .site-nav-mobile-menu.open { display: flex; }
-    .site-nav-mobile-menu a {
-      font-size: 16px; color: #1d1d1f; text-decoration: none;
-      padding: 12px 4px; border-bottom: 1px solid rgba(0,0,0,.08);
-      font-weight: 500;
-    }
-    .site-nav-mobile-menu a:last-child { border-bottom: none; }
-    .site-nav-mobile-auth { display: flex; gap: 10px; margin-top: 12px; }
-    .site-nav-mobile-auth a {
-      flex: 1; text-align: center; padding: 12px !important;
-      border-radius: 12px !important; border-bottom: none !important;
-      font-size: 15px !important;
-    }
-    .site-nav-mobile-login { border: 1.5px solid rgba(0,0,0,.11) !important; color: #6e6e73 !important; background: white; }
-    .site-nav-mobile-signup { background: #0071e3 !important; color: white !important; }
     @media (max-width: 768px) {
-      .site-nav { padding: 0 20px; }
-      .site-nav-links { display: none; }
       .site-nav-auth { display: none; }
-      .site-nav-hamburger { display: block; }
     }
   </style>
-</head>
-<body>
+    <nav class="site-nav" aria-label="Site navigation">
+    <a class="site-nav-logo" href="index.html" aria-label="OfflinePDF home">
+      <div class="site-nav-mark" aria-hidden="true">
+        <svg viewBox="0 0 16 16" fill="none">
+          <rect x="1" y="1" width="10" height="13" rx="2" fill="white" opacity=".3"/>
+          <rect x="3" y="3" width="10" height="13" rx="2" fill="white"/>
+        </svg>
+      </div>
+      <span class="site-nav-name">OfflinePDF</span>
+    </a>
+    <ul class="site-nav-links">
+      <li><a href="index.html#tools">All tools</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="index.html#privacy">Privacy</a></li>
+      <li><a href="index.html#how">How it works</a></li>
+    </ul>
+    <div class="site-nav-auth">
+      <a href="login.html" class="site-nav-login">Log in</a>
+      <a href="login.html" class="site-nav-signup">Sign up</a>
+    </div>
+  </nav>
   <style>
-    /* ── Site nav ── */
+    .site-nav {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(245,245,247,0.88);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      padding: 0 40px; height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .site-nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: #1d1d1f;
+    }
+    .site-nav-mark {
+      width: 30px; height: 30px;
+      background: #0071e3; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .site-nav-mark svg { width: 16px; height: 16px; }
+    .site-nav-name {
+      font-size: 16px; font-weight: 600; letter-spacing: -.3px;
+    }
+    .site-nav-links {
+      display: flex; align-items: center; gap: 28px; list-style: none;
+    }
+    .site-nav-links a {
+      font-size: 14px; font-weight: 500; color: #6e6e73;
+      text-decoration: none; transition: color .15s;
+    }
+    .site-nav-links a:hover { color: #1d1d1f; }
+    @media (max-width: 600px) {
+      .site-nav { padding: 0 20px; }
+      .site-nav-links { gap: 16px; }
+      .site-nav-links li:not(:last-child) { display: none; }
+    }
+  </style>
+  <div class="header">
+    <div class="header-icon">
+      <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="scale(1.214)">
+        <rect x="3" y="2" width="12" height="16" rx="2" fill="#ff3b30" opacity=".3"/>
+            <rect x="5" y="4" width="12" height="16" rx="2" fill="#ff3b30" opacity=".6"/>
+            <rect x="7" y="6" width="12" height="16" rx="2" fill="#ff3b30"/>
+            <path d="M11 19l3-3 3 3M14 16v5" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </svg>
+    </div>
+    <h1>Split PDF</h1>
+    <p class="subtitle">Split any PDF into individual pages instantly. No upload required, no account needed. Your files never leave your browser.</p>
+  </div>
+
+  <div class="card">
+
+    <!-- Drop Zone -->
+    <div class="drop-zone" id="drop-zone">
+      <div class="drop-icon-wrap">
+        <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17 6v16M10 13l7-7 7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M5 26h24" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p class="drop-label">Drop your PDF here</p>
+      <p class="drop-sub">or choose a file from your computer</p>
+      <p class="drop-limit">Free plan: up to 25 MB · 5 operations/day</p>
+      <button class="btn-choose" onclick="document.getElementById('file-input').click()">Choose PDF</button>
+      <input type="file" id="file-input" accept=".pdf" />
+    </div>
+
+    <!-- File info -->
+    <div class="divider" id="divider-1" style="display:none"></div>
+    <div class="file-info" id="file-info">
+      <div class="file-thumb">
+        <svg viewBox="0 0 40 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 4a3 3 0 013-3h18l11 11v32a3 3 0 01-3 3H7a3 3 0 01-3-3V4z" fill="currentColor" opacity=".15"/>
+          <path d="M25 1l11 11H28a3 3 0 01-3-3V1z" fill="currentColor" opacity=".4"/>
+          <text x="20" y="36" font-size="11" font-weight="800" fill="currentColor" text-anchor="middle" font-family="-apple-system,Helvetica,sans-serif" letter-spacing="0.5">PDF</text>
+        </svg>
+      </div>
+      <div class="file-details">
+        <div class="file-name" id="file-name">document.pdf</div>
+        <div class="file-meta" id="file-meta">— pages</div>
+      </div>
+      <button class="btn-clear" id="btn-clear" title="Remove file">
+        <svg viewBox="0 0 18 18" fill="none"><path d="M13.5 4.5l-9 9M4.5 4.5l9 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+
+    <!-- Options -->
+    <div class="divider" id="divider-2" style="display:none"></div>
+    <div class="options" id="options">
+      <div class="option-row">
+        <div>
+          <div class="option-label">Download as ZIP</div>
+          <div class="option-sub" id="zip-sub">All pages bundled in one archive</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="zip-toggle" checked />
+          <div class="toggle-track"></div>
+          <div class="toggle-thumb"></div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Error -->
+    <div class="error-msg" id="error-msg"></div>
+
+    <!-- Action -->
+    <div class="action-area" id="action-area">
+      <button class="btn-split" id="btn-split">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M5 10h10M13 7l3 3-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 4l-3 3 3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/></svg>
+        Split PDF
+      </button>
+    </div>
+
+    <!-- Progress -->
+    <div class="progress-area" id="progress-area">
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <p class="progress-label" id="progress-label">Processing…</p>
+    </div>
+
+    <!-- Done -->
+    <div class="done-area" id="done-area">
+      <div class="done-icon">
+        <svg viewBox="0 0 30 30" fill="none"><path d="M6 15l7 7 11-13" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="done-title" id="done-title">Split complete</div>
+      <div class="done-sub" id="done-sub">Your pages have been downloaded.</div>
+      <button class="btn-reset" id="btn-reset">Split another PDF</button>
+    </div>
+
+  </div>
+
+  <script>
+    const dropZone = document.getElementById('drop-zone');
+    const fileInput = document.getElementById('file-input');
+    const fileInfo = document.getElementById('file-info');
+    const fileName = document.getElementById('file-name');
+    const fileMeta = document.getElementById('file-meta');
+    const btnClear = document.getElementById('btn-clear');
+    const options = document.getElementById('options');
+    const actionArea = document.getElementById('action-area');
+    const btnSplit = document.getElementById('btn-split');
+    const progressArea = document.getElementById('progress-area');
+    const progressFill = document.getElementById('progress-fill');
+    const progressLabel = document.getElementById('progress-label');
+    const doneArea = document.getElementById('done-area');
+    const doneTitle = document.getElementById('done-title');
+    const doneSub = document.getElementById('done-sub');
+    const btnReset = document.getElementById('btn-reset');
+    const errorMsg = document.getElementById('error-msg');
+    const zipToggle = document.getElementById('zip-toggle');
+    const divider1 = document.getElementById('divider-1');
+    const divider2 = document.getElementById('divider-2');
+
+    let selectedFile = null;
+    let pageCount = 0;
+
+    // Drag and drop
+    dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+    dropZone.addEventListener('drop', e => {
+      e.preventDefault();
+      dropZone.classList.remove('dragover');
+      const file = e.dataTransfer.files[0];
+      if (file) handleFile(file);
+    });
+
+    fileInput.addEventListener('change', () => {
+      if (fileInput.files[0]) handleFile(fileInput.files[0]);
+    });
+
+    async function handleFile(file) {
+      hideError();
+      if (!file.name.toLowerCase().endsWith('.pdf')) {
+        showError('Please select a valid PDF file.');
+        return;
+      }
+
+      // Paywall: check file size
+      try { await Paywall.checkFileSize(file); } catch(e) { if(e.message==='FILE_TOO_LARGE') return; }
+
+
+
+      selectedFile = file;
+
+      // Count pages
+      try {
+        const buffer = await file.arrayBuffer();
+        const pdf = await PDFLib.PDFDocument.load(buffer);
+        pageCount = pdf.getPageCount();
+      } catch (e) {
+        showError('Unable to read this PDF. It may be corrupted or password-protected.');
+        return;
+      }
+
+      const baseName = file.name.replace(/\.pdf$/i, '');
+      const size = (file.size / 1024 / 1024).toFixed(1);
+
+      fileName.textContent = file.name;
+      fileMeta.textContent = `${pageCount} page${pageCount !== 1 ? 's' : ''} · ${size} MB`;
+
+      divider1.style.display = '';
+      fileInfo.classList.add('visible');
+      divider2.style.display = '';
+      options.classList.add('visible');
+      actionArea.classList.add('visible');
+    }
+
+    btnClear.addEventListener('click', resetAll);
+
+    btnReset.addEventListener('click', resetAll);
+
+    function resetAll() {
+      selectedFile = null;
+      pageCount = 0;
+      fileInput.value = '';
+      fileInfo.classList.remove('visible');
+      options.classList.remove('visible');
+      actionArea.classList.remove('visible');
+      progressArea.classList.remove('visible');
+      doneArea.classList.remove('visible');
+      divider1.style.display = 'none';
+      divider2.style.display = 'none';
+      progressFill.style.width = '0%';
+      btnSplit.disabled = false;
+      hideError();
+    }
+
+    // Update toggle description when zip option changes
+    const zipSub = document.getElementById('zip-sub');
+    zipToggle.addEventListener('change', () => {
+      zipSub.textContent = zipToggle.checked
+        ? 'All pages bundled in one archive'
+        : 'Each page downloads as a separate PDF file';
+    });
+
+    btnSplit.addEventListener('click', splitPDF);
+
+    async function splitPDF() {
+      if (!selectedFile) return;
+
+      btnSplit.disabled = true;
+
+      // Paywall: check daily ops limit
+      try { await Paywall.checkOpsLimit(); } catch(e) { if(e.message==='OPS_LIMIT_REACHED') return; }
+
+
+      actionArea.classList.remove('visible');
+      progressArea.classList.add('visible');
+
+      const useZip = zipToggle.checked;
+      const baseName = selectedFile.name.replace(/\.pdf$/i, '');
+
+      try {
+        const buffer = await selectedFile.arrayBuffer();
+        const srcDoc = await PDFLib.PDFDocument.load(buffer);
+        const total = srcDoc.getPageCount();
+
+        const padding = String(total).length < 3 ? 3 : String(total).length;
+
+        if (useZip) {
+          const zip = new JSZip();
+
+          for (let i = 0; i < total; i++) {
+            const newDoc = await PDFLib.PDFDocument.create();
+            const [page] = await newDoc.copyPages(srcDoc, [i]);
+            newDoc.addPage(page);
+            const bytes = await newDoc.save();
+            const num = String(i + 1).padStart(padding, '0');
+            zip.file(`${baseName}_${num}.pdf`, bytes);
+
+            const pct = Math.round(((i + 1) / total) * 100);
+            progressFill.style.width = pct + '%';
+            progressLabel.textContent = `Processing page ${i + 1} of ${total}…`;
+
+            // yield to browser
+            await new Promise(r => setTimeout(r, 0));
+          }
+
+          progressLabel.textContent = 'Creating ZIP archive…';
+          const zipBlob = await zip.generateAsync({ type: 'blob' }, meta => {
+            progressFill.style.width = meta.percent.toFixed(0) + '%';
+          });
+
+          downloadBlob(zipBlob, `${baseName}_split.zip`);
+
+          showDone(total, true, baseName);
+
+        } else {
+          for (let i = 0; i < total; i++) {
+            const newDoc = await PDFLib.PDFDocument.create();
+            const [page] = await newDoc.copyPages(srcDoc, [i]);
+            newDoc.addPage(page);
+            const bytes = await newDoc.save();
+            const blob = new Blob([bytes], { type: 'application/pdf' });
+            const num = String(i + 1).padStart(padding, '0');
+            downloadBlob(blob, `${baseName}_${num}.pdf`);
+
+            const pct = Math.round(((i + 1) / total) * 100);
+            progressFill.style.width = pct + '%';
+            progressLabel.textContent = `Saving page ${i + 1} of ${total}…`;
+
+            // throttle downloads
+            await new Promise(r => setTimeout(r, 80));
+          }
+
+          showDone(total, false, baseName);
+        }
+
+      } catch (e) {
+        progressArea.classList.remove('visible');
+        actionArea.classList.add('visible');
+        btnSplit.disabled = false;
+        showError('Something went wrong while splitting the PDF. Please try again.');
+      }
+    }
+
+    function showDone(total, zipped, baseName) {
+      progressArea.classList.remove('visible');
+      doneArea.classList.add('visible');
+      doneTitle.textContent = `${total} page${total !== 1 ? 's' : ''} saved`;
+      if (zipped) {
+        doneSub.textContent = `Downloaded as ${baseName}_split.zip`;
+      } else {
+        doneSub.textContent = `Each page saved as an individual PDF.`;
+      }
+    }
+
+    function downloadBlob(blob, name) {
+      Paywall.recordOperation();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = name;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+
+    function showError(msg) {
+      errorMsg.textContent = msg;
+      errorMsg.classList.add('visible');
+    }
+
+    function hideError() {
+      errorMsg.classList.remove('visible');
+    }
+  </script>
+  <style>
+    .related-section {
+      width: 100%;
+      background: #ffffff;
+      border-top: 1px solid rgba(0,0,0,0.07);
+      margin-top: 48px;
+      padding: 40px 24px 48px;
+    }
+    .related-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .related-heading {
+      font-size: 11px;
+      font-weight: 700;
+      color: #aeaeb2;
+      text-transform: uppercase;
+      letter-spacing: .7px;
+      margin-bottom: 16px;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .related-card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: #f5f5f7;
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 14px;
+      padding: 16px;
+      text-decoration: none;
+      color: #1d1d1f;
+      transition: border-color .2s, box-shadow .2s, transform .2s;
+    }
+    .related-card:hover {
+      border-color: rgba(0,0,0,0.15);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+    .related-card-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .related-card-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+    .related-card-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1d1d1f;
+      line-height: 1.3;
+    }
+    .related-card-desc {
+      font-size: 12px;
+      color: #6e6e73;
+      line-height: 1.4;
+      margin-top: -4px;
+    }
+    .related-card-arrow {
+      margin-top: auto;
+      font-size: 12px;
+      font-weight: 500;
+      color: #0071e3;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+    .related-card-arrow svg {
+      width: 11px;
+      height: 11px;
+    }
+    @media (max-width: 560px) {
+      .related-grid { grid-template-columns: 1fr; }
       .related-section { padding: 32px 20px 40px; }
     }
     .related-footer {
@@ -654,6 +1115,7 @@
       </div>
     </div>
   </div>
+
   <script type="module">
     import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
     const client = createClient(
@@ -664,31 +1126,24 @@
     if (session) {
       const email = session.user.email;
       const initial = email.charAt(0).toUpperCase();
-      const authDiv = document.querySelector('.site-nav-auth');
-      const mobileAuth = document.getElementById('nav-mobile-auth');
+      // Find nav-auth div (index.html uses nav-auth, tool pages use site-nav-auth)
+      const authDiv = document.querySelector('.nav-auth, .site-nav-auth');
       if (authDiv) {
-        authDiv.innerHTML = `<a href="dashboard.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#1d1d1f;font-size:14px;font-weight:500;padding:5px 12px 5px 6px;border-radius:980px;border:1px solid rgba(0,0,0,.11);transition:background .15s;background:white;" onmouseover="this.style.background='#f0f0f5'" onmouseout="this.style.background='white'"><span style="width:26px;height:26px;border-radius:50%;background:#0071e3;color:white;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">${initial}</span>My account</a>`;
+        authDiv.innerHTML = `
+          <a href="dashboard.html" style="
+            display:flex;align-items:center;gap:8px;text-decoration:none;
+            color:#1d1d1f;font-size:14px;font-weight:500;padding:5px 12px 5px 6px;
+            border-radius:980px;border:1px solid rgba(0,0,0,.11);
+            transition:background .15s;background:white;
+          " onmouseover="this.style.background='#f0f0f5'" onmouseout="this.style.background='white'">
+            <span style="
+              width:26px;height:26px;border-radius:50%;background:#0071e3;
+              color:white;font-size:12px;font-weight:700;
+              display:flex;align-items:center;justify-content:center;flex-shrink:0;
+            ">${initial}</span>
+            My account
+          </a>`;
       }
-      if (mobileAuth) {
-        mobileAuth.innerHTML = `<a href="dashboard.html" style="flex:1;text-align:center;padding:12px;border-radius:12px;background:#0071e3;color:white;text-decoration:none;font-size:15px;font-weight:500;border-bottom:none;">My account (${initial})</a>`;
-      }
-    }
-  </script>
-  <script>
-    const hamburger = document.getElementById('nav-hamburger');
-    const mobileMenu = document.getElementById('nav-mobile-menu');
-    const hamburgerIcon = `<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
-    const closeIcon = `<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
-    function closeMobileMenu() { mobileMenu.classList.remove('open'); hamburger.innerHTML = hamburgerIcon; }
-    if (hamburger) {
-      hamburger.addEventListener('click', e => {
-        e.stopPropagation();
-        const isOpen = mobileMenu.classList.toggle('open');
-        hamburger.innerHTML = isOpen ? closeIcon : hamburgerIcon;
-      });
-      document.addEventListener('click', e => {
-        if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) closeMobileMenu();
-      });
     }
   </script>
 </body>

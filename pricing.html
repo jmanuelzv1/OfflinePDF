@@ -496,23 +496,7 @@
       <a href="login.html" class="nav-login">Log in</a>
       <a href="login.html" class="nav-signup">Sign up</a>
     </div>
-    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
-      <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
-        <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-    </button>
   </nav>
-
-  <div class="nav-mobile-menu" id="nav-mobile-menu">
-    <a href="index.html#tools" onclick="closeMobileMenu()">Tools</a>
-    <a href="pricing.html" onclick="closeMobileMenu()">Pricing</a>
-    <a href="privacy.html" onclick="closeMobileMenu()">Privacy</a>
-    <a href="index.html#how" onclick="closeMobileMenu()">How it works</a>
-    <div class="nav-mobile-auth" id="nav-mobile-auth">
-      <a href="login.html" class="nav-mobile-login">Log in</a>
-      <a href="login.html" class="nav-mobile-signup">Sign up</a>
-    </div>
-  </div>
 
   <!-- Hero -->
   <section class="hero">
@@ -839,32 +823,7 @@
             My account
           </a>`;
       }
-      // Update mobile menu auth too
-      const mobileAuth = document.getElementById('nav-mobile-auth');
-      if (mobileAuth) {
-        mobileAuth.innerHTML = `
-          <a href="dashboard.html" style="
-            flex:1;text-align:center;padding:12px;border-radius:12px;
-            background:#0071e3;color:white;text-decoration:none;
-            font-size:15px;font-weight:500;border-bottom:none;
-          ">My account (${initial})</a>`;
-      }
     }
-  </script>
-  <script>
-    const hamburger = document.getElementById('nav-hamburger');
-    const mobileMenu = document.getElementById('nav-mobile-menu');
-    const hamburgerIcon = `<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
-    const closeIcon = `<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
-    function closeMobileMenu() { mobileMenu.classList.remove('open'); hamburger.innerHTML = hamburgerIcon; }
-    hamburger.addEventListener('click', e => {
-      e.stopPropagation();
-      const isOpen = mobileMenu.classList.toggle('open');
-      hamburger.innerHTML = isOpen ? closeIcon : hamburgerIcon;
-    });
-    document.addEventListener('click', e => {
-      if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) closeMobileMenu();
-    });
   </script>
 </body>
 </html>

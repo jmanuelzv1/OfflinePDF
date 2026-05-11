@@ -55,42 +55,10 @@
       background: #0071e3; transition: background .15s;
     }
     .nav-signup:hover { background: #0077ed; }
-    .nav-hamburger {
-      display: none; background: none; border: none;
-      cursor: pointer; padding: 8px; color: #1d1d1f;
-      border-radius: 8px; transition: background .15s;
-    }
-    .nav-hamburger:hover { background: #e8e8ed; }
-    .nav-hamburger svg { display: block; }
-    .nav-mobile-menu {
-      display: none; position: fixed; top: 56px; left: 0; right: 0;
-      background: rgba(245,245,247,0.98);
-      backdrop-filter: saturate(180%) blur(20px);
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
-      border-bottom: 1px solid rgba(0,0,0,.08);
-      padding: 16px 20px 24px; z-index: 99;
-      flex-direction: column; gap: 4px;
-    }
-    .nav-mobile-menu.open { display: flex; }
-    .nav-mobile-menu a {
-      font-size: 16px; color: #1d1d1f; text-decoration: none;
-      padding: 12px 4px; border-bottom: 1px solid rgba(0,0,0,.08);
-      font-weight: 500;
-    }
-    .nav-mobile-menu a:last-child { border-bottom: none; }
-    .nav-mobile-auth { display: flex; gap: 10px; margin-top: 12px; }
-    .nav-mobile-auth a {
-      flex: 1; text-align: center; padding: 12px !important;
-      border-radius: 12px !important; border-bottom: none !important;
-      font-size: 15px !important;
-    }
-    .nav-mobile-login { border: 1.5px solid rgba(0,0,0,.11) !important; color: #6e6e73 !important; background: white; }
-    .nav-mobile-signup { background: #0071e3 !important; color: white !important; }
     @media (max-width: 768px) {
       nav { padding: 0 20px; }
       .nav-links { display: none; }
       .nav-auth { display: none; }
-      .nav-hamburger { display: block; }
     }
     footer {
       background: #1d1d1f;
@@ -212,23 +180,7 @@
       <a href="login.html" class="nav-login">Log in</a>
       <a href="login.html" class="nav-signup">Sign up</a>
     </div>
-    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
-      <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
-        <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-    </button>
   </nav>
-
-  <div class="nav-mobile-menu" id="nav-mobile-menu">
-    <a href="index.html#tools" onclick="closeMobileMenu()">Tools</a>
-    <a href="pricing.html" onclick="closeMobileMenu()">Pricing</a>
-    <a href="privacy.html" onclick="closeMobileMenu()">Privacy</a>
-    <a href="index.html#how" onclick="closeMobileMenu()">How it works</a>
-    <div class="nav-mobile-auth" id="nav-mobile-auth">
-      <a href="login.html" class="nav-mobile-login">Log in</a>
-      <a href="login.html" class="nav-mobile-signup">Sign up</a>
-    </div>
-  </div>
 
   <div class="page">
 
@@ -380,21 +332,6 @@
           </a>`;
       }
     }
-  </script>
-  <script>
-    const hamburger = document.getElementById('nav-hamburger');
-    const mobileMenu = document.getElementById('nav-mobile-menu');
-    const hamburgerIcon = `<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
-    const closeIcon = `<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
-    function closeMobileMenu() { mobileMenu.classList.remove('open'); hamburger.innerHTML = hamburgerIcon; }
-    hamburger.addEventListener('click', e => {
-      e.stopPropagation();
-      const isOpen = mobileMenu.classList.toggle('open');
-      hamburger.innerHTML = isOpen ? closeIcon : hamburgerIcon;
-    });
-    document.addEventListener('click', e => {
-      if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) closeMobileMenu();
-    });
   </script>
 </body>
 </html>
