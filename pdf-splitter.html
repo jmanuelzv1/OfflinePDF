@@ -506,7 +506,6 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      /* Escape the body flex/padding so nav is full-width and flush to top */
       margin-left: calc(-50vw + 50%);
       margin-right: calc(-50vw + 50%);
       box-sizing: border-box;
@@ -584,8 +583,10 @@
       backdrop-filter: saturate(180%) blur(20px);
       -webkit-backdrop-filter: saturate(180%) blur(20px);
       border-bottom: 1px solid rgba(0,0,0,.08);
-      padding: 16px 20px 24px; z-index: 99;
+      padding: 16px 20px 24px; z-index: 9999;
       flex-direction: column; gap: 4px;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
     }
     .site-nav-mobile-menu.open { display: flex; }
     .site-nav-mobile-menu a {
@@ -603,7 +604,7 @@
     .site-nav-mobile-login { border: 1.5px solid rgba(0,0,0,.11) !important; color: #6e6e73 !important; background: white; }
     .site-nav-mobile-signup { background: #0071e3 !important; color: white !important; }
     @media (max-width: 768px) {
-      .site-nav { padding: 0 16px !important; }
+      .site-nav { padding: 0 20px; }
       .site-nav-links { display: none !important; }
       .site-nav-auth { display: none !important; }
       .site-nav-hamburger { display: block !important; }
@@ -1205,7 +1206,8 @@
     const hamburgerIcon = `<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
     const closeIcon = `<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
     function closeMobileMenu() { mobileMenu.classList.remove('open'); hamburger.innerHTML = hamburgerIcon; }
-    hamburger.addEventListener('click', () => {
+    hamburger.addEventListener('click', e => {
+      e.stopPropagation();
       const isOpen = mobileMenu.classList.toggle('open');
       hamburger.innerHTML = isOpen ? closeIcon : hamburgerIcon;
     });
