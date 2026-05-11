@@ -127,6 +127,7 @@
       padding: 9px 20px; border-radius: 980px;
       font-size: 14px; font-weight: 600; text-decoration: none;
       transition: background .15s, transform .15s; white-space: nowrap;
+      border: none; cursor: pointer; font-family: inherit;
     }
     .btn-upgrade:hover { background: #0077ed; transform: translateY(-1px); }
     .btn-manage {
@@ -656,7 +657,7 @@
             </svg>
           </button>
           <h2>Upgrade to Pro</h2>
-          <p>Unlimited file sizes, unlimited daily operations — no restrictions.</p>
+          <p>Join thousands of users who process PDFs without limits — no uploads to third-party servers, no waiting, no file size caps.</p>
 
           <div class="upgrade-plans">
             <button class="upgrade-plan active" data-plan="annual">
@@ -674,18 +675,22 @@
 
           <div class="upgrade-features">
             <div class="upgrade-feature">
-              <div class="upgrade-feature-dot">✓</div> Unlimited file sizes
+              <div class="upgrade-feature-dot">✓</div> Unlimited file sizes — process any PDF, no matter how large
             </div>
             <div class="upgrade-feature">
-              <div class="upgrade-feature-dot">✓</div> Unlimited daily operations
+              <div class="upgrade-feature-dot">✓</div> Unlimited daily operations — no caps, ever
             </div>
             <div class="upgrade-feature">
-              <div class="upgrade-feature-dot">✓</div> All 12 PDF tools included
+              <div class="upgrade-feature-dot">✓</div> All 12 PDF tools, fully unlocked
             </div>
             <div class="upgrade-feature">
-              <div class="upgrade-feature-dot">✓</div> Cancel anytime
+              <div class="upgrade-feature-dot">✓</div> Your files never leave your device
+            </div>
+            <div class="upgrade-feature">
+              <div class="upgrade-feature-dot">✓</div> Cancel anytime, no questions asked
             </div>
           </div>
+          <p style="font-size:12px;color:#aeaeb2;margin:0 0 16px;">🔒 Secure payment via Stripe. No card stored on our servers.</p>
 
           <button id="upgrade-cta">Upgrade to Pro</button>
           <div id="upgrade-error"></div>
