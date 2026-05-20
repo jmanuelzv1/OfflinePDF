@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Convert PDF to Word Free — PDF to DOCX | OfflinePDF</title>
+  <title>Convert PDF to Word Free: PDF to DOCX | OfflinePDF</title>
   <meta name="description" content="Convert PDF to Word (.docx) for free. Fast, accurate conversion. Download your editable Word document instantly. No account required." />
   <meta name="keywords" content="pdf to word, pdf to docx, convert pdf to word free, pdf converter" />
   <meta name="author" content="OfflinePDF" />
@@ -15,14 +15,14 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="OfflinePDF" />
-  <meta property="og:title" content="Convert PDF to Word Free — PDF to DOCX" />
+  <meta property="og:title" content="Convert PDF to Word Free: PDF to DOCX" />
   <meta property="og:description" content="Convert PDF to Word (.docx) for free. Fast, accurate conversion. Download your editable Word document instantly." />
   <meta property="og:url" content="https://offlinepdf.io/pdf-to-word.html" />
   <meta property="og:image" content="https://offlinepdf.io/og-image.png" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Convert PDF to Word Free — PDF to DOCX" />
+  <meta name="twitter:title" content="Convert PDF to Word Free: PDF to DOCX" />
   <meta name="twitter:description" content="Convert PDF to Word (.docx) for free. Fast, accurate conversion." />
   <meta name="twitter:image" content="https://offlinepdf.io/og-image.png" />
 
@@ -30,7 +30,7 @@
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "PDF to Word — OfflinePDF",
+    "name": "PDF to Word | OfflinePDF",
     "url": "https://offlinepdf.io/pdf-to-word.html",
     "description": "Convert PDF files to editable Word documents for free.",
     "applicationCategory": "UtilitiesApplication",
@@ -102,14 +102,6 @@
     }
     .subtitle { font-size: 17px; color: var(--text-secondary); font-weight: 400; }
 
-    .server-notice {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(0,113,227,0.07); border: 1px solid rgba(0,113,227,0.15);
-      border-radius: 20px; padding: 5px 12px;
-      font-size: 12px; color: #0071e3; font-weight: 500;
-      margin-top: 12px;
-    }
-    .server-notice svg { width: 12px; height: 12px; flex-shrink: 0; }
 
     .card {
       background: var(--surface);
@@ -278,29 +270,73 @@
 
     /* Related tools */
     .related-section {
-      width: 100%; max-width: 560px;
+      width: 100%;
+      background: #ffffff;
+      border-top: 1px solid rgba(0,0,0,0.07);
       margin-top: 48px;
-      animation: fadeUp 0.6s 0.3s ease both;
+      padding: 40px 24px 48px;
     }
-    .related-inner { padding: 0; }
+    .related-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
     .related-heading {
-      font-size: 11px; font-weight: 700; color: #aeaeb2;
-      text-transform: uppercase; letter-spacing: .7px; margin-bottom: 16px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #aeaeb2;
+      text-transform: uppercase;
+      letter-spacing: .7px;
+      margin-bottom: 16px;
     }
-    .related-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
     .related-card {
-      display: flex; flex-direction: column; gap: 10px;
-      background: #f5f5f7; border: 1px solid rgba(0,0,0,0.07);
-      border-radius: 14px; padding: 16px;
-      text-decoration: none; color: #1d1d1f;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: #f5f5f7;
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 14px;
+      padding: 16px;
+      text-decoration: none;
+      color: #1d1d1f;
       transition: border-color .2s, box-shadow .2s, transform .2s;
     }
-    .related-card:hover { border-color: rgba(0,0,0,0.15); box-shadow: 0 4px 16px rgba(0,0,0,0.08); transform: translateY(-2px); }
-    .related-card-icon { width: 36px; height: 36px; border-radius: 9px; display: flex; align-items: center; justify-content: center; }
+    .related-card:hover {
+      border-color: rgba(0,0,0,0.15);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+    .related-card-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
     .related-card-icon svg { width: 20px; height: 20px; }
-    .related-card-name { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: #1d1d1f; line-height: 1.3; }
+    .related-card-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #1d1d1f;
+      line-height: 1.3;
+    }
     .related-card-desc { font-size: 12px; color: #6e6e73; line-height: 1.4; margin-top: -4px; }
-    .related-card-arrow { margin-top: auto; font-size: 12px; font-weight: 500; color: #0071e3; display: flex; align-items: center; gap: 3px; }
+    .related-card-arrow {
+      margin-top: auto;
+      font-size: 12px;
+      font-weight: 500;
+      color: #0071e3;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
     .related-card-arrow svg { width: 11px; height: 11px; }
     .related-footer { margin-top: 20px; display: flex; justify-content: center; }
     .related-see-all {
@@ -308,17 +344,61 @@
       font-size: 13px; font-weight: 500; color: #6e6e73;
       text-decoration: none; padding: 9px 20px;
       border: 1px solid rgba(0,0,0,0.1); border-radius: 980px;
-      background: transparent; transition: color .15s, border-color .15s, background .15s;
+      background: transparent;
+      transition: color .15s, border-color .15s, background .15s;
     }
     .related-see-all:hover { color: #0071e3; border-color: #0071e3; background: rgba(0,113,227,0.05); }
     @media (max-width: 560px) {
       .related-grid { grid-template-columns: 1fr; }
+      .related-section { padding: 32px 20px 40px; }
+    }
+
+    /* ── Site Nav ── */
+    .site-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(245,245,247,0.82);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,.08);
+      padding: 0 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 56px;
+      width: 100%;
+    }
+    .site-nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #1d1d1f; }
+    .site-nav-mark { width: 30px; height: 30px; background: #0071e3; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .site-nav-mark svg { width: 16px; height: 16px; }
+    .site-nav-name { font-size: 16px; font-weight: 600; letter-spacing: -.3px; }
+    .site-nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .site-nav-links a { font-size: 14px; font-weight: 500; color: #6e6e73; text-decoration: none; transition: color .15s; }
+    .site-nav-links a:hover { color: #1d1d1f; }
+    .site-nav-auth { display: flex; align-items: center; gap: 8px; }
+    .site-nav-login { font-size: 14px; font-weight: 500; color: #6e6e73; text-decoration: none; padding: 7px 14px; border-radius: 980px; border: 1px solid rgba(0,0,0,.11); transition: background .15s, color .15s; }
+    .site-nav-login:hover { background: #e8e8ed; color: #1d1d1f; }
+    .site-nav-signup { font-size: 14px; font-weight: 500; color: white; text-decoration: none; padding: 7px 16px; border-radius: 980px; background: #0071e3; transition: background .15s; }
+    .site-nav-signup:hover { background: #0077ed; }
+    .site-nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: #1d1d1f; border-radius: 8px; transition: background .15s; }
+    .site-nav-hamburger:hover { background: #e8e8ed; }
+    .site-nav-hamburger svg { display: block; }
+    .site-nav-mobile-menu { display: none; position: fixed; top: 56px; left: 0; right: 0; background: rgba(245,245,247,0.98); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid rgba(0,0,0,.08); padding: 16px 20px 24px; z-index: 99; flex-direction: column; gap: 4px; }
+    .site-nav-mobile-menu.open { display: flex; }
+    .site-nav-mobile-menu a { font-size: 16px; color: #1d1d1f; text-decoration: none; padding: 12px 4px; border-bottom: 1px solid rgba(0,0,0,.08); font-weight: 500; }
+    .site-nav-mobile-menu a:last-child { border-bottom: none; }
+    .site-nav-mobile-auth { display: flex; gap: 10px; margin-top: 12px; }
+    .site-nav-mobile-auth a { flex: 1; text-align: center; padding: 12px !important; border-radius: 12px !important; border-bottom: none !important; font-size: 15px !important; }
+    .site-nav-mobile-login { border: 1.5px solid rgba(0,0,0,.11) !important; color: #6e6e73 !important; background: white; }
+    .site-nav-mobile-signup { background: #0071e3 !important; color: white !important; }
+    @media (max-width: 768px) {
+      .site-nav { padding: 0 20px; }
+      .site-nav-links { display: none; }
+      .site-nav-auth { display: none; }
+      .site-nav-hamburger { display: block; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV PLACEHOLDER — will be injected by script below -->
+  <!-- NAV PLACEHOLDER (injected by script below) -->
   <nav class="site-nav" aria-label="Site navigation">
     <a class="site-nav-logo" href="index.html">
       <div class="site-nav-mark">
@@ -368,10 +448,6 @@
     </div>
     <h1>PDF to Word</h1>
     <p class="subtitle">Convert any PDF to an editable Word document</p>
-    <div class="server-notice">
-      <svg viewBox="0 0 14 14" fill="none"><path d="M7 1a6 6 0 100 12A6 6 0 007 1zm0 9V7m0-2h.007" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-      Files are securely processed on our servers and immediately deleted
-    </div>
   </div>
 
   <div class="card">
