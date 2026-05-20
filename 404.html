@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found | OfflinePDF</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      background: #f5f5f7; color: #1d1d1f;
+      min-height: 100vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 24px; -webkit-font-smoothing: antialiased;
+      text-align: center;
+    }
+
+    .logo {
+      display: flex; align-items: center; gap: 8px;
+      text-decoration: none; color: #1d1d1f;
+      font-size: 15px; font-weight: 600;
+      margin-bottom: 48px;
+    }
+    .logo-mark {
+      width: 30px; height: 30px; background: #0071e3;
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+    }
+
+    .number {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(96px, 20vw, 160px);
+      font-weight: 800; line-height: 1;
+      letter-spacing: -.04em;
+      color: #1d1d1f;
+      margin-bottom: 8px;
+    }
+    .number span { color: #0071e3; }
+
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 700; letter-spacing: -.02em;
+      color: #1d1d1f; margin-bottom: 12px;
+    }
+
+    p {
+      font-size: 16px; color: #6e6e73;
+      line-height: 1.6; max-width: 400px;
+      margin: 0 auto 40px;
+    }
+
+    .actions {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #0071e3; color: white;
+      padding: 12px 24px; border-radius: 980px;
+      font-size: 15px; font-weight: 600;
+      text-decoration: none; font-family: inherit;
+      transition: background .15s, transform .15s;
+    }
+    .btn-primary:hover { background: #0077ed; transform: translateY(-1px); }
+
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: white; color: #1d1d1f;
+      padding: 12px 24px; border-radius: 980px;
+      font-size: 15px; font-weight: 500;
+      text-decoration: none; font-family: inherit;
+      border: 1px solid rgba(0,0,0,.11);
+      transition: background .15s, transform .15s;
+    }
+    .btn-secondary:hover { background: #f0f0f5; transform: translateY(-1px); }
+
+    .tools-hint {
+      margin-top: 56px;
+      font-size: 13px; color: #aeaeb2;
+    }
+    .tools-hint p {
+      margin-bottom: 10px;
+    }
+    .tools-links {
+      display: flex; gap: 8px; flex-wrap: wrap;
+      justify-content: center; align-items: center;
+    }
+    .tools-links a {
+      color: #1d1d1f; text-decoration: none; font-weight: 500;
+      font-size: 13px; background: white;
+      padding: 6px 14px; border-radius: 980px;
+      border: 1px solid rgba(0,0,0,.11);
+      transition: background .15s, border-color .15s;
+    }
+    .tools-links a:hover { background: #f0f0f5; border-color: rgba(0,0,0,.2); }
+
+    @media (max-width: 480px) {
+      .actions { flex-direction: column; align-items: center; }
+      .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="logo" href="index.html">
+    <div class="logo-mark">
+      <svg viewBox="0 0 16 16" fill="none" width="14" height="14">
+        <rect x="1" y="1" width="10" height="13" rx="2" fill="white" opacity=".3"/>
+        <rect x="3" y="3" width="10" height="13" rx="2" fill="white"/>
+      </svg>
+    </div>
+    OfflinePDF
+  </a>
+
+  <div class="number">4<span>0</span>4</div>
+
+  <h1>Page not found</h1>
+  <p>The page you're looking for doesn't exist or may have been moved.</p>
+
+  <div class="actions">
+    <a href="index.html" class="btn-primary">
+      <svg viewBox="0 0 16 16" fill="none" width="14" height="14">
+        <path d="M2 8h12M8 3l-6 5 6 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Back to homepage
+    </a>
+    <a href="index.html#tools" class="btn-secondary">Browse all tools</a>
+  </div>
+
+  <div class="tools-hint">
+    <p>Looking for a specific tool?</p>
+    <div class="tools-links">
+      <a href="pdf-merger.html">Merge PDF</a>
+      <a href="pdf-splitter.html">Split PDF</a>
+      <a href="pdf-compressor.html">Compress PDF</a>
+      <a href="pdf-rotate.html">Rotate PDF</a>
+      <a href="pdf-protect.html">Protect PDF</a>
+    </div>
+  </div>
+
+</body>
+</html>

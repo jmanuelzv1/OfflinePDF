@@ -3,3 +3,6 @@ https://www.offlinepdf.io/* https://offlinepdf.io/:splat 301!
 
 # Redirect /index.html to / (avoid duplicate content)
 /index.html / 301!
+
+# Custom 404
+/* /404.html 404
