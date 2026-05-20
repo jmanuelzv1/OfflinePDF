@@ -36,7 +36,7 @@
       "@type": "WebSite",
       "name": "OfflinePDF",
       "url": "https://offlinepdf.io",
-      "description": "12 free PDF tools that run entirely in your browser. Split, merge, compress, rotate, watermark, protect and more. Your files never leave your device.",
+      "description": "15 PDF tools that run entirely in your browser. Split, merge, compress, rotate, watermark, protect and more. Your files never leave your device.",
       "potentialAction": {
         "@type": "SearchAction",
         "target": "https://offlinepdf.io/?q={search_term_string}",
@@ -46,7 +46,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -76,7 +76,7 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
       background: var(--bg);
       color: var(--text-primary);
       -webkit-font-smoothing: antialiased;
@@ -161,9 +161,9 @@
     }
 
     .hero-headline {
-      font-family: 'Instrument Serif', Georgia, serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: clamp(48px, 7vw, 80px);
-      font-weight: 400;
+      font-weight: 800;
       line-height: 1.05;
       letter-spacing: -.03em;
       color: var(--text-primary);
@@ -171,12 +171,13 @@
       animation: fadeUp .5s .08s ease both;
     }
     .hero-headline em {
-      font-style: italic;
+      font-style: normal;
+      font-weight: 800;
       color: var(--accent);
     }
 
     .hero-sub {
-      font-size: 19px; line-height: 1.55;
+      font-size: 18px; line-height: 1.6; letter-spacing: -0.01em;
       color: var(--text-secondary);
       max-width: 520px; margin: 0 auto 40px;
       animation: fadeUp .5s .16s ease both;
@@ -251,13 +252,13 @@
       margin-bottom: 12px; text-align: center;
     }
     .section-title {
-      font-family: 'Instrument Serif', Georgia, serif;
-      font-size: clamp(32px, 4vw, 46px);
-      font-weight: 400; letter-spacing: -.02em;
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 800; letter-spacing: -.03em;
       text-align: center; margin-bottom: 14px;
     }
     .section-sub {
-      font-size: 17px; color: var(--text-secondary);
+      font-size: 16px; color: var(--text-secondary); line-height: 1.6;
       text-align: center; margin-bottom: 60px;
       max-width: 480px; margin-left: auto; margin-right: auto;
     }
@@ -302,15 +303,15 @@
     .tool-icon svg { width: 28px; height: 28px; }
 
     .tool-name {
-      font-size: 17px; font-weight: 600; letter-spacing: -.2px;
-      margin-bottom: 4px;
+      font-size: 16px; font-weight: 600; letter-spacing: -.3px;
+      margin-bottom: 6px;
     }
-    .tool-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
+    .tool-desc { font-size: 15px; color: var(--text-secondary); line-height: 1.6; }
 
     .tool-arrow {
       margin-top: auto;
       display: flex; align-items: center; gap: 4px;
-      font-size: 13px; font-weight: 500; color: var(--accent);
+      font-size: 12px; font-weight: 600; color: var(--accent); letter-spacing: .1px;
       opacity: 0; transform: translateX(-4px);
       transition: opacity .2s, transform .2s;
     }
@@ -336,7 +337,7 @@
     .privacy-text .section-title   { text-align: left; margin-bottom: 18px; }
 
     .privacy-body {
-      font-size: 16px; line-height: 1.7; color: var(--text-secondary);
+      font-size: 16px; line-height: 1.75; color: var(--text-secondary); letter-spacing: -0.01em;
       margin-bottom: 32px;
     }
 
@@ -415,12 +416,12 @@
       border-radius: var(--radius); padding: 28px;
     }
     .step-num {
-      font-family: 'Instrument Serif', Georgia, serif;
-      font-size: 42px; color: var(--accent); opacity: .2;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 42px; font-weight: 800; color: var(--accent); opacity: .15;
       line-height: 1; margin-bottom: 16px;
     }
     .step-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
-    .step-desc  { font-size: 14px; color: var(--text-secondary); line-height: 1.55; }
+    .step-desc  { font-size: 15px; color: var(--text-secondary); line-height: 1.65; }
 
     /* ─────────────────────────────
        CTA SECTION
@@ -431,15 +432,15 @@
     }
     .cta-inner { max-width: 640px; margin: 0 auto; }
     .cta-title {
-      font-family: 'Instrument Serif', Georgia, serif;
-      font-size: clamp(32px, 5vw, 52px);
-      font-weight: 400; color: white; letter-spacing: -.02em;
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(30px, 5vw, 50px);
+      font-weight: 800; color: white; letter-spacing: -.03em;
       margin-bottom: 18px; line-height: 1.1;
     }
-    .cta-title em { font-style: italic; color: #64b5f6; }
+    .cta-title em { font-style: normal; color: var(--accent); }
     .cta-sub {
-      font-size: 17px; color: rgba(255,255,255,.55);
-      margin-bottom: 40px; line-height: 1.6;
+      font-size: 16px; color: rgba(255,255,255,.55);
+      margin-bottom: 40px; line-height: 1.65;
     }
     .cta-actions {
       display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;
@@ -517,6 +518,9 @@
     .tool-card:nth-child(10) { transition-delay: .36s; }
     .tool-card:nth-child(11) { transition-delay: .40s; }
     .tool-card:nth-child(12) { transition-delay: .44s; }
+    .tool-card:nth-child(13) { transition-delay: .48s; }
+    .tool-card:nth-child(14) { transition-delay: .52s; }
+    .tool-card:nth-child(15) { transition-delay: .56s; }
 
     /* ─────────────────────────────
        ANIMATIONS
@@ -541,7 +545,7 @@
     .pricing-header {
       text-align: center; margin-bottom: 56px;
     }
-    .pricing-header .section-eyebrow { color: #64b5f6; }
+    .pricing-header .section-eyebrow { color: var(--accent); }
     .pricing-header .section-title   { color: white; }
     .pricing-header .section-sub     { color: rgba(255,255,255,.45); max-width: 420px; }
 
@@ -588,14 +592,14 @@
       font-weight: 600; letter-spacing: .2px; text-transform: none;
     }
     .pricing-price {
-      font-family: 'Instrument Serif', Georgia, serif;
-      font-size: 48px; font-weight: 400; color: white;
-      letter-spacing: -.03em; line-height: 1;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 48px; font-weight: 800; color: white;
+      letter-spacing: -.04em; line-height: 1;
     }
     .pricing-price-pro {
-      font-family: 'Instrument Serif', Georgia, serif;
-      font-size: 48px; font-weight: 400; color: white;
-      letter-spacing: -.03em; line-height: 1;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 48px; font-weight: 800; color: white;
+      letter-spacing: -.04em; line-height: 1;
     }
     .pricing-mo { font-size: 20px; font-weight: 400; opacity: .7; }
     .pricing-price-sub {
@@ -657,10 +661,59 @@
     /* ─────────────────────────────
        RESPONSIVE
     ───────────────────────────── */
+    .nav-hamburger {
+      display: none; background: none; border: none;
+      cursor: pointer; padding: 8px; color: var(--text-primary);
+      border-radius: 8px; transition: background .15s;
+    }
+    .nav-hamburger:hover { background: var(--surface-3); }
+    .nav-hamburger svg { display: block; }
+
+    .nav-mobile-menu {
+      display: none; position: fixed; top: 56px; left: 0; right: 0;
+      background: rgba(245,245,247,0.98);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 20px 24px; z-index: 99;
+      flex-direction: column; gap: 4px;
+      animation: mobile-menu-in .2s ease;
+    }
+    @keyframes mobile-menu-in {
+      from { opacity: 0; transform: translateY(-8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .nav-mobile-menu.open { display: flex; }
+    .nav-mobile-menu a {
+      font-size: 16px; color: var(--text-primary); text-decoration: none;
+      padding: 12px 4px; border-bottom: 1px solid var(--border);
+      font-weight: 500; transition: color .15s;
+    }
+    .nav-mobile-menu a:last-child { border-bottom: none; }
+    .nav-mobile-menu a:hover { color: var(--accent); }
+    .nav-mobile-auth {
+      display: flex; gap: 10px; margin-top: 12px;
+    }
+    .nav-mobile-auth a {
+      flex: 1; text-align: center; padding: 12px !important;
+      border-radius: 12px !important; border-bottom: none !important;
+      font-size: 15px !important;
+    }
+    .nav-mobile-login {
+      border: 1.5px solid var(--border-mid) !important;
+      color: var(--text-secondary) !important;
+      background: white;
+    }
+    .nav-mobile-signup {
+      background: var(--accent) !important;
+      color: white !important;
+    }
+
     @media (max-width: 768px) {
       nav { padding: 0 20px; }
       .nav-links { display: none; }
       .nav-auth { display: none; }
+      .nav-hamburger { display: block; }
       .hero { padding: 80px 24px 60px; }
       .trust-strip { gap: 24px; padding: 20px 24px; }
       .pricing-section { padding: 72px 24px; }
@@ -712,13 +765,29 @@
       <a href="login.html" class="nav-login">Log in</a>
       <a href="login.html" class="nav-signup">Sign up</a>
     </div>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
+        <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
   </nav>
+
+  <div class="nav-mobile-menu" id="nav-mobile-menu">
+    <a href="index.html#tools" onclick="closeMobileMenu()">Tools</a>
+    <a href="pricing.html" onclick="closeMobileMenu()">Pricing</a>
+    <a href="index.html#privacy" onclick="closeMobileMenu()">Privacy</a>
+    <a href="index.html#how" onclick="closeMobileMenu()">How it works</a>
+    <div class="nav-mobile-auth" id="nav-mobile-auth">
+      <a href="login.html" class="nav-mobile-login">Log in</a>
+      <a href="login.html" class="nav-mobile-signup">Sign up</a>
+    </div>
+  </div>
 
   <!-- ── HERO ── -->
   <section class="hero">
     <div class="hero-badge">
       <div class="hero-badge-dot"></div>
-      12 tools · No account needed · Nothing to install
+      15 tools · No account needed · Nothing to install
     </div>
 
     <h1 class="hero-headline">
@@ -1002,6 +1071,52 @@
         <div class="tool-arrow">Open tool <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       </a>
 
+      <a class="tool-card reveal" href="pdf-to-word.html">
+        <div class="tool-icon" style="background:rgba(43,87,154,0.1);">
+          <svg viewBox="0 0 28 28" fill="none">
+            <rect x="3" y="2" width="16" height="20" rx="2" fill="#2B579A" opacity=".3"/>
+            <rect x="5" y="4" width="16" height="20" rx="2" fill="#2B579A"/>
+            <path d="M8 10h8M8 14h8M8 18h5" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="tool-name">PDF to Word</div>
+          <div class="tool-desc">Convert any PDF to an editable Word document. Download as .docx instantly.</div>
+        </div>
+        <div class="tool-arrow">Open tool <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+
+      <a class="tool-card reveal" href="pdf-to-excel.html">
+        <div class="tool-icon" style="background:rgba(33,115,70,0.1);">
+          <svg viewBox="0 0 28 28" fill="none">
+            <rect x="3" y="2" width="16" height="20" rx="2" fill="#217346" opacity=".3"/>
+            <rect x="5" y="4" width="16" height="20" rx="2" fill="#217346"/>
+            <path d="M9 11l3 4 3-4M12 15v-6" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="tool-name">PDF to Excel</div>
+          <div class="tool-desc">Extract tables and data from any PDF into an editable spreadsheet.</div>
+        </div>
+        <div class="tool-arrow">Open tool <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+
+      <a class="tool-card reveal" href="pdf-to-powerpoint.html">
+        <div class="tool-icon" style="background:rgba(209,52,0,0.1);">
+          <svg viewBox="0 0 28 28" fill="none">
+            <rect x="3" y="2" width="16" height="20" rx="2" fill="#D13400" opacity=".3"/>
+            <rect x="5" y="4" width="16" height="20" rx="2" fill="#D13400"/>
+            <rect x="7" y="9" width="8" height="5" rx="1" fill="white" opacity=".8"/>
+            <path d="M7 18h10" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="tool-name">PDF to PowerPoint</div>
+          <div class="tool-desc">Turn any PDF into editable PowerPoint slides. Download as .pptx instantly.</div>
+        </div>
+        <div class="tool-arrow">Open tool <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+
     </div>
   </section>
 
@@ -1056,8 +1171,8 @@
           <div class="pricing-card-header">
             <div>
               <div class="pricing-tag-pro">Pro</div>
-              <div class="pricing-price-pro">$9<span class="pricing-mo">/mo</span></div>
-              <div class="pricing-price-sub" style="color:rgba(255,255,255,.5);">For power users &amp; professionals.</div>
+              <div class="pricing-price-pro">$7<span class="pricing-mo">/mo</span></div>
+              <div class="pricing-price-sub" style="color:rgba(255,255,255,.5);">Billed $84/year · Save 22%</div>
             </div>
             <div class="pricing-icon pricing-icon-pro">
               <svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
@@ -1297,7 +1412,45 @@
             My account
           </a>`;
       }
+      // Update mobile menu auth too
+      const mobileAuth = document.getElementById('nav-mobile-auth');
+      if (mobileAuth) {
+        mobileAuth.innerHTML = `
+          <a href="dashboard.html" style="
+            flex:1;text-align:center;padding:12px;border-radius:12px;
+            background:#0071e3;color:white;text-decoration:none;
+            font-size:15px;font-weight:500;border-bottom:none;
+          ">My account (${initial})</a>`;
+      }
     }
+  </script>
+  <script>
+    const hamburger = document.getElementById('nav-hamburger');
+    const mobileMenu = document.getElementById('nav-mobile-menu');
+    const hamburgerIcon = `<svg viewBox="0 0 24 24" fill="none" width="22" height="22">
+      <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>`;
+    const closeIcon = `<svg viewBox="0 0 24 24" fill="none" width="22" height="22">
+      <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>`;
+
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('open');
+      hamburger.innerHTML = hamburgerIcon;
+    }
+
+    hamburger.addEventListener('click', e => {
+      e.stopPropagation();
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.innerHTML = isOpen ? closeIcon : hamburgerIcon;
+    });
+
+    // Close on outside click
+    document.addEventListener('click', e => {
+      if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+        closeMobileMenu();
+      }
+    });
   </script>
 </body>
 </html>
